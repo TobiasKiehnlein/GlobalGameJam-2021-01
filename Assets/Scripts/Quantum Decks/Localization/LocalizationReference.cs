@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Quantum_Decks.Localization
@@ -8,25 +9,14 @@ namespace Quantum_Decks.Localization
     [CreateAssetMenu(menuName = "Quantum/New Localization", fileName = "New Localization [Localization]")]
     public partial class LocalizationReference : ScriptableObject
     {
-        [SerializeField] private List<LocalizationData> _localization = new List<LocalizationData>();
+        [Header("Environment")] [Required] public string revenge = "revenge";
+        [Required] public string ambush = "ambush";
+        [Required] public string defense = "defense";
+        [Required] public string sstatic = "static";
+        [Required] public string shielded = "shielded";
+        [Required] public string deny = "deny";
 
-        public string GetTextById(string id)
-        {
-            if (id.Length == 0)
-                return "";
-
-            var localization = _localization.Where(l => l.Id == id).ToList();
-            if (localization.Count == 0)
-            {
-                throw new Exception($"{name} could not find id of {id}");
-            }
-
-            if (localization.Count > 1)
-            {
-                throw new Exception($"{name} has more than one entry with the id of {id}");
-            }
-
-            return localization[0].Text;
-        }
+        [Space(10)] [Header("Playercard")] [Required]
+        public string lost = "lost";
     }
 }
