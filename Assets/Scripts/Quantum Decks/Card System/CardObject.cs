@@ -56,6 +56,9 @@ namespace Quantum_Decks.Card_System
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (Owner.HasAccepted)
+                return;
+
             if (Owner.CurrentSelectedCard != null && Owner.CurrentSelectedCard == this)
             {
                 OnDeselect();
@@ -73,7 +76,7 @@ namespace Quantum_Decks.Card_System
                 Owner.CurrentSelectedCard.transform.SetParent(_owner.Hand.transform);
                 Owner.CurrentSelectedCard.transform.SetSiblingIndex(Owner.CurrentSelectedCard.SavedSiblingIndex);
             }
-        
+
             transform.SetParent(_owner.DropZone);
             transform.position = _owner.DropZone.position;
             _owner.Select(this);

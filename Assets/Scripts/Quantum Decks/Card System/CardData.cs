@@ -9,7 +9,6 @@ namespace Quantum_Decks.Card_System
         public string NameId;
         [Required]
         public Fraction[] Fractions;
-        [Required]
         public string DescriptionId;
         [Required]
         public int Value;
