@@ -21,7 +21,7 @@ namespace Networking
         }
 
         [ClientRpc]
-        private static void SubmitStateChanged(Player player, bool submitState)
+        private void SubmitStateChanged(Player player, bool submitState)
         {
             NetworkManager.OnSubmitChange.Invoke(player, submitState);
         }
@@ -33,7 +33,7 @@ namespace Networking
         }
 
         [ClientRpc]
-        private static void SelectedCardChanged(Player player, string card)
+        private void SelectedCardChanged(Player player, string card)
         {
             NetworkManager.OnSelectedCardChanged.Invoke(player, card);
         }
@@ -45,7 +45,7 @@ namespace Networking
         }
 
         [ClientRpc]
-        private static void HandChanged(Player player, string card1, string card2, string card3)
+        private void HandChanged(Player player, string card1, string card2, string card3)
         {
             NetworkManager.OnHandChanged.Invoke(player, card1, card2, card3);
         }
@@ -57,7 +57,7 @@ namespace Networking
         }
 
         [ClientRpc]
-        private static void EnvironmentChanged(string[] cards)
+        private void EnvironmentChanged(string[] cards)
         {
             NetworkManager.OnEnvironmentChanged.Invoke(cards);
         }

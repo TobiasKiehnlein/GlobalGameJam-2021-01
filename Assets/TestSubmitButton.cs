@@ -12,11 +12,10 @@ public class TestSubmitButton : MonoBehaviour
         _submitState = !_submitState;
         _player = (Player) player;
         NetworkManager.LocalPlayer.SetSubmitState(_player, _submitState);
-        if (!_listening)
-        {
-            _listening = true;
-            NetworkManager.OnSubmitChange.AddListener(OnSubmitChange);
-        }
+        if (_listening) return;
+
+        _listening = true;
+        NetworkManager.OnSubmitChange.AddListener(OnSubmitChange);
     }
 
     private void OnSubmitChange(Player playerId, bool state)
