@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -12,6 +14,7 @@ namespace Quantum_Decks.Card_System
         private Card _card;
         private int _savedSiblingIndex;
         [SerializeField] private GameObject _fractionsPrefab;
+        [SerializeField] private GameObject _cardDummy;
         [SerializeField] private Transform _fractionTransform;
 
         [SerializeField] private TextMeshProUGUI _nameTextMesh;
@@ -25,11 +28,19 @@ namespace Quantum_Decks.Card_System
 
         public int SavedSiblingIndex => _savedSiblingIndex;
 
+        private Hand _hand;
+
         public Card Card => _card;
 
         private void Awake()
         {
             _savedSiblingIndex = transform.GetSiblingIndex();
+        }
+
+        private void Start()
+        {
+            _hand = GetComponentInParent<Hand>();
+            _owner = _hand.GetPlayer();
         }
 
         public void UpdateCard(Player.Player owner, Card card)
@@ -58,10 +69,10 @@ namespace Quantum_Decks.Card_System
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (Owner.HasAccepted)
+            if (_owner.HasAccepted)
                 return;
 
-            if (Owner.CurrentSelectedCard != null && Owner.CurrentSelectedCard == this)
+            if (_owner.CurrentSelectedCard == this)
             {
                 OnDeselect();
             }
@@ -73,22 +84,35 @@ namespace Quantum_Decks.Card_System
 
         public void OnSelect()
         {
-            if (Owner.CurrentSelectedCard != null)
-            {
-                Owner.CurrentSelectedCard.transform.SetParent(_owner.Hand.transform);
-                Owner.CurrentSelectedCard.transform.SetSiblingIndex(Owner.CurrentSelectedCard.SavedSiblingIndex);
-            }
+            // if (Owner.CurrentSelectedCard != null)
+            // {
+            //     Owner.CurrentSelectedCard.transform.SetParent(_owner.Hand.transform);
+            //     Owner.CurrentSelectedCard.transform.SetSiblingIndex(Owner.CurrentSelectedCard.SavedSiblingIndex);
+            // }
 
-            transform.SetParent(_owner.DropZone);
-            transform.position = _owner.DropZone.position;
+            // var go = Instantiate(_cardDummy);
+            // go.transform.SetParent(_owner.Hand.transform);
+            // go.transform.SetSiblingIndex(Owner?.CurrentSelectedCard?.SavedSiblingIndex ?? 0);
+
+
+            // transform.SetParent(_owner.DropZone);
+            // ((RectTransform) transform).anchoredPosition = Vector2.zero;
+            // transform.position = _owner.DropZone.position;
+            // transform.DOMove(_owner.DropZone.position, .5f);
+            // transform.DOScale(new Vector3(.7f, .7f, .7f), .5f);
+
+            _hand.SelectIndex(transform.GetSiblingIndex());
             _owner.Select(this);
         }
 
         public void OnDeselect()
         {
-            transform.SetParent(_owner.Hand.transform);
-            Owner.CurrentSelectedCard.transform.SetSiblingIndex(Owner.CurrentSelectedCard.SavedSiblingIndex);
-            Owner.Deselect();
+            // transform.DOScale(Vector3.one, .5f);
+            // transform.SetParent(_owner.Hand.transform);
+            // Owner.CurrentSelectedCard.transform.SetSiblingIndex(Owner.CurrentSelectedCard.SavedSiblingIndex);
+
+            _hand.Deselect();
+            _owner.Deselect();
         }
     }
 }

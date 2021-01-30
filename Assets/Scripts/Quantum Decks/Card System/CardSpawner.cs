@@ -15,11 +15,11 @@ public class CardSpawner : MonoBehaviour
 
     public void Spawn(Player owner)
     {
-        foreach (var card in _collection.Cards)
-        {
-            var cardObject = Instantiate(CardPrefab, transform);
-            cardObject.GetComponent<CardObject>().UpdateCard(owner, card);
-        }
+        // foreach (var card in _collection.Cards)
+        // {
+        //     var cardObject = Instantiate(CardPrefab, transform);
+        //     cardObject.GetComponent<CardObject>().UpdateCard(owner, card);
+        // }
     }
 
     public void Despawn(Player owner)

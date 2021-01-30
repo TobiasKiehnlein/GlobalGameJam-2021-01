@@ -40,6 +40,11 @@ namespace Shared.Scriptable_References
             }
         }
 
+        public Player GetPlayer(Networking.Player p)
+        {
+            return Value.Find(x => x.PlayerId == p);
+        }
+
         [BoxGroup("Debug"), Button(ButtonSizes.Medium)]
         public void ResetAcceptedState()
         {
