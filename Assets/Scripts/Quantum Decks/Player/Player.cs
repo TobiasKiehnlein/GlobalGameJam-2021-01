@@ -8,6 +8,8 @@ namespace Quantum_Decks.Player
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField, EnumToggleButtons] private Networking.Player _playerId;
+
         [SerializeField, Required, BoxGroup("References")]
         private PlayerCollection _playerCollection;
 
@@ -21,14 +23,15 @@ namespace Quantum_Decks.Player
         private CardSpawner _cardSpawner;
 
         [SerializeField, BoxGroup("Card System")]
-        private Transform _dropZone; 
-        
-        
+        private Transform _dropZone;
 
+
+        public Networking.Player PlayerId => _playerId;
         public CardCollection Deck => _deck;
         public CardCollection Hand => _hand;
         public CardSpawner CardSpawner => _cardSpawner;
         public Transform DropZone => _dropZone;
+
 
         [BoxGroup("Player Ui"), SerializeField]
         private UIView _acceptButtonView;

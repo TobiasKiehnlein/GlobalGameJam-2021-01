@@ -21,4 +21,17 @@ public class CardSpawner : MonoBehaviour
             cardObject.GetComponent<CardObject>().UpdateCard(owner, card);
         }
     }
+
+    public void Despawn(Player owner)
+    {
+        foreach (Transform child in owner.Hand.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        foreach (Transform child in owner.DropZone)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }

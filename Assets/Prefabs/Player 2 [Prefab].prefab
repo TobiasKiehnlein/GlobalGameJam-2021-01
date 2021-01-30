@@ -164,6 +164,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7512781710653103659, guid: 059e4e66968fd354f8eca17e40de4cc6,
+        type: 3}
+      propertyPath: _playerId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7512781711034084996, guid: 059e4e66968fd354f8eca17e40de4cc6,
         type: 3}
       propertyPath: m_Pivot.x
