@@ -64,6 +64,14 @@ namespace Quantum_Decks.Card_System
             fractionObject.GetComponent<FractionObject>().UpdateFraction(fraction);
         }
 
+        public void DeleteFractionIcons()
+        {
+            foreach (Transform child in _fractionTransform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
         public void OnPointerClick(PointerEventData eventData)
         {
             if (_owner.HasAccepted)

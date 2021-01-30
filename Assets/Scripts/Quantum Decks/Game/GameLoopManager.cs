@@ -158,7 +158,7 @@ namespace Quantum_Decks.Game
             {
                 yield return VoidPhase(player);
                 yield return LostPhase(player);
-                player.CardSpawner.Despawn(player);
+                player.CardSpawner.Despawn();
             }
             
             _environmentDeck.RemoveAllDefeated();

@@ -15,7 +15,9 @@ MonoBehaviour:
   NameId: test_monster
   Fractions: []
   DescriptionId: 
-  Value: 5
+  AttackValue: 4
   Sprite: {fileID: 21300000, guid: 20df1a443bb7dd445abf482e23f98d01, type: 3}
+  CardFrame: {fileID: 21300000, guid: 20ca3639718bf7f4b997cf4ef2f0d004, type: 3}
+  ValueBackground: {fileID: 21300000, guid: fd68b31c75192b949a0d15f05bd690d8, type: 3}
   EffectData: []
   Keywords: []

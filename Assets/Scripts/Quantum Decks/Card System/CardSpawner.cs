@@ -28,16 +28,11 @@ public class CardSpawner : MonoBehaviour
         }
     }
 
-    public void Despawn(Player owner)
+    public void Despawn()
     {
-        foreach (Transform child in owner.Hand.transform)
+        foreach (var cardObject in _cardObjects)
         {
-            Destroy(child.gameObject);
-        }
-        
-        foreach (Transform child in owner.DropZone)
-        {
-            Destroy(child.gameObject);
+            cardObject.DeleteFractionIcons();
         }
     }
 }
