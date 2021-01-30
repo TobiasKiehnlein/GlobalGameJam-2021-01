@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f4c8c89b1a455e82d98f06d42d940b, type: 3}
   m_Name: Neutralize Effect [Neutralize Effect]
   m_EditorClassIdentifier: 
+  _environmentDeck: {fileID: 11400000, guid: 212e451c5f400a24e9f70d0a00b147e2, type: 2}

@@ -10,20 +10,39 @@ namespace Quantum_Decks.Card_System
         {
         }
 
-        public IEnumerator Damage(Card card)
+        public IEnumerator Damage(Card card, Card otherPlayer , bool isSurge, Keyword powerSurge, Keyword shielded, Keyword elusive)
         {
-            if (Fractions.Intersect(card.Fractions).Any())
+            var damage = card.Value;
+
+            if (isSurge)
             {
-                Value -= card.Value;
+                damage = card.Value + otherPlayer.Value;
             }
-            else
+            
+            if (!Fractions.Intersect(card.Fractions).Any())
             {
-                Value--;
+                damage = 1;
+            }
+            
+            if (isSurge && card.HasKeyword(powerSurge))
+            {
+                damage +=  otherPlayer.Value;
             }
 
+            if (HasKeyword(shielded) && card.Fractions.Count > 1)
+            {
+                damage = 1;
+            }
+
+            if (HasKeyword(elusive))
+            {
+                damage = 1;
+            }
+
+            Value -= damage;
             Value = Mathf.Max(0, Value);
             yield return new WaitForEndOfFrame();
-            
+
             // TODO: Damage Animation
             // TODO: Damage Special Effect
         }

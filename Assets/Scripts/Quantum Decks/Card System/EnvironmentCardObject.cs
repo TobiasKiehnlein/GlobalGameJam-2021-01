@@ -1,5 +1,5 @@
-using System;
 using Quantum_Decks.Environment;
+using Quantum_Decks.Localization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +8,10 @@ namespace Quantum_Decks.Card_System
 {
     public class EnvironmentCardObject : MonoBehaviour
     {
+        [SerializeField] private LocalizationCollection _localizationCollection;
+
+        private EnvironmentCard _card;
+
         private EnvironmentDeck _environmentDeck;
         [SerializeField] private Networking.Player _playerId;
         [SerializeField] private GameObject _fractionsPrefab;
@@ -20,7 +24,7 @@ namespace Quantum_Decks.Card_System
         [SerializeField] private Image _valueImage;
         [SerializeField] private Image _borderImage;
 
-        public EnvironmentCard Card => Card;
+        public EnvironmentCard Card => _card;
 
         private void Start()
         {
@@ -35,17 +39,29 @@ namespace Quantum_Decks.Card_System
 
         public void UpdateCard()
         {
-            var card = _environmentDeck.GetByPlayer(_playerId);
+            _card = _environmentDeck.GetByPlayer(_playerId);
+            UpdateText();
+            _valueTextMesh.text = _card.Value.ToString();
+            _valueImage.sprite = _card.ValueBackground;
+            _borderImage.sprite = _card.CardFrame;
+            _cardImage.sprite = _card.Sprite;
 
-            _nameTextMesh.text = card.NameId;
-            _descriptionTextMesh.text = card.DescriptionId;
-            _valueTextMesh.text = card.Value.ToString();
-            _cardImage.sprite = card.Sprite;
+            foreach (Transform child in _fractionTransform)
+            {
+                Destroy(child.gameObject);
+            }
 
-            foreach (var fraction in card.Fractions)
+            foreach (var fraction in _card.Fractions)
             {
                 SpawnFractionIcon(fraction);
             }
+        }
+
+        private void UpdateText()
+        {
+            _nameTextMesh.text = _localizationCollection.CurrentLocalization.GetTextById(_card.NameId);
+            _descriptionTextMesh.text = _localizationCollection.CurrentLocalization.GetTextById(_card.DescriptionId);
+            _descriptionTextMesh.fontStyle = _card.IsNeutralised ? FontStyles.Strikethrough : FontStyles.Normal;
         }
 
         private void SpawnFractionIcon(Fraction fraction)

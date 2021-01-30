@@ -10,8 +10,13 @@ namespace Quantum_Decks.Card_System
     {
         protected CardData _data;
 
+        public delegate void CardEvent();
+
+        public event CardEvent OnCardChanged;
+
         [BoxGroup, ShowInInspector, PropertyOrder(0)]
         public string NameId => _data.NameId;
+
         public string DescriptionId => _data.DescriptionId;
         public List<Fraction> Fractions => _data.Fractions;
         public Sprite Sprite => _data.Sprite;
@@ -19,8 +24,10 @@ namespace Quantum_Decks.Card_System
         public Sprite CardFrame => _data.CardFrame;
         public List<Keyword> Keywords => _data.Keywords;
 
-        [BoxGroup, PropertyOrder(1)]
-        public int Value;
+        private bool _isNeutralised;
+        public bool IsNeutralised => _isNeutralised;
+
+        [BoxGroup, PropertyOrder(1)] public int Value;
 
         protected Card(CardData data)
         {
@@ -32,20 +39,26 @@ namespace Quantum_Decks.Card_System
         {
             return Keywords.Contains(keyword);
         }
-        
-        public IEnumerator ApplyEffects(EffectTrigger trigger)
+
+        public IEnumerator ApplyEffects(EffectTrigger trigger, Player.Player player)
         {
             foreach (var effect in GetEffects(trigger))
             {
-                yield return effect.ApplyEffect();
+                yield return effect.ApplyEffect(player);
             }
+        }
+
+        public void Neutralize()
+        {
+            _isNeutralised = true;
+            OnCardChanged?.Invoke();
         }
 
         private List<Effect> GetEffects(EffectTrigger trigger)
         {
-            return _data.EffectData.Where(e => e.Trigger == trigger).SelectMany(e => e.Effect).ToList();
+            return _isNeutralised
+                ? new List<Effect>()
+                : _data.EffectData.Where(e => e.Trigger == trigger).SelectMany(e => e.Effect).ToList();
         }
-
-     
     }
 }

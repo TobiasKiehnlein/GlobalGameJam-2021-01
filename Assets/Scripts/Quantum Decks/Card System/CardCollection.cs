@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Shared;
+using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,6 +13,24 @@ namespace Quantum_Decks.Card_System
         [ShowInInspector, ReadOnly]
         private readonly List<PlayerCard> _cards = new List<PlayerCard>();
         public IEnumerable<PlayerCard> Cards => _cards.AsReadOnly();
+        
+        [SerializeField] private CardCollectionReference _cardCollectionReference;
+
+        private void OnEnable()
+        {
+            if (_cardCollectionReference)
+            {
+                _cardCollectionReference.Value = this;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (_cardCollectionReference)
+            {
+                _cardCollectionReference.Reset();
+            }
+        }
 
         public void CreatAndAdd(PlayerCardData card)
         {
@@ -51,6 +71,22 @@ namespace Quantum_Decks.Card_System
         public void Shuffle()
         {
             _cards.Shuffle();
+        }
+
+        public PlayerCard GetRandom()
+        {
+            Shuffle();
+            return _cards.FirstOrDefault();
+        }
+
+        public static void QuantumShift(CardCollection target, CardCollection destiny)
+        {
+            var targetCards = target.Cards.ToList();
+            var destinyCards = destiny.Cards.ToList();
+            destinyCards.Clear();
+            targetCards.Clear();
+            targetCards.AddRange(destinyCards);
+            destinyCards.AddRange(targetCards);
         }
     }
 }

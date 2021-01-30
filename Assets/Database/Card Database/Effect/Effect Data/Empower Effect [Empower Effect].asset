@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c497e65bb344295a2f120b91e8ddbc0, type: 3}
   m_Name: Empower Effect [Empower Effect]
   m_EditorClassIdentifier: 
+  _playerCollection: {fileID: 11400000, guid: 4d1c79dedf814d246986d6b1cbca0479, type: 2}
+  _environmentDeck: {fileID: 11400000, guid: 212e451c5f400a24e9f70d0a00b147e2, type: 2}

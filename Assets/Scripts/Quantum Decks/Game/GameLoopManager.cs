@@ -2,6 +2,7 @@
 using System.Linq;
 using Quantum_Decks.Card_System;
 using Quantum_Decks.Environment;
+using Shared;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -17,7 +18,10 @@ namespace Quantum_Decks.Game
         private PlayerCollection _playerCollection;
 
         [Required, SerializeField, BoxGroup("References")]
-        private CardCollection _voidDeck;
+        private CardCollection _voidDeck;  
+        
+        [Required, SerializeField, BoxGroup("References")]
+        private PlayerCardDataCollection _allPlayerCardData;
 
         private EnvironmentDeck _environmentDeck;
 
@@ -36,10 +40,11 @@ namespace Quantum_Decks.Game
         [SerializeField, Required, BoxGroup("Trigger")]
         private EffectTrigger _ambushTrigger;
 
+        [SerializeField] private BoolReference _isSurge;
 
-        // TODO: Remove this
-        [SerializeField] private PlayerCardData DEBUG_CARD;
-
+        [SerializeField] private Keyword _powerSurge;
+        [SerializeField] private Keyword _shielded;
+        [SerializeField] private Keyword _elusive;
 
         private Coroutine _gameLoopRoutine;
 
@@ -78,6 +83,7 @@ namespace Quantum_Decks.Game
                     yield return AttackPhase(player);
                 }
 
+                yield return new WaitForSeconds(2);
                 Debug.Log("Discard Phase");
                 yield return DiscardPhase();
                 _isGameOver.Value = _playerCollection.Value.Any(p => p.Deck.Cards.Count() < 3);
@@ -86,24 +92,32 @@ namespace Quantum_Decks.Game
 
         private IEnumerator DeckPreparationPhase()
         {
-            foreach (var player in _playerCollection.Value)
+            var player = _playerCollection.CurrentPlayer;
+            var otherPlayer = _playerCollection.GetOtherPlayer(player);
+            
+            _allPlayerCardData.Value.Shuffle();
+            for (var i = 0; i < _allPlayerCardData.Value.Count; i++)
             {
-                // TODO: Change for real cards
-                for (var i = 0; i < 15; i++)
+                var cardData = _allPlayerCardData.Value[i];
+                if (i % 2 == 0)
                 {
-                    player.Deck.CreatAndAdd(DEBUG_CARD);
+                    player.Deck.CreatAndAdd(cardData);
                 }
-
-                player.Deck.Shuffle();
+                else
+                {
+                    otherPlayer.Deck.CreatAndAdd(cardData);
+                }
             }
 
+            player.Deck.Shuffle();
+            otherPlayer.Deck.Shuffle();
             yield return new WaitForEndOfFrame();
         }
 
         private IEnumerator AmbushPhase(Player.Player player, EnvironmentCard environmentCard)
         {
             // TODO: HERE GOES THE ANIMATION FOR FLIPPING A CARD FROM THE ENVIRONMENT DECK
-            yield return environmentCard.ApplyEffects(_ambushTrigger);
+            yield return environmentCard.ApplyEffects(_ambushTrigger, player);
         }
 
         private IEnumerator DrawPhase()
@@ -130,32 +144,34 @@ namespace Quantum_Decks.Game
         {
             var environmentCard = _environmentDeck.GetByPlayer(player.PlayerId);
             var card = player.CurrentSelectedCard.Card as PlayerCard;
-            yield return ActionPhase(card, environmentCard);
-            yield return DamagePhase(card, environmentCard);
-            yield return DefensePhase(card, environmentCard);
-            yield return RevengePhase(card, environmentCard);
+            yield return ActionPhase(card, player);
+            yield return DamagePhase(player, environmentCard);
+            yield return DefensePhase(player, environmentCard);
+            yield return RevengePhase(player, environmentCard);
             if (card != null)
                 card.Duration--;
         }
 
-        private IEnumerator ActionPhase(PlayerCard card, EnvironmentCard environmentCard)
+        private IEnumerator ActionPhase(PlayerCard card, Player.Player player)
         {
-            yield return card.ApplyEffects(_attackTrigger);
+            yield return card.ApplyEffects(_attackTrigger, player);
         }
 
-        private IEnumerator DamagePhase(PlayerCard card, EnvironmentCard environmentCard)
+        private IEnumerator DamagePhase(Player.Player player, EnvironmentCard environmentCard)
         {
-            yield return environmentCard.Damage(card);
+            var otherPlayer = _playerCollection.GetOtherPlayer(player);
+            yield return environmentCard.Damage(player.CurrentSelectedCard.Card, otherPlayer.CurrentSelectedCard.Card,
+                _isSurge.Value, _powerSurge, _shielded, _elusive);
         }
 
-        private IEnumerator DefensePhase(PlayerCard card, EnvironmentCard environmentCard)
+        private IEnumerator DefensePhase(Player.Player player, EnvironmentCard environmentCard)
         {
-            yield return environmentCard.ApplyEffects(_defenseTrigger);
+            yield return environmentCard.ApplyEffects(_defenseTrigger, player);
         }
 
-        private IEnumerator RevengePhase(PlayerCard card, EnvironmentCard environmentCard)
+        private IEnumerator RevengePhase(Player.Player player, EnvironmentCard environmentCard)
         {
-            yield return environmentCard.ApplyEffects(_revengeTrigger);
+            yield return environmentCard.ApplyEffects(_revengeTrigger, player);
         }
 
         private IEnumerator DiscardPhase()
@@ -190,7 +206,7 @@ namespace Quantum_Decks.Game
             foreach (var lostCard in lostCards)
             {
                 player.Hand.Transfer(lostCard, otherPlayer.Deck);
-                yield return lostCard.ApplyEffects(_lostTrigger);
+                yield return lostCard.ApplyEffects(_lostTrigger, player);
             }
 
             otherPlayer.Deck.Shuffle();

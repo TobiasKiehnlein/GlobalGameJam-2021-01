@@ -31,9 +31,5 @@ public class CardSpawner : MonoBehaviour
 
     public void Despawn()
     {
-        foreach (var cardObject in _cardObjects)
-        {
-            cardObject.DeleteFractionIcons();
-        }
     }
 }

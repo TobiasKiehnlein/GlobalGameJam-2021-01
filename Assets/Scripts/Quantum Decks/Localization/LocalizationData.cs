@@ -23,6 +23,7 @@ namespace Quantum_Decks.Localization
             if (string.IsNullOrEmpty(text.Id))
             {
                 Debug.LogWarning($"Localization [{LanguageName}] has no id [{id}]");
+                return "TEXT_MISSING";
             }
             return text.Value;
         }

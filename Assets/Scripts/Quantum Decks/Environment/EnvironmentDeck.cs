@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Quantum_Decks.Card_System;
 using Shared;
+using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -10,10 +11,10 @@ namespace Quantum_Decks.Environment
 {
     public class EnvironmentDeck : MonoBehaviour
     {
+        [SerializeField] private List<EnvironmentCardData> _allCardData;
+        [SerializeField] private List<EnvironmentCardData> _allBossData;
         [ShowInInspector] private readonly List<EnvironmentCard> _cards = new List<EnvironmentCard>();
-        [ShowInInspector] private readonly List<EnvironmentCard> _bosses = new List<EnvironmentCard>();
-
-        public EnvironmentCardData DEBUG_CARD;
+        [SerializeField] private EnvironmentDeckReference _environmentDeckReference;
 
         public int Count => _cards.Count;
 
@@ -22,21 +23,31 @@ namespace Quantum_Decks.Environment
             PopulateList();
         }
 
+        private void OnEnable()
+        {
+            _environmentDeckReference.Value = this;
+        }
+
+        private void OnDisable()
+        {
+            _environmentDeckReference.Reset();
+        }
+
         public void PopulateList()
         {
-            for (var i = 0; i < 30; i++)
+            foreach (var cardData in _allCardData)
             {
-                _cards.Add(new EnvironmentCard(DEBUG_CARD));
+                _cards.Add(new EnvironmentCard(cardData));
             }
+            
+            _cards.Shuffle();
         }
 
         public EnvironmentCard GetByPlayer(Networking.Player playerId)
         {
             if (!_cards.Any())
             {
-                _bosses.Shuffle();
-                _cards.Add(_bosses.First());
-                SpawnBossAnimation();
+                SpawnBoss();
             }
             
             switch (playerId)
@@ -52,6 +63,13 @@ namespace Quantum_Decks.Environment
             }
         }
 
+        public void SpawnBoss()
+        {
+            _allBossData.Shuffle();
+            _cards.Add( new EnvironmentCard(_allBossData.First()));
+            SpawnBossAnimation();
+        }
+
         public void SpawnBossAnimation()
         {
             
@@ -61,5 +79,6 @@ namespace Quantum_Decks.Environment
         {
             _cards.RemoveAll(d => d.Value == 0);
         }
+        
     }
 }

@@ -117,6 +117,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment Card - Player 2 [Prefab]
       objectReference: {fileID: 0}
+    - target: {fileID: 7572512844929051178, guid: e3e4968b68c886744bb1ecd3997fb949,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8078568140928678895, guid: e3e4968b68c886744bb1ecd3997fb949,
         type: 3}
       propertyPath: _playerId

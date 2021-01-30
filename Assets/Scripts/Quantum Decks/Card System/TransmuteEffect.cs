@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Quantum_Decks.Card_System
@@ -6,5 +7,9 @@ namespace Quantum_Decks.Card_System
         fileName = "New Transmute Effect [Transmute Effect]")]
     public class TransmuteEffect : Effect
     {
+        public override IEnumerator ApplyEffect(Player.Player player)
+        {
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

@@ -5,9 +5,6 @@ namespace Quantum_Decks.Card_System
 {
     public abstract class Effect : ScriptableObject
     {
-        public virtual IEnumerator ApplyEffect()
-        {
-            yield return new WaitForEndOfFrame();
-        }
+        public abstract IEnumerator ApplyEffect(Player.Player player);
     }
 }

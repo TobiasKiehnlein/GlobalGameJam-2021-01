@@ -1,3 +1,4 @@
+using Quantum_Decks.Localization;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Quantum_Decks.Card_System
 {
     public class CardObject : MonoBehaviour, IPointerClickHandler
     {
+        [SerializeField, Required] private LocalizationCollection _localizationCollection;
+
         private Player.Player _owner;
         private Card _card;
         private int _savedSiblingIndex;
@@ -40,22 +43,51 @@ namespace Quantum_Decks.Card_System
             _handAnimations = GetComponentInParent<HandAnimations>();
         }
 
+        private void OnEnable()
+        {
+            _localizationCollection.OnLocalizationChanged += UpdateText;
+        }
+
+        private void OnDisable()
+        {
+            _localizationCollection.OnLocalizationChanged -= UpdateText;
+        }
+
         public void UpdateCard(Player.Player owner, Card card)
         {
+            if (_card != null)
+            {
+                _card.OnCardChanged -= UpdateText;
+            }
+
             _owner = owner;
             _card = card;
 
+            card.OnCardChanged += UpdateText;
+
             _valueImage.sprite = card.ValueBackground;
             _borderImage.sprite = card.CardFrame;
-            _nameTextMesh.text = card.NameId;
-            _descriptionTextMesh.text = card.DescriptionId;
+            UpdateText();
             _valueTextMesh.text = card.Value.ToString();
             _cardImage.sprite = card.Sprite;
 
+            foreach (Transform child in _fractionTransform)
+            {
+                Destroy(child.gameObject);
+            }
+            
             foreach (var fraction in card.Fractions)
             {
                 SpawnFractionIcon(fraction);
             }
+        }
+
+        private void UpdateText()
+        {
+            _nameTextMesh.text = _localizationCollection.CurrentLocalization.GetTextById(_card.NameId);
+            _descriptionTextMesh.text = _card.IsNeutralised
+                ? ""
+                : _localizationCollection.CurrentLocalization.GetTextById(_card.DescriptionId);
         }
 
         private void SpawnFractionIcon(Fraction fraction)
@@ -63,15 +95,8 @@ namespace Quantum_Decks.Card_System
             var fractionObject = Instantiate(_fractionsPrefab, _fractionTransform);
             fractionObject.GetComponent<FractionObject>().UpdateFraction(fraction);
         }
-
-        public void DeleteFractionIcons()
-        {
-            foreach (Transform child in _fractionTransform)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-
+        
+        
         public void OnPointerClick(PointerEventData eventData)
         {
             if (_owner.HasAccepted)
