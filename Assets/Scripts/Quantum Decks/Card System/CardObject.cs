@@ -1,5 +1,3 @@
-using System;
-using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -40,7 +38,6 @@ namespace Quantum_Decks.Card_System
         private void Start()
         {
             _handAnimations = GetComponentInParent<HandAnimations>();
-            _owner = _handAnimations.GetPlayer();
         }
 
         public void UpdateCard(Player.Player owner, Card card)

@@ -1,4 +1,5 @@
-﻿using Quantum_Decks.Card_System;
+﻿using System.Linq;
+using Quantum_Decks.Card_System;
 using Quantum_Decks.Player;
 using UnityEngine;
 
@@ -9,19 +10,23 @@ public class CardSpawner : MonoBehaviour
     private HandAnimations _handAnimations;
     public GameObject CardPrefab;
 
+    private CardObject[] _cardObjects;
+
     private void Awake()
     {
         _collection = GetComponent<CardCollection>();
         _handAnimations = GetComponent<HandAnimations>();
+        _cardObjects = GetComponentsInChildren<CardObject>();
     }
 
-    public void Spawn()
+    public void UpdateCards(Player player)
     {
-        // foreach (var card in _collection.Cards)
-        // {
-        //     var cardObject = Instantiate(CardPrefab, transform);
-        //     cardObject.GetComponent<CardObject>().UpdateCard(owner, card);
-        // }
+        var index = 0;
+        foreach (var card in player.Hand.Cards)
+        {
+            
+            index++;
+        }
     }
 
     public void Despawn(Player owner)

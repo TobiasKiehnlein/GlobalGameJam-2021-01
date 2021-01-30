@@ -1,20 +1,14 @@
-﻿using System.Collections.Generic;
-using System.IO.IsolatedStorage;
-using System.Linq;
-using DG.Tweening;
-using Networking;
+﻿using DG.Tweening;
 using Shared.Scriptable_References;
 using UnityEngine;
 
 public class HandAnimations : MonoBehaviour
 {
     [SerializeField] private Transform DropZone;
-    [SerializeField] private Player ThePlayer;
     [SerializeField] private PlayerCollection PlayerCollection;
 
     private Transform[] _children;
     private Vector3[] _positions;
-    private Quantum_Decks.Player.Player _player;
     private RectTransform _canvas;
 
     private void Start()
@@ -32,8 +26,6 @@ public class HandAnimations : MonoBehaviour
 
             count++;
         }
-
-        _player = PlayerCollection.GetPlayer(ThePlayer);
     }
 
     public List<Tween> SelectIndex(int index)
@@ -58,10 +50,5 @@ public class HandAnimations : MonoBehaviour
         }
 
         return tweens;
-    }
-
-    public Quantum_Decks.Player.Player GetPlayer()
-    {
-        return _player;
     }
 }
