@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81692ecaa2e4072964423ad70d8604b, type: 3}
   m_Name: FA#1 [Player Card Data]
   m_EditorClassIdentifier: 
-  NameId: AN#1_title
+  NameId: FA#1_title
   Fractions:
   - {fileID: 11400000, guid: f18632272b6243543b334cdb55f4e327, type: 2}
-  DescriptionId: AN#1_text
-  AttackValue: 1
+  DescriptionId: FA#1_text
+  AttackValue: 5
   Sprite: {fileID: 21300000, guid: b1af90ce03a007349aa9428d646a0939, type: 3}
   CardFrame: {fileID: 21300000, guid: cadf321a23848654d8098e2297d13436, type: 3}
   ValueBackground: {fileID: 21300000, guid: b87297670d90313428580b3a1097dfb1, type: 3}
-  EffectData: []
+  EffectData:
+  - Trigger: {fileID: 11400000, guid: e9e6534beda1bc245a4d18dd56d0adf4, type: 2}
+    Effect:
+    - {fileID: 11400000, guid: 1e5e6d2edd687d84c910fa79d85eba7b, type: 2}
   Keywords: []
   Duration: 1

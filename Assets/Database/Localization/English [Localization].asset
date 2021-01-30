@@ -231,3 +231,46 @@ MonoBehaviour:
     Value: Unexpected Solution
   - Id: FA#3_text
     Value: '<b>Lost</b>: <b>Rescue</b>'
+  - Id: Rules_Ambush
+    Value: <b>AMBUSH</b> - When this Threat card is revealed, perform this action.
+  - Id: Rules_Revenge
+    Value: <b>REVENGE</b> - When this Threat card is defeated, perform this action.
+  - Id: Rules_Defense
+    Value: <b>DEFENSE</b> - Every turn this Threat card is not defeated, perform
+      this action.
+  - Id: Rules_Shielded
+    Value: <b>SHIELDED</b> - This Threat card takes no damage from Attacks not matching
+      its type.
+  - Id: Rules_Elusive
+    Value: <b>ELUSIVE</b> - This Threat will only take a single point of damage,
+      regardless of the source.
+  - Id: Rules_Attack
+    Value: <b>ATTACK</b> - Perform this action before dealing damage.
+  - Id: Rules_Lost
+    Value: <b>LOST</b>- When this card is not selected, perform this action in the
+      LOST Phase.
+  - Id: Rules_Surge
+    Value: <b>SURGE</b> - When both players play the same type of card, they SURGE
+      and add to each other's strength for this round.
+  - Id: Rules_Powersurge
+    Value: <b>POWERSURGE</b> - If this card SURGES, it becomes typeless for this
+      turn.
+  - Id: Rules_Rescue
+    Value: <b>RESCUE</b> - Shuffle a random card from the Void into the player's
+      ACTION deck.
+  - Id: Rules_Resurgence
+    Value: <b>RESURGENCE</b> - If this card is played for the first time, shuffle
+      it back into the ACTION deck instead of discarding it to the Void
+  - Id: Rules_Burn
+    Value: <b>BURN</b> - Discard a random card from the player's ACTION deck to the
+      Void, if possible.
+  - Id: Rules_Neutralize
+    Value: <b>NEUTRALIZE</b> - Ignore the text on the active Threat card.
+  - Id: Rules_Empower
+    Value: <b>EMPOWER</b> - The other player's Threat card increases its Strength
+      by one.
+  - Id: Rule_Transmute
+    Value: <b>TRANSMUTE</b> - Draw a new Threat card for the other player and replace
+      the currently active one.
+  - Id: Rules_QuantumShift
+    Value: <b>QUANTUM SHIFT</b> - Both players exchange their current ACTION decks.
