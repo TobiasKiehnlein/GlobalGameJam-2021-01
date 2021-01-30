@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Meteorites [Fraction Data]
   m_EditorClassIdentifier: 
   NameId: Meteorites
-  Sprite: {fileID: 0}
+  Color: {r: 1, g: 0.57254905, b: 0.10980393, a: 1}
+  Sprite: {fileID: 21300000, guid: 9167ad80a665682419160722413e1cf0, type: 3}

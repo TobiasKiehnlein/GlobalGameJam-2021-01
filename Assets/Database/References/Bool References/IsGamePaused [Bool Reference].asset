@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181294534c7c6c54cb887b4e3f12c175, type: 3}
-  m_Name: English [Localization]
+  m_Script: {fileID: 11500000, guid: 85566f55bb5d44fb8480b5055d2edd7c, type: 3}
+  m_Name: IsGamePaused [Bool Reference]
   m_EditorClassIdentifier: 
-  LanguageName: English
-  LanguageSprite: {fileID: 0}
-  revenge: revenge
-  Ambush: ambush
-  Defense: defense
-  Static: static
-  Shielded: shielded
-  Deny: deny
-  Lost: lost
+  _hasStartValue: 0
+  _startValue: 0
+  _value: 0

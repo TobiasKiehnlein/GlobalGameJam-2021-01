@@ -8,6 +8,7 @@ namespace Quantum_Decks.Card_System
     {
         [Required]
         public string NameId;
+        public Color Color;
         public Sprite Sprite;
     }
 }

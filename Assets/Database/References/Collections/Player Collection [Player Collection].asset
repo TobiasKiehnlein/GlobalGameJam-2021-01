@@ -9,15 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181294534c7c6c54cb887b4e3f12c175, type: 3}
-  m_Name: English [Localization]
+  m_Script: {fileID: 11500000, guid: 8f725cd908744516b306ef943134392f, type: 3}
+  m_Name: Player Collection [Player Collection]
   m_EditorClassIdentifier: 
-  LanguageName: English
-  LanguageSprite: {fileID: 0}
-  revenge: revenge
-  Ambush: ambush
-  Defense: defense
-  Static: static
-  Shielded: shielded
-  Deny: deny
-  Lost: lost
+  Value: []

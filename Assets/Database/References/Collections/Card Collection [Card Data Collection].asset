@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181294534c7c6c54cb887b4e3f12c175, type: 3}
-  m_Name: English [Localization]
+  m_Script: {fileID: 11500000, guid: bab7293965174e60bc996b0d3590a99d, type: 3}
+  m_Name: Card Collection [Card Data Collection]
   m_EditorClassIdentifier: 
-  LanguageName: English
-  LanguageSprite: {fileID: 0}
-  revenge: revenge
-  Ambush: ambush
-  Defense: defense
-  Static: static
-  Shielded: shielded
-  Deny: deny
-  Lost: lost
+  Value:
+  - {fileID: 11400000, guid: 55586affc18803f4b96ff876ee1d0ee1, type: 2}
