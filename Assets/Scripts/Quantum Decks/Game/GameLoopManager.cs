@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using Quantum_Decks.Card_System;
 using Quantum_Decks.Environment;
@@ -24,6 +23,8 @@ namespace Quantum_Decks.Game
         private CardCollection _voidDeck;
         
         private EnvironmentDeck _environmentDeck;
+
+        private bool _isSurge;
 
 
         // TODO: Remove this

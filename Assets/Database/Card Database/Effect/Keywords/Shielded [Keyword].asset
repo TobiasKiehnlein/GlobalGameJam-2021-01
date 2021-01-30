@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181294534c7c6c54cb887b4e3f12c175, type: 3}
-  m_Name: English [Localization]
+  m_Script: {fileID: 11500000, guid: e40cb0d61bf446f8a4e0bfad759e8046, type: 3}
+  m_Name: Shielded [Keyword]
   m_EditorClassIdentifier: 
-  LanguageName: English
-  LanguageSprite: {fileID: 0}
-  _localisation:
-  - Id: Test
-    Value: 

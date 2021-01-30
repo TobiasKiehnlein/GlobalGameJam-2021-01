@@ -40,7 +40,6 @@ namespace Shared.Scriptable_References
             }
         }
 
-
         [BoxGroup("Debug"), Button(ButtonSizes.Medium)]
         public void ResetAcceptedState()
         {

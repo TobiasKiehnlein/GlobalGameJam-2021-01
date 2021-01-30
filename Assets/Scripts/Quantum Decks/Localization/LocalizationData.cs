@@ -1,4 +1,7 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Quantum_Decks.Localization
@@ -7,44 +10,35 @@ namespace Quantum_Decks.Localization
     public class LocalizationData : ScriptableObject
     {
         [BoxGroup("Language Details"), LabelWidth(120)]
-        public string LanguageName =  "English";
+        public string LanguageName = "English";
 
         [BoxGroup("Language Details"), LabelWidth(120)]
         public Sprite LanguageSprite;
 
-        [BoxGroup("Environment"), Required, LabelWidth(120)]
-        public string revenge = "revenge";
+        public List<LocalizationElement> _localisation = new List<LocalizationElement>();
 
-        [BoxGroup("Environment"), Required, LabelWidth(120)]
-        public string Ambush = "ambush";
+            [Button(ButtonSizes.Medium)]
+        public void ValidateList()
+        {
+            for (var i = 0; i < _localisation.Count; i++)
+            {
+                var localizationElement = _localisation[i];
+                if (localizationElement.Id.Length == 0)
+                {
+                    Debug.LogError($"Localization on index [{i}] had no id");
+                    break;
+                }
+            }
 
-        [BoxGroup("Environment"), Required, LabelWidth(120)]
-        public string Defense = "defense";
-
-        [BoxGroup("Environment"), Required, LabelWidth(120)]
-        public string Static = "static";
-
-        [BoxGroup("Environment"), Required, LabelWidth(120)]
-        public string Shielded = "shielded";
-
-        [BoxGroup("Environment"), Required, LabelWidth(120)]
-        public string Deny = "deny";
-
-        [Space(10), BoxGroup("Player Card"), Required, LabelWidth(120)]
-        public string Lost = "lost";
+            if (_localisation.GroupBy(l => l.Id).Any(g => g.Count() > 1))
+                Debug.LogError("Localization is not allowed to have multiple Ids of the same name");
+        }
     }
 
-    public class LocalizationElement
+    [Serializable]
+    public struct LocalizationElement
     {
-        private string _id;
-
-        public string ID => _id;
+        [Required] public string Id;
         public string Value;
-
-        public LocalizationElement(string id, string value)
-        {
-            _id = id;
-            Value = value;
-        }
     }
 }
