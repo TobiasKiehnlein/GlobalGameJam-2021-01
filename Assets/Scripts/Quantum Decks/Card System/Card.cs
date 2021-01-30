@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -25,5 +27,25 @@ namespace Quantum_Decks.Card_System
             _data = data;
             Value = data.AttackValue;
         }
+
+        public bool HasKeyword(Keyword keyword)
+        {
+            return Keywords.Contains(keyword);
+        }
+        
+        public IEnumerator ApplyEffects(EffectTrigger trigger)
+        {
+            foreach (var effect in GetEffects(trigger))
+            {
+                yield return effect.ApplyEffect();
+            }
+        }
+
+        private List<Effect> GetEffects(EffectTrigger trigger)
+        {
+            return _data.EffectData.Where(e => e.Trigger == trigger).SelectMany(e => e.Effect).ToList();
+        }
+
+     
     }
 }

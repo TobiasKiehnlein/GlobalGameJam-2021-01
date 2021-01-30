@@ -17,14 +17,24 @@ namespace Quantum_Decks.Game
         private PlayerCollection _playerCollection;
 
         [Required, SerializeField, BoxGroup("References")]
-        private CardDataCollection _cardDataCollection;
-
-        [Required, SerializeField, BoxGroup("References")]
         private CardCollection _voidDeck;
-        
+
         private EnvironmentDeck _environmentDeck;
 
-        private bool _isSurge;
+        [SerializeField, Required, BoxGroup("Trigger")]
+        private EffectTrigger _defenseTrigger;
+
+        [SerializeField, Required, BoxGroup("Trigger")]
+        private EffectTrigger _revengeTrigger;
+
+        [SerializeField, Required, BoxGroup("Trigger")]
+        private EffectTrigger _lostTrigger;
+
+        [SerializeField, Required, BoxGroup("Trigger")]
+        private EffectTrigger _attackTrigger;
+
+        [SerializeField, Required, BoxGroup("Trigger")]
+        private EffectTrigger _ambushTrigger;
 
 
         // TODO: Remove this
@@ -32,6 +42,7 @@ namespace Quantum_Decks.Game
 
 
         private Coroutine _gameLoopRoutine;
+
 
         private void Start()
         {
@@ -47,23 +58,29 @@ namespace Quantum_Decks.Game
         private IEnumerator GameLoop()
         {
             yield return DeckPreparationPhase();
+            _isGameOver.Value = false;
 
             while (!_isGameOver.Value)
             {
                 Debug.Log("Ambush Phase");
-                yield return AmbushPhase();
+                foreach (var player in _playerCollection.Value)
+                {
+                    yield return AmbushPhase(player, _environmentDeck.GetByPlayer(player.PlayerId));
+                }
+
                 Debug.Log("Draw Phase");
                 yield return DrawPhase();
                 Debug.Log("Action Select Phase");
                 yield return ActionSelectPhase();
                 foreach (var player in _playerCollection.Value)
                 {
-                    Debug.Log($"Attak Phase [Player {player.PlayerId}]");
+                    Debug.Log($"Attack Phase [Player {player.PlayerId}]");
                     yield return AttackPhase(player);
                 }
-                
+
                 Debug.Log("Discard Phase");
                 yield return DiscardPhase();
+                _isGameOver.Value = _playerCollection.Value.Any(p => p.Deck.Cards.Count() < 3);
             }
         }
 
@@ -83,9 +100,10 @@ namespace Quantum_Decks.Game
             yield return new WaitForEndOfFrame();
         }
 
-        private IEnumerator AmbushPhase()
+        private IEnumerator AmbushPhase(Player.Player player, EnvironmentCard environmentCard)
         {
-            yield return new WaitForEndOfFrame();
+            // TODO: HERE GOES THE ANIMATION FOR FLIPPING A CARD FROM THE ENVIRONMENT DECK
+            yield return environmentCard.ApplyEffects(_ambushTrigger);
         }
 
         private IEnumerator DrawPhase()
@@ -122,34 +140,22 @@ namespace Quantum_Decks.Game
 
         private IEnumerator ActionPhase(PlayerCard card, EnvironmentCard environmentCard)
         {
-            yield return new WaitForEndOfFrame();
+            yield return card.ApplyEffects(_attackTrigger);
         }
 
         private IEnumerator DamagePhase(PlayerCard card, EnvironmentCard environmentCard)
         {
-            if (environmentCard.Fractions.Intersect(card.Fractions).Any())
-            {
-                environmentCard.Damage(card.Value);
-            }
-            else
-            {
-                environmentCard.Damage();
-            }
-            
-            // TODO: Damage Animation
-            // TODO: Damage Special Effect
-
-            yield return new WaitForEndOfFrame();
+            yield return environmentCard.Damage(card);
         }
 
         private IEnumerator DefensePhase(PlayerCard card, EnvironmentCard environmentCard)
         {
-            yield return new WaitForEndOfFrame();
+            yield return environmentCard.ApplyEffects(_defenseTrigger);
         }
 
         private IEnumerator RevengePhase(PlayerCard card, EnvironmentCard environmentCard)
         {
-            yield return new WaitForEndOfFrame();
+            yield return environmentCard.ApplyEffects(_revengeTrigger);
         }
 
         private IEnumerator DiscardPhase()
@@ -160,7 +166,7 @@ namespace Quantum_Decks.Game
                 yield return LostPhase(player);
                 player.CardSpawner.Despawn();
             }
-            
+
             _environmentDeck.RemoveAllDefeated();
         }
 
@@ -171,9 +177,10 @@ namespace Quantum_Decks.Game
             {
                 player.Hand.Transfer(voidCard, _voidDeck);
             }
+
             yield return new WaitForEndOfFrame();
         }
-        
+
         private IEnumerator LostPhase(Player.Player player)
         {
             var lostCards = player.Hand.Cards.Where(c => c.Duration > 0).ToList();
@@ -183,9 +190,11 @@ namespace Quantum_Decks.Game
             foreach (var lostCard in lostCards)
             {
                 player.Hand.Transfer(lostCard, otherPlayer.Deck);
+                yield return lostCard.ApplyEffects(_lostTrigger);
             }
+
             otherPlayer.Deck.Shuffle();
-            
+
             yield return new WaitForEndOfFrame();
         }
 

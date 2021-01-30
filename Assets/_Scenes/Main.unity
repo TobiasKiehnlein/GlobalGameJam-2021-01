@@ -238,6 +238,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5861326105814179779, guid: 67da60e98ad8e084090340b7b05c56d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -115.000015
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67da60e98ad8e084090340b7b05c56d3, type: 3}
 --- !u!224 &293357913 stripped
@@ -1576,6 +1581,11 @@ MonoBehaviour:
   _cardDataCollection: {fileID: 11400000, guid: 1da76a1624bcc1c44a9bddf77ac80ebd,
     type: 2}
   _voidDeck: {fileID: 1376781899}
+  _defenseTrigger: {fileID: 11400000, guid: 4bd31adb988e7fa4f8c800ecde2b20eb, type: 2}
+  _revengeTrigger: {fileID: 11400000, guid: 9d85a65062323034d8caaf9c015c7571, type: 2}
+  _lostTrigger: {fileID: 11400000, guid: e9e6534beda1bc245a4d18dd56d0adf4, type: 2}
+  _attackTrigger: {fileID: 11400000, guid: 58b53b7c4f79a394c957dca5f3b6a81b, type: 2}
+  _ambushTrigger: {fileID: 11400000, guid: dea5e7d0b76880a47a39e12b053c2cbb, type: 2}
   DEBUG_CARD: {fileID: 11400000, guid: 97951d1ad10d1f9489ea43d0d7c28004, type: 2}
 --- !u!4 &1903335245
 Transform:
@@ -1627,6 +1637,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1393167203}
     m_Modifications:
+    - target: {fileID: 4529658380234385391, guid: 8b7e5c9a79b803d41a5dec50d901949c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 135.00002
+      objectReference: {fileID: 0}
     - target: {fileID: 8009648162340505072, guid: 8b7e5c9a79b803d41a5dec50d901949c,
         type: 3}
       propertyPath: m_Pivot.x
