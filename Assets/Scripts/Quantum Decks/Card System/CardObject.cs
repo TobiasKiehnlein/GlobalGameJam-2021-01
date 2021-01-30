@@ -28,7 +28,7 @@ namespace Quantum_Decks.Card_System
 
         public int SavedSiblingIndex => _savedSiblingIndex;
 
-        private Hand _hand;
+        private HandAnimations _handAnimations;
 
         public Card Card => _card;
 
@@ -39,8 +39,8 @@ namespace Quantum_Decks.Card_System
 
         private void Start()
         {
-            _hand = GetComponentInParent<Hand>();
-            _owner = _hand.GetPlayer();
+            _handAnimations = GetComponentInParent<HandAnimations>();
+            _owner = _handAnimations.GetPlayer();
         }
 
         public void UpdateCard(Player.Player owner, Card card)
@@ -101,7 +101,7 @@ namespace Quantum_Decks.Card_System
             // transform.DOMove(_owner.DropZone.position, .5f);
             // transform.DOScale(new Vector3(.7f, .7f, .7f), .5f);
 
-            _hand.SelectIndex(transform.GetSiblingIndex());
+            _handAnimations.SelectIndex(transform.GetSiblingIndex());
             _owner.Select(this);
         }
 
@@ -111,7 +111,7 @@ namespace Quantum_Decks.Card_System
             // transform.SetParent(_owner.Hand.transform);
             // Owner.CurrentSelectedCard.transform.SetSiblingIndex(Owner.CurrentSelectedCard.SavedSiblingIndex);
 
-            _hand.Deselect();
+            _handAnimations.Deselect();
             _owner.Deselect();
         }
     }

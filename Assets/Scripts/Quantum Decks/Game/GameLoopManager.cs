@@ -97,7 +97,7 @@ namespace Quantum_Decks.Game
                     player.Deck.DrawTo(player.Hand);
                 }
 
-                player.CardSpawner.Spawn(player);
+                // player.CardSpawner.Spawn(player);
             }
 
             yield return new WaitForEndOfFrame();

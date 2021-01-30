@@ -4,7 +4,7 @@ using Networking;
 using Shared.Scriptable_References;
 using UnityEngine;
 
-public class Hand : MonoBehaviour
+public class HandAnimations : MonoBehaviour
 {
     [SerializeField] private Transform DropZone;
     [SerializeField] private Player ThePlayer;

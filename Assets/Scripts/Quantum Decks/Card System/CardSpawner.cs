@@ -6,14 +6,16 @@ using UnityEngine;
 public class CardSpawner : MonoBehaviour
 {
     private CardCollection _collection;
+    private HandAnimations _handAnimations;
     public GameObject CardPrefab;
 
     private void Awake()
     {
         _collection = GetComponent<CardCollection>();
+        _handAnimations = GetComponent<HandAnimations>();
     }
 
-    public void Spawn(Player owner)
+    public void Spawn()
     {
         // foreach (var card in _collection.Cards)
         // {
