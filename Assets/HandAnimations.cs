@@ -1,4 +1,6 @@
-﻿using System.IO.IsolatedStorage;
+﻿using System.Collections.Generic;
+using System.IO.IsolatedStorage;
+using System.Linq;
 using DG.Tweening;
 using Networking;
 using Shared.Scriptable_References;
@@ -34,23 +36,28 @@ public class HandAnimations : MonoBehaviour
         _player = PlayerCollection.GetPlayer(ThePlayer);
     }
 
-    public void SelectIndex(int index)
+    public List<Tween> SelectIndex(int index)
     {
-        Deselect();
+        var tweens = Deselect();
         var currentTransform = _children[index].transform;
         // Debug.Log(_canvas.localScale);
         var offset = (Vector3) (((RectTransform) currentTransform).rect.size * _canvas.localScale) / 2;
-        currentTransform.DOMove(DropZone.position - offset, .5f);
-        currentTransform.DOScale(new Vector3(.7f, .7f, .7f), .5f);
+        tweens.Add(currentTransform.DOMove(DropZone.position - offset, .5f));
+        tweens.Add(currentTransform.DOScale(new Vector3(.7f, .7f, .7f), .5f));
+
+        return tweens;
     }
 
-    public void Deselect()
+    public List<Tween> Deselect()
     {
-        for (int i = 0; i < _children.Length; i++)
+        var tweens = new List<Tween>();
+        for (var i = 0; i < _children.Length; i++)
         {
-            _children[i].DOMove(_positions[i], .5f);
-            _children[i].DOScale(Vector3.one, .5f);
+            tweens.Add(_children[i].DOMove(_positions[i], .5f));
+            tweens.Add(_children[i].DOScale(Vector3.one, .5f));
         }
+
+        return tweens;
     }
 
     public Quantum_Decks.Player.Player GetPlayer()
