@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e117dceb1144ab4a0c2c974515be6d5, type: 3}
-  m_Name: Meteorites [Fraction Data]
+  m_Name: Anomalies [Fraction Data]
   m_EditorClassIdentifier: 
-  NameId: ME
+  NameId: AN
   Color: {r: 1, g: 0.57254905, b: 0.10980393, a: 1}
-  Sprite: {fileID: 21300000, guid: e7ccfefa15b44ec4fb1b587de3401386, type: 3}
+  Sprite: {fileID: 21300000, guid: a4661e56a0999a64f8c093d0c23047c5, type: 3}

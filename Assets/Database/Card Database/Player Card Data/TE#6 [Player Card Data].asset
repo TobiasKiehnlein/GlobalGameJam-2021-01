@@ -10,21 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e81692ecaa2e4072964423ad70d8604b, type: 3}
-  m_Name: DEBUG_CARD [Player Card Data]
+  m_Name: TE#6 [Player Card Data]
   m_EditorClassIdentifier: 
-  NameId: Titel
+  NameId: TE#6_title
   Fractions:
-  - {fileID: 11400000, guid: e89e545e14d9a3b489962977ff8121a6, type: 2}
-  DescriptionId: Woha, this will fuq up a lot of things
-  AttackValue: 0
+  - {fileID: 11400000, guid: f6d2e6e4ef8d74d47af11e2f370ef769, type: 2}
+  DescriptionId: TE#6_text
+  AttackValue: 5
   Sprite: {fileID: 21300000, guid: b1af90ce03a007349aa9428d646a0939, type: 3}
   CardFrame: {fileID: 21300000, guid: cadf321a23848654d8098e2297d13436, type: 3}
   ValueBackground: {fileID: 21300000, guid: b87297670d90313428580b3a1097dfb1, type: 3}
   EffectData:
-  - Trigger: {fileID: 0}
+  - Trigger: {fileID: 11400000, guid: e9e6534beda1bc245a4d18dd56d0adf4, type: 2}
     Effect:
-    - {fileID: 0}
-  Keywords:
-  - {fileID: 0}
-  - {fileID: 0}
+    - {fileID: 11400000, guid: bb6bba7382644bf44ad6029174b2b8fb, type: 2}
+  Keywords: []
   Duration: 1

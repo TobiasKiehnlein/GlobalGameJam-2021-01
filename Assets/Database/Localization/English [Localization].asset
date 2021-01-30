@@ -15,5 +15,219 @@ MonoBehaviour:
   LanguageName: English
   LanguageSprite: {fileID: 0}
   _localisation:
-  - Id: Test
-    Value: 
+  - Id: ENVME#1_title
+    Value: Baby Meteor
+  - Id: ENVME#1_text
+    Value: '<b>Ambush</b>: <b>Burn</b>'
+  - Id: ENVME#2_title
+    Value: Dancing Stars
+  - Id: ENVME#2_text
+    Value: <b>Elusive</b>
+  - Id: ENVME#3_title
+    Value: Inhabited Space Village
+  - Id: ENVME#3_text
+    Value: '<b>Revenge</b>: <b>Transmute</b>'
+  - Id: ENVME#4_title
+    Value: Stone Cold Rock
+  - Id: ENVME#4_text
+    Value: <b>Shielded</b>
+  - Id: ENVME#5_title
+    Value: Meteor Shower
+  - Id: ENVME#5_text
+    Value: '<b>Revenge</b>: <b>Rescue</b>'
+  - Id: ENVME#6_title
+    Value: Last Flight Of The Dinosaurs
+  - Id: ENVME#6_text
+    Value: '<b>Ambush</b>: <b>Burn</b>'
+  - Id: ENVME#7_title
+    Value: Sentient Meteor
+  - Id: ENVME#7_text
+    Value: '<b>Defense</b>: <b>Empower</b>'
+  - Id: ENVAN#1_title
+    Value: The Enterspice
+  - Id: ENVAN#1_text
+    Value: '<b>Revenge</b>: <b>Empower</b>'
+  - Id: ENVAN#2_title
+    Value: Evil Space Cookie
+  - Id: ENVAN#2_text
+    Value: '<b>Revenge</b>: <b>Quantum Shift</b>'
+  - Id: ENVAN#3_title
+    Value: Strange Solar Flare
+  - Id: ENVAN#3_text
+    Value: <b>Shielded</b>
+  - Id: ENVAN#4_title
+    Value: Space Slug
+  - Id: ENVAN#4_text
+    Value: <b>Elusive</b>
+  - Id: ENVAN#5_title
+    Value: Into The Mirror Universe
+  - Id: ENVAN#5_text
+    Value: '<b>Revenge</b>: <b>Transmute</b>'
+  - Id: ENVAN#6_title
+    Value: Undead Laser Hand
+  - Id: ENVAN#6_text
+    Value: '<b>Defense</b>: <b>Quantum Shift</b>'
+  - Id: ENVAN#7_title
+    Value: Temporal Space Station
+  - Id: ENVAN#7_text
+    Value: '<b>Defense</b>: <b>Burn</b>'
+  - Id: ENVTE#1_title
+    Value: Alien Loveform
+  - Id: ENVTE#1_text
+    Value: <b>Shielded</b>
+  - Id: ENVTE#2_title
+    Value: Not So Friendly Robot
+  - Id: ENVTE#2_text
+    Value: '<b>Revenge</b>: <b>Quantum Shift</b>'
+  - Id: ENVTE#3_title
+    Value: Malfunctioning Terraformer
+  - Id: ENVTE#3_text
+    Value: '<b>Ambush</b>: <b>Transmute</b>'
+  - Id: ENVTE#4_title
+    Value: Hostile Space Suits
+  - Id: ENVTE#4_text
+    Value: <b>Elusive</b>
+  - Id: ENVTE#5_title
+    Value: WORKING TITLE ENVTE#5
+  - Id: ENVTE#5_text
+    Value: <b>Shielded</b>
+  - Id: ENVTE#6_title
+    Value: Alien Space Cowboy
+  - Id: ENVTE#6_text
+    Value: '<b>Ambush</b>: <b>Rescue</b>'
+  - Id: ENVTE#7_title
+    Value: WORKING TITLE ENVTE#7
+  - Id: ENVTE#7_text
+    Value: '<b>Revenge</b>: <b>Rescue</b>'
+  - Id: ENVBoss#1_title
+    Value: Massive Meteor Missile
+  - Id: ENVBoss#1_text
+    Value: '<b>Defense</b>: <b>Burn</b>, <b>Burn</b>.'
+  - Id: ENVBoss#2_title
+    Value: Eldritch Space Tentacle
+  - Id: ENVBoss#2_text
+    Value: '<b>Defense</b>: <b>Burn</b>, <b>Quantum Shift</b>'
+  - Id: ENVBoss#3_title
+    Value: HAL-8999
+  - Id: ENVBoss#3_text
+    Value: '<b>Shielded</b>. <b>Defense</b>: <b>Burn</b>.'
+  - Id: ME#1_title
+    Value: Meteorite Slingshot
+  - Id: ME#1_text
+    Value: '<b>Attack</b>: <b>Resurgence</b>'
+  - Id: ME#2_title
+    Value: Cracking The Core
+  - Id: ME#2_text
+    Value: '<b>Attack</b>: POWERSURGE'
+  - Id: ME#3_title
+    Value: Conquer It!
+  - Id: ME#3_text
+    Value: '<b>Lost</b>: <b>Empower</b>'
+  - Id: ME#4_title
+    Value: Taming A Meteor
+  - Id: ME#4_text
+    Value: 'If this card SURGES: <b>Rescue</b>'
+  - Id: ME#5_title
+    Value: Rock Music
+  - Id: ME#5_text
+    Value: This card has no additional effect.
+  - Id: ME#6_title
+    Value: Riding The Comet
+  - Id: ME#6_text
+    Value: This card has no additional effect.
+  - Id: ME#7_title
+    Value: There's No Explosions In Space
+  - Id: ME#7_text
+    Value: This card has no additional effect.
+  - Id: ME#8_title
+    Value: Sword Of The Stars
+  - Id: ME#8_text
+    Value: This card has no additional effect.
+  - Id: ME#9_title
+    Value: You Shall Not Pass
+  - Id: ME#9_text
+    Value: '<b>Lost</b>: <b>Burn</b>'
+  - Id: AN#1_title
+    Value: Surfing The Edge
+  - Id: AN#1_text
+    Value: '<b>Attack</b>: <b>Neutralize</b>'
+  - Id: AN#2_title
+    Value: In Search Of Life
+  - Id: AN#2_text
+    Value: '<b>Attack</b>: <b>Quantum Shift</b>'
+  - Id: AN#3_title
+    Value: Alien Diplomacy
+  - Id: AN#3_text
+    Value: 'If this card SURGES: <b>Rescue</b>'
+  - Id: AN#4_title
+    Value: Spice Me Up, Navigator!
+  - Id: AN#4_text
+    Value: '<b>Lost</b>: <b>Quantum Shift</b>'
+  - Id: AN#5_title
+    Value: Splitting The Atom
+  - Id: AN#5_text
+    Value: <b>Powersurge</b>
+  - Id: AN#6_title
+    Value: Blackening A Hole
+  - Id: AN#6_text
+    Value: '<b>Lost</b>: <b>Empower</b>'
+  - Id: AN#7_title
+    Value: Set Scanners To Kill
+  - Id: AN#7_text
+    Value: '<b>Attack</b>: <b>Burn</b>'
+  - Id: AN#8_title
+    Value: Robotic Space Egg
+  - Id: AN#8_text
+    Value: This card has no additional effect.
+  - Id: AN#9_title
+    Value: Let's Do The Timewarp
+  - Id: AN#9_text
+    Value: 'If this card <b>Surges</b>: <b>Empower</b>'
+  - Id: TE#1_title
+    Value: Medical Expertise
+  - Id: TE#1_text
+    Value: '<b>Attack</b>: <b>Rescue</b>'
+  - Id: TE#2_title
+    Value: Lucky Teleportation Accident
+  - Id: TE#2_text
+    Value: '<b>Attack</b>: <b>Quantum Shift</b>'
+  - Id: TE#3_title
+    Value: Medical Robotics
+  - Id: TE#3_text
+    Value: '<b>Attack</b>: <b>Resurgence</b>'
+  - Id: TE#4_title
+    Value: Space Ambulance
+  - Id: TE#4_text
+    Value: '<b>Attack</b>: <b>Rescue</b>'
+  - Id: TE#5_title
+    Value: Supersonic Space Hammer
+  - Id: TE#5_text
+    Value: This card has no additional effect.
+  - Id: TE#6_title
+    Value: Redshirt
+  - Id: TE#6_text
+    Value: '<b>Lost</b>: <b>Burn</b>'
+  - Id: TE#7_title
+    Value: Obscure Technobabble
+  - Id: TE#7_text
+    Value: '<b>Attack</b>: <b>Empower</b>'
+  - Id: TE#8_title
+    Value: Slingshot Supreme
+  - Id: TE#8_text
+    Value: '<b>Attack</b>: <b>Resurgence</b>'
+  - Id: TE#9_title
+    Value: Superior Military Power
+  - Id: TE#9_text
+    Value: This card has no additional effect.
+  - Id: FA#1_title
+    Value: Lazers Work Against Everything
+  - Id: FA#1_text
+    Value: '<b>Lost</b>: <b>Quantum Shift</b>'
+  - Id: FA#2_title
+    Value: Shields! Shields! Shields!
+  - Id: FA#2_text
+    Value: '<b>Attack</b>: <b>Resurgence</b>'
+  - Id: FA#3_title
+    Value: Unexpected Solution
+  - Id: FA#3_text
+    Value: '<b>Lost</b>: <b>Rescue</b>'
