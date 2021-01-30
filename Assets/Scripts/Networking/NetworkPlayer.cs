@@ -12,15 +12,6 @@ namespace Networking
         {
             if (!isLocalPlayer) return;
             NetworkManager.LocalPlayer = this;
-            NetworkManager.OnSubmitChange = new OnSubmitChangeEvent();
-        }
-
-        void HandleData()
-        {
-            if (isLocalPlayer)
-            {
-                // Do local player stuff
-            }
         }
 
         [Command]
@@ -30,27 +21,45 @@ namespace Networking
         }
 
         [ClientRpc]
-        private void SubmitStateChanged(Player player, bool submitState)
+        private static void SubmitStateChanged(Player player, bool submitState)
         {
             NetworkManager.OnSubmitChange.Invoke(player, submitState);
         }
 
-        // [Command]
-        // public void SetSelectedCard(Player player, string cardId)
-        // {
-        //     Debug.Log($"Spieler {player} hat Karte {cardId} ausgewählt!!! (Server)");
-        // }
-        //
-        // [ClientRpc]
-        // public void ConfirmSelectedCard(Player player, string cardId)
-        // {
-        //     Debug.Log($"Spieler {player} hat Karte {cardId} erfolgreich ausgewählt. (Client)");
-        // }
-
-
-        private void Update()
+        [Command]
+        public void SetSelectedCard(Player player, string card)
         {
-            HandleData();
+            SelectedCardChanged(player, card);
+        }
+
+        [ClientRpc]
+        private static void SelectedCardChanged(Player player, string card)
+        {
+            NetworkManager.OnSelectedCardChanged.Invoke(player, card);
+        }
+
+        [Command]
+        public void ChangeHand(Player player, string card1, string card2, string card3)
+        {
+            HandChanged(player, card1, card2, card3);
+        }
+
+        [ClientRpc]
+        private static void HandChanged(Player player, string card1, string card2, string card3)
+        {
+            NetworkManager.OnHandChanged.Invoke(player, card1, card2, card3);
+        }
+        
+        [Command]
+        public void ChangeEnvironment(string[] cards)
+        {
+            EnvironmentChanged(cards);
+        }
+
+        [ClientRpc]
+        private static void EnvironmentChanged(string[] cards)
+        {
+            NetworkManager.OnEnvironmentChanged.Invoke(cards);
         }
     }
 }

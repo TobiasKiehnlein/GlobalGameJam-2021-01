@@ -1,6 +1,4 @@
 ﻿using System;
-using Mirror;
-using UnityEngine;
 using UnityEngine.Events;
 
 namespace Networking
@@ -10,38 +8,37 @@ namespace Networking
     {
     }
 
+    [Serializable]
+    public class OnChangeHandEvent : UnityEvent<Player, string, string, string>
+    {
+    }
+
+    [Serializable]
+    public class OnChangeEnvironmentEvent : UnityEvent<string[]>
+    {
+    }
+
+    [Serializable]
+    public class OnSelectCardEvent : UnityEvent<Player, string>
+    {
+    }
+
     public class NetworkManager : Mirror.NetworkManager
     {
         public static OnSubmitChangeEvent OnSubmitChange;
+        public static OnChangeHandEvent OnHandChanged;
+        public static OnChangeEnvironmentEvent OnEnvironmentChanged;
+        public static OnSelectCardEvent OnSelectedCardChanged;
         public static NetworkPlayer LocalPlayer { get; set; }
 
-        public override void OnStartServer()
+        public override void Start()
         {
-            base.OnStartServer();
-            Debug.Log("Server started");
-        }
+            base.Start();
 
-        public override void OnClientConnect(NetworkConnection conn)
-        {
-            base.OnClientConnect(conn);
-            Debug.Log("Connected to server");
-        }
-
-        // public override void OnServerAddPlayer(NetworkConnection conn)
-        // {
-        //     base.OnServerAddPlayer(conn, out var player);
-        //     var networkPlayer = player.GetComponent<NetworkPlayer>();
-        //     Debug.Log("Player added");
-        //     if (networkPlayer != null)
-        //     {
-        //         OnSubmitChange.AddListener((p, s) => Debug.Log($"{p} - {s}"));
-        //     }
-        // }
-
-        public override void OnClientDisconnect(NetworkConnection conn)
-        {
-            base.OnClientDisconnect(conn);
-            Debug.Log("Disconnected from Server");
+            OnSubmitChange = new OnSubmitChangeEvent();
+            OnEnvironmentChanged = new OnChangeEnvironmentEvent();
+            OnHandChanged = new OnChangeHandEvent();
+            OnSelectedCardChanged = new OnSelectCardEvent();
         }
     }
 }
