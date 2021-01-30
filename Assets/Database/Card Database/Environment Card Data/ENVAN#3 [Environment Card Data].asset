@@ -18,8 +18,8 @@ MonoBehaviour:
   DescriptionId: ENVAN#3_text
   AttackValue: 4
   Sprite: {fileID: 21300000, guid: 20df1a443bb7dd445abf482e23f98d01, type: 3}
-  CardFrame: {fileID: 0}
-  ValueBackground: {fileID: 0}
+  CardFrame: {fileID: 21300000, guid: beec8e51be0991e468a7b108aa2d31a3, type: 3}
+  ValueBackground: {fileID: 21300000, guid: a9bd584d6b5afc04ca80a57925bba7f3, type: 3}
   EffectData: []
   Keywords:
   - {fileID: 11400000, guid: 7879b0eda4b2b164f9e40dd7e2708d40, type: 2}

@@ -17,9 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f6d2e6e4ef8d74d47af11e2f370ef769, type: 2}
   DescriptionId: TE#6_text
   AttackValue: 5
-  Sprite: {fileID: 21300000, guid: b1af90ce03a007349aa9428d646a0939, type: 3}
+  Sprite: {fileID: 21300000, guid: 31a2c90f0ee92574d8d68711d8b108d5, type: 3}
   CardFrame: {fileID: 21300000, guid: cadf321a23848654d8098e2297d13436, type: 3}
-  ValueBackground: {fileID: 21300000, guid: b87297670d90313428580b3a1097dfb1, type: 3}
+  ValueBackground: {fileID: 21300000, guid: e7a578ff93822794b8db5bd7bf1f08b3, type: 3}
   EffectData:
   - Trigger: {fileID: 11400000, guid: e9e6534beda1bc245a4d18dd56d0adf4, type: 2}
     Effect:
