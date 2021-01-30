@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Quantum_Decks.Card_System;
+﻿using Quantum_Decks.Card_System;
 using Quantum_Decks.Player;
 using UnityEngine;
 
@@ -24,7 +23,7 @@ public class CardSpawner : MonoBehaviour
         var index = 0;
         foreach (var card in player.Hand.Cards)
         {
-            
+            _cardObjects[index].UpdateCard(player, card);
             index++;
         }
     }
