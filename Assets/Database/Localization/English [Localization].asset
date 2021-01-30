@@ -274,3 +274,66 @@ MonoBehaviour:
       the currently active one.
   - Id: Rules_QuantumShift
     Value: <b>QUANTUM SHIFT</b> - Both players exchange their current ACTION decks.
+  - Id: Rules_story_title
+    Value: The Story
+  - Id: Rules_story
+    Value: A terrible danger threatens the known universe! Two enigmatic spacefarers
+      with vast arrays of skills and resources combine their quantum-powered forces
+      to defend us all!
+  - Id: Rules_win_title
+    Value: Winning the Game
+  - Id: Rules_win
+    Value: You need to make your way across the galaxies to challenge and defeat
+      the Boss! You will probably need both players to combine their forces.
+  - Id: Rules_lose_title
+    Value: Losing
+  - Id: Rules_lose
+    Value: If any player has an empty hand after drawing cards, you lose the game!
+  - Id: Button_Play
+    Value: Play
+  - Id: Button_Options
+    Value: Options
+  - Id: Button_Credits
+    Value: Credits
+  - Id: Rules_title
+    Value: Rules
+  - Id: Rules_CardsDescription
+    Value: Each card consists of a STRENGTH value, one or more TYPES and often special
+      rules.
+  - Id: Rules_Strength
+    Value: STRENGTH - The Strength is the amount of damage an ACTION card can deal,
+      and the amount of damage a Threat card can take before being defeated.
+  - Id: Rules_Type
+    Value: TYPES - There are three main types of cards - Meteorites, Technical, Anomalies.
+      Some cards have multiple types and count as each one. Some rare cards are typeless
+      and count as all types.
+  - Id: Rules_TO_title
+    Value: Turn Order
+  - Id: Rules_TO_1
+    Value: AMBUSH Phase - Reveal a new Threat or BOSS if necessary
+  - Id: Rules_TO_2
+    Value: DRAW Phase - Both players draw up to three cards from their ACTION deck.
+      If either player can't draw any cards, you both lose!
+  - Id: Rules_TO_3
+    Value: ACTION Phase - Both players select and confirm the card they want to play.
+  - Id: Rules_TO_4
+    Value: ATTACK Phase - If both players played the same type, add their strength
+      values to each other. This is called a SURGE. Then, in turn order, execute
+      the chosen attack cards and resolve their effects.
+  - Id: Rules_TO_5
+    Value: Dealing Damage - When the played Attack card matches the Threat's type,
+      deal Strength damage. If they mismatch, deal one point of damage. If this reduces
+      the Threat to zero, it is defeated and will be removed from play.
+  - Id: Rules_TO_6
+    Value: LOST Phase - The played card is discarded to the Void. All unselected
+      cards are shuffled into the other player's deck.
+  - Id: Rules_Cards
+    Value: There are two kinds of cards - Threat cards represent the dangers in the
+      galaxy, including the enigmatic Boss await at the end of the journey. The spacefarers
+      are equipped with ACTION cards to defeat the Threats.
+  - Id: Rules_Glossary
+    Value: Each player's deck is called the ACTION deck. The cards available to play
+      each turn is called the player's HAND. Played cards go into the VOID and become
+      unavailable. The cards the players have to overcome are called THREATS.
+  - Id: Rules_Effects
+    Value: Effects
