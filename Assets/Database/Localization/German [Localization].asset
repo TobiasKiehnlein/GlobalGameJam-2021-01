@@ -1,0 +1,352 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181294534c7c6c54cb887b4e3f12c175, type: 3}
+  m_Name: German [Localization]
+  m_EditorClassIdentifier: 
+  LanguageName: Deutsch
+  LanguageSprite: {fileID: 0}
+  _localisation:
+  - Id: ENVME#1_title
+    Value: Baby Meteor
+  - Id: ENVME#1_text
+    Value: '<b>Hinterhalt</b>: <b>Verbrennen</b>'
+  - Id: ENVME#2_title
+    Value: Tanzende Sternchen
+  - Id: ENVME#2_text
+    Value: <b>Ausweichen</b>
+  - Id: ENVME#3_title
+    Value: Bewohntes Weltraumdorf
+  - Id: ENVME#3_text
+    Value: '<b>Rache</b>: <b>Transmutieren</b>'
+  - Id: ENVME#4_title
+    Value: Eiskalter Stein
+  - Id: ENVME#4_text
+    Value: <b>Schutzschild</b>
+  - Id: ENVME#5_title
+    Value: Meteoritenschauer
+  - Id: ENVME#5_text
+    Value: '<b>Rache</b>: <b>Rettung</b>'
+  - Id: ENVME#6_title
+    Value: Der Letzte Flug Der Saurier
+  - Id: ENVME#6_text
+    Value: '<b>Hinterhalt</b>: <b>Verbrennen</b>'
+  - Id: ENVME#7_title
+    Value: Intelligenter Meteor
+  - Id: ENVME#7_text
+    Value: "<b>Verteidigen</b>: <b>Verst\xE4rken</b>"
+  - Id: ENVAN#1_title
+    Value: Die Enterspice
+  - Id: ENVAN#1_text
+    Value: "<b>Rache</b>: <b>Verst\xE4rken</b>"
+  - Id: ENVAN#2_title
+    Value: "B\xF6ses Weltraumgeb\xE4ck"
+  - Id: ENVAN#2_text
+    Value: '<b>Rache</b>: <b>Quantensprung</b>'
+  - Id: ENVAN#3_title
+    Value: Seltsame Eruption
+  - Id: ENVAN#3_text
+    Value: <b>Schutzschild</b>
+  - Id: ENVAN#4_title
+    Value: Weltraumschnecke
+  - Id: ENVAN#4_text
+    Value: <b>Ausweichen</b>
+  - Id: ENVAN#5_title
+    Value: Ins Spiegeluniversum
+  - Id: ENVAN#5_text
+    Value: '<b>Rache</b>: <b>Transmutieren</b>'
+  - Id: ENVAN#6_title
+    Value: Untote Laserhand
+  - Id: ENVAN#6_text
+    Value: '<b>Verteidigen</b>: <b>Quantensprung</b>'
+  - Id: ENVAN#7_title
+    Value: Zeitverschobene Raumstation
+  - Id: ENVAN#7_text
+    Value: '<b>Verteidigen</b>: <b>Verbrennen</b>'
+  - Id: ENVTE#1_title
+    Value: Ausseriridische Liebesform
+  - Id: ENVTE#1_text
+    Value: <b>Schutzschild</b>
+  - Id: ENVTE#2_title
+    Value: Wirklich Unfreundlicher Roboter
+  - Id: ENVTE#2_text
+    Value: '<b>Rache</b>: <b>Quantensprung</b>'
+  - Id: ENVTE#3_title
+    Value: Fehlerhafter Terraformer
+  - Id: ENVTE#3_text
+    Value: '<b>Hinterhalt</b>: <b>Transmutieren</b>'
+  - Id: ENVTE#4_title
+    Value: "Feindlich Gesinnte Raumanz\xFCge"
+  - Id: ENVTE#4_text
+    Value: <b>Ausweichen</b>
+  - Id: ENVTE#5_title
+    Value: Satellitenwaffe
+  - Id: ENVTE#5_text
+    Value: <b>Schutzschild</b>
+  - Id: ENVTE#6_title
+    Value: Ausserirdischer Cowboy
+  - Id: ENVTE#6_text
+    Value: '<b>Hinterhalt</b>: <b>Rettung</b>'
+  - Id: ENVTE#7_title
+    Value: Geheimer Prototypentest
+  - Id: ENVTE#7_text
+    Value: '<b>Hinterhalt</b>: <b>Rettung</b>'
+  - Id: ENVBoss#1_title
+    Value: Massige Meteorrakete
+  - Id: ENVBoss#1_text
+    Value: '<b>Verteidigen</b>: <b>Verbrennen</b>, <b>Verbrennen</b>.'
+  - Id: ENVBoss#2_title
+    Value: Unheimlicher Raumtentakel
+  - Id: ENVBoss#2_text
+    Value: '<b>Verteidigen</b>: <b>Verbrennen</b>, <b>Quantensprung</b>.'
+  - Id: ENVBoss#3_title
+    Value: HAL-8999
+  - Id: ENVBoss#3_text
+    Value: '<b>Schutzschild</b>. <b>Verteidigen</b>: <b>Verbrennen</b>.'
+  - Id: ME#1_title
+    Value: Meteoritenschleuder
+  - Id: ME#1_text
+    Value: '<b>Angriff</b>: <b>Wiederkehr</b>'
+  - Id: ME#2_title
+    Value: Den Kern Knacken
+  - Id: ME#2_text
+    Value: '<b>Angriff</b>: <b>Kraftschub</b>'
+  - Id: ME#3_title
+    Value: Eroberung!
+  - Id: ME#3_text
+    Value: "<b>Verschollen</b>: <b>Verst\xE4rken</b>"
+  - Id: ME#4_title
+    Value: "Einen Meteor Z\xE4hmen"
+  - Id: ME#4_text
+    Value: "Wenn die Karten einen <b>Schub</b> erf\xE4hrt: <b>Rettung</b>"
+  - Id: ME#5_title
+    Value: Rockmusik
+  - Id: ME#5_text
+    Value: Diese Karte hat keinen weiteren Effekt.
+  - Id: ME#6_title
+    Value: Den Kometen Reiten
+  - Id: ME#6_text
+    Value: Diese Karte hat keinen weiteren Effekt.
+  - Id: ME#7_title
+    Value: Im Weltraum Explodiert Nichts
+  - Id: ME#7_text
+    Value: Diese Karte hat keinen weiteren Effekt.
+  - Id: ME#8_title
+    Value: Das Schwert Der Sterne
+  - Id: ME#8_text
+    Value: Diese Karte hat keinen weiteren Effekt.
+  - Id: ME#9_title
+    Value: Du Kannst Nicht Vorbei!
+  - Id: ME#9_text
+    Value: '<b>Verschollen</b>: <b>Verbrennen</b>'
+  - Id: AN#1_title
+    Value: Sternensurfen
+  - Id: AN#1_text
+    Value: '<b>Angriff</b>: <b>Neutralisieren</b>'
+  - Id: AN#2_title
+    Value: Auf Der Suche Nach Leben
+  - Id: AN#2_text
+    Value: '<b>Angriff</b>: <b>Quantensprung</b>'
+  - Id: AN#3_title
+    Value: Ausserirdische Diplomatie
+  - Id: AN#3_text
+    Value: "Wenn die Karten einen <b>Schub</b> erf\xE4hrt: <b>Rettung</b>"
+  - Id: AN#4_title
+    Value: Versorg Mich Mit Spice, Pilot!
+  - Id: AN#4_text
+    Value: '<b>Verschollen</b>: <b>Quantensprung</b>'
+  - Id: AN#5_title
+    Value: Atomspaltung
+  - Id: AN#5_text
+    Value: '<b>Angriff</b>: <b>Kraftschub</b>'
+  - Id: AN#6_title
+    Value: "Ein Loch Schw\xE4rzen"
+  - Id: AN#6_text
+    Value: "<b>Verschollen</b>: <b>Verst\xE4rken</b>"
+  - Id: AN#7_title
+    Value: "Die Scanner Auf T\xF6ten Stellen"
+  - Id: AN#7_text
+    Value: '<b>Angriff</b>: <b>Verbrennen</b>'
+  - Id: AN#8_title
+    Value: Roboterweltraumei
+  - Id: AN#8_text
+    Value: Diese Karte hat keinen weiteren Effekt.
+  - Id: AN#9_title
+    Value: Lasst Uns Den Timewarp Tanzen
+  - Id: AN#9_text
+    Value: "Wenn die Karten einen <b>Schub</b> erf\xE4hrt: VERST\xC4RKUNG"
+  - Id: TE#1_title
+    Value: Medizinisches Fachwissen
+  - Id: TE#1_text
+    Value: '<b>Angriff</b>: <b>Rettung</b>'
+  - Id: TE#2_title
+    Value: "Gl\xFCcklicher Teleporterunfall"
+  - Id: TE#2_text
+    Value: '<b>Angriff</b>: <b>Quantensprung</b>'
+  - Id: TE#3_title
+    Value: Medizinischer Roboter
+  - Id: TE#3_text
+    Value: '<b>Angriff</b>: <b>Wiederkehr</b>'
+  - Id: TE#4_title
+    Value: Weltraumambulanz
+  - Id: TE#4_text
+    Value: '<b>Angriff</b>: <b>Rettung</b>'
+  - Id: TE#5_title
+    Value: "\xDCberschallweltraumhammer"
+  - Id: TE#5_text
+    Value: Diese Karte hat keinen weiteren Effekt.
+  - Id: TE#6_title
+    Value: Rothemd
+  - Id: TE#6_text
+    Value: '<b>Verschollen</b>: <b>Verbrennen</b>'
+  - Id: TE#7_title
+    Value: Obskures Technikgebabbel
+  - Id: TE#7_text
+    Value: "<b>Angriff</b>: <b>Verst\xE4rken</b>"
+  - Id: TE#8_title
+    Value: Superlative Schleuder
+  - Id: TE#8_text
+    Value: '<b>Angriff</b>: <b>Wiederkehr</b>'
+  - Id: TE#9_title
+    Value: "Milit\xE4rische \xDCbermacht"
+  - Id: TE#9_text
+    Value: Diese Karte hat keinen weiteren Effekt.
+  - Id: FA#1_title
+    Value: Laser Funktionieren Immer
+  - Id: FA#1_text
+    Value: '<b>Verschollen</b>: <b>Quantensprung</b>'
+  - Id: FA#2_title
+    Value: Schilde Hoch!
+  - Id: FA#2_text
+    Value: '<b>Angriff</b>: <b>Wiederkehr</b>'
+  - Id: FA#3_title
+    Value: "Unerwartete L\xF6sung"
+  - Id: FA#3_text
+    Value: '<b>Verschollen</b>: <b>Rettung</b>'
+  - Id: Rules_Ambush
+    Value: "<b>Hinterhalt</b> - Wenn diese Bedrohung aufgedeckt wird, wird die beschriebene
+      Aktion ausgef\xFChrt."
+  - Id: Rules_Revenge
+    Value: "<b>Rache</b> - Wenn diese Bedrohung besiegt wird, wird die beschriebene
+      Aktion ausgef\xFChrt."
+  - Id: Rules_Defense
+    Value: "<b>Verteidigen</b> - Jede Runde in der diese Bedrohung NICHT besiegt
+      wird, wird die beschriebene Aktion ausgef\xFChrt."
+  - Id: Rules_Shielded
+    Value: <b>Schutzschild</b> - Die Bedrohung nimmt gar keinen Schaden von Karten
+      die nicht ihrem Typ entsprechen.
+  - Id: Rules_Elusive
+    Value: <b>Ausweichen</b> - Diese Bedrohung nimmt immer nur einen Punkt Schaden,
+      egal von welcher Angriffskarte.
+  - Id: Rules_Attack
+    Value: "<b>Angreiffen</b> - Diese Aktion wird ausgef\xFChrt bevor Schaden verteilt
+      wird."
+  - Id: Rules_Lost
+    Value: "<b>Verschollen</b> - Wenn diese Karte NICHT ausgespielt wurde wird diese
+      Aktion in der <b>Verschollen</b> Phase ausgef\xFChrt."
+  - Id: Rules_Surge
+    Value: "<b>Schub</b> - Spielen beide Spieler den gleichen Kartentyp addieren
+      sich die jeweiligen St\xE4rkewerte f\xFCr diese Runde."
+  - Id: Rules_Powersurge
+    Value: "<b>Kraftschub</b> - Wenn diese Karte einen <b>Schub</b> erf\xE4hrt gilt
+      sie f\xFCr diese Runde ohne Typ."
+  - Id: Rules_Rescue
+    Value: "<b>Rettung</b> - Misch eine zuf\xE4llige Karte aus der <b>Leere</b> wieder
+      in das ACTION Deck des Spielers."
+  - Id: Rules_Resurgence
+    Value: <b>Wiederkehr</b> - Wenn diese Karte zum ersten Mal ausgespielt wurde,
+      mische sie wieder in das ACTION Deck des Spielers anstatt sie in die <b>Leere</b>
+      abzulegen.
+  - Id: Rules_Burn
+    Value: "<b>Verbrennen</b> - Der Spieler wirft eine zuf\xE4llige Karte aus seinem
+      ACTION Deck in die <b>Leere</b> wenn m\xF6glich."
+  - Id: Rules_Neutralize
+    Value: "<b>Neutralisieren</b> - Ignoriere den Text auf der Bedrohungskarte f\xFCr
+      den Rest des Spiels."
+  - Id: Rules_Empower
+    Value: "<b>Verst\xE4rken</b> - Die St\xE4rke der Bedrohungskarte des anderen
+      Spielers wird erh\xF6ht."
+  - Id: Rule_Transmute
+    Value: "<b>Transmutieren</b> - Ersetze die Bedrohungskarte des anderen Spielers
+      mit einer zuf\xE4llig gezogenen neuen."
+  - Id: Rules_QuantumShift
+    Value: <b>Quantensprung</b> - Beide Spieler tauschen ihre ACTION Decks.
+  - Id: Rules_story_title
+    Value: Hintergrund
+  - Id: Rules_story
+    Value: "Eine furchtbare Gefahr droht dem bekannten Universum! Zwei mysteri\xF6se
+      Raumreisende mit vielen Tricks und Resourcen vereinen ihre Quantumkr\xE4fte
+      um uns alle zu sch\xFCtzen!"
+  - Id: Rules_win_title
+    Value: Spielziel
+  - Id: Rules_win
+    Value: "Reise durch die Galaxie, finde und besiege eine m\xE4chtige Bedrohung.
+      Ihr werdet beide Spieler brauchen um ihn zu besigen!"
+  - Id: Rules_lose_title
+    Value: Verlieren
+  - Id: Rules_lose
+    Value: "Wenn ein Spieler beim ZIEHEN keine Karten auf der Hand hat, ist das Spiel
+      f\xFCr beide Spieler verloren."
+  - Id: Button_Play
+    Value: Starten
+  - Id: Button_Options
+    Value: Optionen
+  - Id: Button_Credits
+    Value: Mitwirkende
+  - Id: Rules_title
+    Value: Spielregeln
+  - Id: Rules_CardsDescription
+    Value: "Jede Karte hat eine ST\xC4RKE, ein oder mehrere TYPEN und h\xE4ufig Sonderregeln."
+  - Id: Rules_Strength
+    Value: "ST\xC4RKE - Der St\xE4rkewert einer Karte bestimmt wieviel Schaden eine
+      ACTION-Karte macht, und wieviel Schaden eine <b>Bedrohung</b> aush\xE4lt."
+  - Id: Rules_Type
+    Value: "TYPEN - Es gibt drei grunds\xE4tzliche Arten von Karten: Meteoriten,
+      Technische und Anomalien. Einige Karten haben mehrere Typen gleichzeitig. Einige
+      seltene Karten sind von keinem Typen und gelten als alle."
+  - Id: Rules_TO_title
+    Value: Rundenablauf
+  - Id: Rules_TO_1
+    Value: "<b>Hinterhalt</b> Phase - Wenn n\xF6tig, decke die n\xE4chste <b>Bedrohung</b>
+      oder BOSS auf."
+  - Id: Rules_TO_2
+    Value: "ZIEHEN - Beide Spieler ziehen bis zu drei Karten von ihrem jeweiligen
+      ACTION Deck. Sollte einer der beiden Spieler gar keine Karte ziehen k\xF6nnen
+      ist das Spiel VERLOREN."
+  - Id: Rules_TO_3
+    Value: "AKTION - Beide Spieler w\xE4hlen eine Karte aus und best\xE4tigen sie
+      um sie auszuspielen."
+  - Id: Rules_TO_4
+    Value: "<b>Angriff</b> - Wenn beide Spieler Karten vom gleichen TYP gespielt
+      haben, addieren sich ihre St\xE4rkewerte gegenseitig. Dies ist ein sogenannter
+      <b>Schub</b>. Dann werden in Spiellerreihenfolge die ausgew\xE4hlten Angriffskarten
+      abgehandelt. "
+  - Id: Rules_TO_5
+    Value: "Schaden Verursachen - Wenn der ausgespielte Kartentyp mit dem Typ der
+      Bedrohung \xFCbereinstimmt verursacht sie Schaden in H\xF6he ihrer St\xE4rke.
+      Sollten die Typen nicht \xFCbereinstimmen verursacht sie einen Punkt Schaden.
+      Wenn das die Bedrohung auf Null reduziert ist die Bedrohung besiegt und wird
+      abger\xE4umt."
+  - Id: Rules_TO_6
+    Value: <b>Verschollen</b> Phase - Beide Spieler werfen die gespielte Karte in
+      die <b>Leere</b>. Alle Karten die nicht gespielt wurden werden in das Actiondeck
+      des anderen Spielers gemischt.
+  - Id: Rules_Cards
+    Value: "Es gibt zwei Arten von Karten: <b>Bedrohung</b>EN stehen f\xFCr die Gefahren
+      die in der Galaxie lauern wie dem BOSS der am Ende der Reise wartet. Die Raumfahrer
+      sind mit ACTION-Karten ausger\xFCstet um die <b>Bedrohung</b>EN zu besiegen."
+  - Id: Rules_Glossary
+    Value: "Das Kartendeck jedes Spielers ist das sogenannte ACTION-Deck. Die Karten
+      die jeder Spieler jede Runde zur Auswahl hat sind seine HAND. Ausgespielte
+      Karten gehen danach in die <b>Leere</b> und stehen nicht mehr zur Verf\xFCgung.
+      Die Karten die die Spieler besiegen wollen sind <b>Bedrohung</b>EN."
+  - Id: Rules_Effects
+    Value: Karteneffekte
