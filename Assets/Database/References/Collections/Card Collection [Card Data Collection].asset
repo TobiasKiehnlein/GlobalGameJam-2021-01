@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab7293965174e60bc996b0d3590a99d, type: 3}
   m_Name: Card Collection [Card Data Collection]
   m_EditorClassIdentifier: 
-  Value:
-  - {fileID: 11400000, guid: 55586affc18803f4b96ff876ee1d0ee1, type: 2}
+  Value: []

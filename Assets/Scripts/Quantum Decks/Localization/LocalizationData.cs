@@ -17,7 +17,17 @@ namespace Quantum_Decks.Localization
 
         public List<LocalizationElement> _localisation = new List<LocalizationElement>();
 
-            [Button(ButtonSizes.Medium)]
+        public string GetTextById(string id)
+        {
+            var text = _localisation.FirstOrDefault(l => l.Id == id);
+            if (string.IsNullOrEmpty(text.Id))
+            {
+                Debug.LogWarning($"Localization [{LanguageName}] has no id [{id}]");
+            }
+            return text.Value;
+        }
+
+        [Button(ButtonSizes.Medium)]
         public void ValidateList()
         {
             for (var i = 0; i < _localisation.Count; i++)

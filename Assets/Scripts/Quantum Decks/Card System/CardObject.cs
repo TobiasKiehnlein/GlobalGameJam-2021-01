@@ -37,6 +37,8 @@ namespace Quantum_Decks.Card_System
             _owner = owner;
             _card = card;
 
+            _valueImage.sprite = card.ValueBackground;
+            _borderImage.sprite = card.CardFrame;
             _nameTextMesh.text = card.NameId;
             _descriptionTextMesh.text = card.DescriptionId;
             _valueTextMesh.text = card.Value.ToString();

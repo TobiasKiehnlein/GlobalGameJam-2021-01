@@ -1546,6 +1546,7 @@ GameObject:
   - component: {fileID: 1903335245}
   - component: {fileID: 1903335244}
   - component: {fileID: 1903335246}
+  - component: {fileID: 1903335247}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1600,6 +1601,20 @@ MonoBehaviour:
   _playerCollection: {fileID: 11400000, guid: 4d1c79dedf814d246986d6b1cbca0479, type: 2}
   _isSurgeReference: {fileID: 11400000, guid: 54063c90a1223e64ba3188ac18a09ba4, type: 2}
   _powerSurgeKeyword: {fileID: 11400000, guid: 15dd05d90a0c0ce4ba9747de91cbc964, type: 2}
+--- !u!114 &1903335247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903335243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6960518c40534fad9a515fe69c162169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localizationCollection: {fileID: 11400000, guid: 57cbf3019fd147f40890eab840688b22,
+    type: 2}
 --- !u!1001 &1993207934
 PrefabInstance:
   m_ObjectHideFlags: 0
