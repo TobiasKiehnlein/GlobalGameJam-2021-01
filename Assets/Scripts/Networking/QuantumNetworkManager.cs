@@ -32,6 +32,8 @@ namespace Networking
         public static OnChangeEnvironmentEvent OnEnvironmentChanged;
         public static OnSelectCardEvent OnSelectedCardChanged;
         public static UnityEvent OnClientJoin;
+        public static UnityEvent OnGameStart;
+
         private static NetworkPlayer s_localPlayer;
 
         public static NetworkPlayer LocalPlayer
@@ -53,6 +55,16 @@ namespace Networking
             OnHandChanged = new OnChangeHandEvent();
             OnSelectedCardChanged = new OnSelectCardEvent();
             OnClientJoin = new UnityEvent();
+            OnGameStart = new UnityEvent();
+        }
+
+        public override void OnServerReady(NetworkConnection conn)
+        {
+            base.OnServerReady(conn);
+            if (numPlayers > 1)
+            {
+                OnGameStart.Invoke();
+            }
         }
     }
 }

@@ -64,7 +64,6 @@ namespace Quantum_Decks.Environment
         public void PopulateOnline()
         {
             PopulateList();
-            // Debug.Log("QuantumNetworkManager.LocalPlayer");
             QuantumNetworkManager.LocalPlayer.ChangeEnvironment(_cards.Select(c => c.NameId).ToArray());
         }
 
