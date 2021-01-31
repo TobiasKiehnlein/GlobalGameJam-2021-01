@@ -42,9 +42,6 @@ namespace Quantum_Decks.Game
         [SerializeField, Required, BoxGroup("Trigger")]
         private EffectTrigger _ambushTrigger;
 
-        [SerializeField, Required, BoxGroup("Fraction")]
-        private Fraction _fractionLess;
-
         private SurgeHandler _surgeHandler;
 
         [SerializeField] private BoolReference _isSurge;
@@ -59,6 +56,9 @@ namespace Quantum_Decks.Game
         private Keyword _elusive;
 
         private Coroutine _gameLoopRoutine;
+
+        [SerializeField, Required] private BoolReference _isBossFight;
+        [SerializeField, Required] private BoolReference _isVictory;
 
 
         private void Start()
@@ -111,6 +111,7 @@ namespace Quantum_Decks.Game
             }
 
             AudioManager.Instance.SwitchToMain();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("End Screen");
         }
 
         private IEnumerator DeckPreparationPhase()
@@ -192,7 +193,7 @@ namespace Quantum_Decks.Game
         {
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
             yield return environmentCard.Damage(player.CurrentSelectedCard.Card, otherPlayer.CurrentSelectedCard.Card,
-                _isSurge.Value, _powerSurge, _shielded, _elusive, _fractionLess);
+                _isSurge.Value, _powerSurge, _shielded, _elusive, _isBossFight.Value, _isVictory);
         }
 
         private IEnumerator DefensePhase(Player.Player player, EnvironmentCard environmentCard)
@@ -213,7 +214,7 @@ namespace Quantum_Decks.Game
                 {
                     yield return tween.WaitForCompletion();
                 }
-                
+
                 player.CardSpawner.Despawn();
                 yield return VoidPhase(player);
                 yield return LostPhase(player);

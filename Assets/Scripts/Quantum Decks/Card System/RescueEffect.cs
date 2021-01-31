@@ -18,9 +18,6 @@ namespace Quantum_Decks.Card_System
 
             var card = _voidReference.Value.GetRandom();
 
-            if (card == null)
-                yield break;
-
             _voidReference.Value.Transfer(card, player.Deck);
             player.Deck.Shuffle();
 
