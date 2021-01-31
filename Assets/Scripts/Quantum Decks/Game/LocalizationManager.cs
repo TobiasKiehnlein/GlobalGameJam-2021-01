@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Quantum_Decks.Localization;
@@ -20,6 +21,21 @@ namespace Quantum_Decks.Game
             _allLocalizationText = allText.Select(a => new TextMeshLocalizationData {SavedId = a.text, TextMesh = a})
                 .ToList();
             UpdateText();
+        }
+
+        private void OnEnable()
+        {
+            _localizationCollection.OnLocalizationChanged += UpdateText;
+        }
+
+        private void OnDisable()
+        {
+            _localizationCollection.OnLocalizationChanged -= UpdateText;
+        }
+
+        public void SelectLocalization(LocalizationData localizationData)
+        {
+            _localizationCollection.SetLocalization(localizationData);
         }
 
         public void UpdateText()
