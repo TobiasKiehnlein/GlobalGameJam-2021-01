@@ -18,8 +18,8 @@ namespace Quantum_Decks.Game
         private PlayerCollection _playerCollection;
 
         [Required, SerializeField, BoxGroup("References")]
-        private CardCollection _voidDeck;  
-        
+        private CardCollection _voidDeck;
+
         [Required, SerializeField, BoxGroup("References")]
         private PlayerCardDataCollection _allPlayerCardData;
 
@@ -42,14 +42,18 @@ namespace Quantum_Decks.Game
 
         [SerializeField, Required, BoxGroup("Fraction")]
         private Fraction _fractionLess;
-        
-        
+
 
         [SerializeField] private BoolReference _isSurge;
 
-        [SerializeField, Required, BoxGroup("Keywords")] private Keyword _powerSurge;
-        [SerializeField, Required, BoxGroup("Keywords")]  private Keyword _shielded;
-        [SerializeField, Required, BoxGroup("Keywords")]  private Keyword _elusive;
+        [SerializeField, Required, BoxGroup("Keywords")]
+        private Keyword _powerSurge;
+
+        [SerializeField, Required, BoxGroup("Keywords")]
+        private Keyword _shielded;
+
+        [SerializeField, Required, BoxGroup("Keywords")]
+        private Keyword _elusive;
 
         private Coroutine _gameLoopRoutine;
 
@@ -100,7 +104,7 @@ namespace Quantum_Decks.Game
         {
             var player = _playerCollection.CurrentPlayer;
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
-            
+
             _allPlayerCardData.Value.Shuffle();
             for (var i = 0; i < _allPlayerCardData.Value.Count; i++)
             {
@@ -188,9 +192,9 @@ namespace Quantum_Decks.Game
         {
             foreach (var player in _playerCollection.Value)
             {
+                player.CardSpawner.Despawn();
                 yield return VoidPhase(player);
                 yield return LostPhase(player);
-                player.CardSpawner.Despawn();
             }
 
             _environmentDeck.RemoveAllDefeated();

@@ -8,18 +8,19 @@ namespace Quantum_Decks.Card_System
     public class HandAnimations : MonoBehaviour
     {
         [SerializeField] private AnimationsReference _animationsReference;
+        [SerializeField] private RectTransform Staple;
+        [SerializeField] private RectTransform OtherStaple;
 
         [SerializeField] private Transform DropZone;
+        [SerializeField] private RectTransform Void;
 
         private Transform[] _children;
         private Vector3[] _positions;
         private RectTransform _canvas;
-        private RectTransform _staple;
 
         private void Start()
         {
             _canvas = GameObject.Find("MasterCanvas").GetComponent<RectTransform>();
-            _staple = GameObject.Find("CardSpawn").GetComponent<RectTransform>();
 
             _children = new Transform[transform.childCount];
             _positions = new Vector3[_children.Length];
@@ -32,6 +33,8 @@ namespace Quantum_Decks.Card_System
 
                 count++;
             }
+
+            RespawnCards(false);
         }
 
         public List<Tween> SelectIndex(int index)
@@ -66,19 +69,29 @@ namespace Quantum_Decks.Card_System
             return tweens;
         }
 
+        public void EndRound()
+        {
+            for (var i = 0; i < _children.Length; i++)
+            {
+                _children[i].DOMove(Vector3.Distance(_children[i].position, _positions[i]) > _animationsReference.HoverAmount ? OtherStaple.position : Void.position, _animationsReference.Duration);
+            }
+        }
 
-        public List<Tween> RespawnCards()
+
+        public List<Tween> RespawnCards(bool deselect = true)
         {
             var tweens = new List<Tween>();
 
             foreach (var child in _children)
             {
-                child.transform.position = _staple.position;
+                child.transform.position = Staple.position;
                 child.transform.localScale = Vector3.one * _animationsReference.StapleScaleFactor;
                 child.transform.rotation = Quaternion.Euler(0, 180, 180);
             }
 
-            return Deselect();
+            if (deselect) Deselect();
+
+            return tweens;
         }
     }
 }
