@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Mirror;
 using Quantum_Decks.Card_System;
 using Shared;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
+using NetworkManager = Networking.NetworkManager;
 
 namespace Quantum_Decks.Environment
 {
-    public class EnvironmentDeck : MonoBehaviour
+    public class EnvironmentDeck : NetworkBehaviour
     {
         [SerializeField] private List<EnvironmentCardData> _allCardData;
         [SerializeField] private List<EnvironmentCardData> _allBossData;
-        [ShowInInspector] private readonly List<EnvironmentCard> _cards = new List<EnvironmentCard>();
+        [Sirenix.OdinInspector.ShowInInspector] private List<EnvironmentCard> _cards = new List<EnvironmentCard>();
         [SerializeField] private EnvironmentDeckReference _environmentDeckReference;
 
         public int Count => _cards.Count;
@@ -26,21 +29,37 @@ namespace Quantum_Decks.Environment
         private void OnEnable()
         {
             _environmentDeckReference.Value = this;
+            NetworkManager.OnEnvironmentChanged.AddListener(UpdateList);
         }
 
         private void OnDisable()
         {
             _environmentDeckReference.Reset();
+            NetworkManager.OnEnvironmentChanged.RemoveListener(UpdateList);
         }
 
+        [Command]
         public void PopulateList()
         {
+            if (!isServer)
+            {
+                return;
+            }
+            Debug.Log("EVN: Populate List");
+            
             foreach (var cardData in _allCardData)
             {
                 _cards.Add(new EnvironmentCard(cardData));
             }
             
             _cards.Shuffle();
+            
+            NetworkManager.LocalPlayer.ChangeEnvironment(_cards.Select(c => c.NameId).ToArray());
+        }
+
+        public void UpdateList(string[] cards)
+        {
+            _cards = cards.Select(c => _cards.FirstOrDefault(a => a.NameId == c)).ToList();
         }
 
         public EnvironmentCard GetByPlayer(Networking.Player playerId)
