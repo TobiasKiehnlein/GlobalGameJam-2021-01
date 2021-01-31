@@ -34,6 +34,9 @@ namespace Quantum_Decks.Game
         private EffectTrigger _revengeTrigger;
 
         [SerializeField, Required, BoxGroup("Trigger")]
+        private EffectTrigger _surgeTrigger;
+
+        [SerializeField, Required, BoxGroup("Trigger")]
         private EffectTrigger _lostTrigger;
 
         [SerializeField, Required, BoxGroup("Trigger")]
@@ -59,7 +62,7 @@ namespace Quantum_Decks.Game
 
         [SerializeField, Required] private BoolReference _isBossFight;
         [SerializeField, Required] private BoolReference _isVictory;
-        
+
 
         private void Start()
         {
@@ -81,13 +84,13 @@ namespace Quantum_Decks.Game
             while (!_isGameOver.Value)
             {
                 _environmentDeck.UpdateAll();
-                
+
                 foreach (var player in _playerCollection.Value)
                 {
                     yield return AmbushPhase(player, _environmentDeck.GetByPlayer(player.PlayerId));
                     _environmentDeck.UpdateAll();
                 }
-                
+
                 _isGameOver.Value = _playerCollection.Value.Any(p => !p.Deck.Cards.Any());
                 if (_isGameOver.Value)
                 {
@@ -192,6 +195,10 @@ namespace Quantum_Decks.Game
         private IEnumerator ActionPhase(PlayerCard card, Player.Player player)
         {
             yield return card.ApplyEffects(_attackTrigger, player);
+            if (_isSurge.Value)
+            {
+                yield return card.ApplyEffects(_surgeTrigger, player);
+            }
         }
 
         private IEnumerator DamagePhase(Player.Player player, EnvironmentCard environmentCard)
