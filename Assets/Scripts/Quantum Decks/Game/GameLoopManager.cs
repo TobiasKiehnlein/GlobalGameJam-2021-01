@@ -206,7 +206,7 @@ namespace Quantum_Decks.Game
         {
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
             yield return environmentCard.Damage(player.CurrentSelectedCard.Card, otherPlayer.CurrentSelectedCard.Card,
-                _isSurge.Value, _powerSurge, _shielded, _elusive, _isBossFight.Value, _isVictory);
+                _isSurge.Value, _powerSurge, _shielded, _elusive, _isBossFight.Value, _isVictory, player.PlayerId);
         }
 
         private IEnumerator DefensePhase(Player.Player player, EnvironmentCard environmentCard)

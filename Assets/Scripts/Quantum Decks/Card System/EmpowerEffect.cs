@@ -13,8 +13,14 @@ namespace Quantum_Decks.Card_System
         
         public override IEnumerator ApplyEffect(Player.Player player)
         {
+            if (_environmentDeck.Value.Count <= 1)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
             _environmentDeck.Value.GetByPlayer(otherPlayer.PlayerId).Value++;
+            FeedbackManager.Instance.TriggerFeedback(player.PlayerId, 1);
             
             // TODO: Empower Animation
             

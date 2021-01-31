@@ -12,7 +12,7 @@ namespace Quantum_Decks.Card_System
         }
 
         public IEnumerator Damage(Card card, Card otherPlayer, bool isSurge, Keyword powerSurge, Keyword shielded,
-            Keyword elusive, bool isBossFight, BoolReference isVictory)
+            Keyword elusive, bool isBossFight, BoolReference isVictory, Networking.Player player)
         {
             var damage = card.Value;
 
@@ -48,6 +48,7 @@ namespace Quantum_Decks.Card_System
             Value -= damage;
             Value = Mathf.Max(0, Value);
             isVictory.Value = isBossFight && Value == 0;
+            FeedbackManager.Instance.TriggerFeedback(player, -damage);
             yield return new WaitForEndOfFrame();
 
             // TODO: Damage Animation

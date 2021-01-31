@@ -44,6 +44,7 @@ namespace Quantum_Decks.Card_System
         {
             foreach (var effect in GetEffects(trigger))
             {
+                Debug.Log(NameId + " " + effect.name);
                 yield return effect.ApplyEffect(player);
                 yield return new WaitForSeconds(0.5f);
             }
