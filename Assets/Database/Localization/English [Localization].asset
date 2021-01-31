@@ -114,11 +114,11 @@ MonoBehaviour:
   - Id: ME#1_title
     Value: Meteorite Slingshot
   - Id: ME#1_text
-    Value: '<b>Attack</b>: <b>Resurgence</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Resurgence</b>'
   - Id: ME#2_title
     Value: Cracking The Core
   - Id: ME#2_text
-    Value: '<b>Attack</b>: POWERSURGE'
+    Value: <b>Powersurge</b>
   - Id: ME#3_title
     Value: Conquer It!
   - Id: ME#3_text
@@ -126,7 +126,7 @@ MonoBehaviour:
   - Id: ME#4_title
     Value: Taming A Meteor
   - Id: ME#4_text
-    Value: 'If this card SURGES: <b>Rescue</b>'
+    Value: 'If this card <b>Surges</b>: <b>Rescue</b>'
   - Id: ME#5_title
     Value: Rock Music
   - Id: ME#5_text
@@ -150,11 +150,11 @@ MonoBehaviour:
   - Id: AN#1_title
     Value: Surfing The Edge
   - Id: AN#1_text
-    Value: '<b>Attack</b>: <b>Neutralize</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Neutralize</b>'
   - Id: AN#2_title
     Value: In Search Of Life
   - Id: AN#2_text
-    Value: '<b>Attack</b>: <b>Quantum Shift</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Quantum Shift</b>'
   - Id: AN#3_title
     Value: Alien Diplomacy
   - Id: AN#3_text
@@ -174,7 +174,7 @@ MonoBehaviour:
   - Id: AN#7_title
     Value: Set Scanners To Kill
   - Id: AN#7_text
-    Value: '<b>Attack</b>: <b>Burn</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Burn</b>'
   - Id: AN#8_title
     Value: Robotic Space Egg
   - Id: AN#8_text
@@ -186,19 +186,19 @@ MonoBehaviour:
   - Id: TE#1_title
     Value: Medical Expertise
   - Id: TE#1_text
-    Value: '<b>Attack</b>: <b>Rescue</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Rescue</b>'
   - Id: TE#2_title
     Value: Lucky Teleportation Accident
   - Id: TE#2_text
-    Value: '<b>Attack</b>: <b>Quantum Shift</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Quantum Shift</b>'
   - Id: TE#3_title
     Value: Medical Robotics
   - Id: TE#3_text
-    Value: '<b>Attack</b>: <b>Resurgence</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Resurgence</b>'
   - Id: TE#4_title
     Value: Space Ambulance
   - Id: TE#4_text
-    Value: '<b>Attack</b>: <b>Rescue</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Rescue</b>'
   - Id: TE#5_title
     Value: Supersonic Space Hammer
   - Id: TE#5_text
@@ -210,11 +210,11 @@ MonoBehaviour:
   - Id: TE#7_title
     Value: Obscure Technobabble
   - Id: TE#7_text
-    Value: '<b>Attack</b>: <b>Empower</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Empower</b>'
   - Id: TE#8_title
     Value: Slingshot Supreme
   - Id: TE#8_text
-    Value: '<b>Attack</b>: <b>Resurgence</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Resurgence</b>'
   - Id: TE#9_title
     Value: Superior Military Power
   - Id: TE#9_text
@@ -226,7 +226,7 @@ MonoBehaviour:
   - Id: FA#2_title
     Value: Shields! Shields! Shields!
   - Id: FA#2_text
-    Value: '<b>Attack</b>: <b>Resurgence</b>'
+    Value: 'If this card <b>Attacks</b>: <b>Resurgence</b>'
   - Id: FA#3_title
     Value: Unexpected Solution
   - Id: FA#3_text
