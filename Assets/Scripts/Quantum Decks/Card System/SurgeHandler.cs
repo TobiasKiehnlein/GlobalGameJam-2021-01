@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using DG.Tweening;
 using Doozy.Engine.UI;
 using Shared.Scriptable_References;
 using UnityEngine;
@@ -16,23 +18,33 @@ namespace Quantum_Decks.Card_System
         [SerializeField] private Fraction _fractionLess;
         [SerializeField] private VisualEffect _visualEffect;
 
-        public void Update()
+        private void Awake()
+        {
+            _visualEffect.Stop();
+        }
+
+        public void RemoveSurge()
+        {
+            _isSurgeReference.Value = false;
+            _surgeView.Hide();
+            _visualEffect.Stop();
+        }
+
+
+        public void UpdateSurge()
         {
             var cards = _playerCollection.Value.Where(p => p.CurrentSelectedCard != null)
                 .Select(p => p.CurrentSelectedCard.Card).ToList();
 
-            _surgeValue.Value = cards.Sum(c => c.Value);
-
             if (cards.Count <= 1)
             {
-                _isSurgeReference.Value = false;
-                _surgeView.Hide();
-                _visualEffect.Stop();
+                RemoveSurge();
                 return;
             }
 
             if (cards.SelectMany(c => c.Fractions).Any(c => c == _fractionLess))
             {
+                _surgeValue.Value = cards.Sum(c => c.Value);
                 _isSurgeReference.Value = true;
                 _surgeView.Show();
                 _visualEffect.Play();
@@ -43,13 +55,13 @@ namespace Quantum_Decks.Card_System
             _isSurgeReference.Value = group.Any(g => g.Count() > 1);
             if (_isSurgeReference.Value)
             {
+                _surgeValue.Value = cards.Sum(c => c.Value);
                 _surgeView.Show();
                 _visualEffect.Play();
             }
             else
             {
-                _surgeView.Hide();
-                _visualEffect.Stop();
+                RemoveSurge();
             }
         }
     }

@@ -45,6 +45,7 @@ namespace Quantum_Decks.Game
         [SerializeField, Required, BoxGroup("Fraction")]
         private Fraction _fractionLess;
 
+        private SurgeHandler _surgeHandler;
 
         [SerializeField] private BoolReference _isSurge;
 
@@ -63,6 +64,7 @@ namespace Quantum_Decks.Game
         private void Start()
         {
             _environmentDeck = FindObjectOfType<EnvironmentDeck>();
+            _surgeHandler = FindObjectOfType<SurgeHandler>();
             StartCoroutine(GameLoop());
         }
 
@@ -86,6 +88,12 @@ namespace Quantum_Decks.Game
                 }
 
                 Debug.Log("Draw Phase");
+                _isGameOver.Value = _playerCollection.Value.Any(p => !p.Deck.Cards.Any());
+                if (_isGameOver.Value)
+                {
+                    break;
+                }
+
                 yield return DrawPhase();
                 Debug.Log("Action Select Phase");
                 yield return ActionSelectPhase();
@@ -95,10 +103,11 @@ namespace Quantum_Decks.Game
                     yield return AttackPhase(player);
                 }
 
+                _surgeHandler.RemoveSurge();
+
                 yield return new WaitForSeconds(2);
                 Debug.Log("Discard Phase");
                 yield return DiscardPhase();
-                _isGameOver.Value = _playerCollection.Value.Any(p => p.Deck.Cards.Count() < 3);
             }
 
             AudioManager.Instance.SwitchToMain();
@@ -241,6 +250,7 @@ namespace Quantum_Decks.Game
             _playerCollection.ResetAcceptedState();
             while (!_playerCollection.AllPlayerHaveAccepted)
             {
+                _surgeHandler.UpdateSurge();
                 yield return new WaitForEndOfFrame();
             }
         }
