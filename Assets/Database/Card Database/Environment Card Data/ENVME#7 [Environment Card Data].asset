@@ -19,8 +19,8 @@ MonoBehaviour:
   DescriptionId: ENVME#7_text
   AttackValue: 5
   Sprite: {fileID: 21300000, guid: 90e48d5eda1d287409e93ee7716dcd5c, type: 3}
-  CardFrame: {fileID: 21300000, guid: 0713649f869be7b449a01293c6358ea2, type: 3}
-  ValueBackground: {fileID: 21300000, guid: fddcc812301e8d84fa1f70919965311e, type: 3}
+  CardFrame: {fileID: 21300000, guid: 1f75a28b7564d8d49a466f98e192535d, type: 3}
+  ValueBackground: {fileID: 21300000, guid: bf760aa0ba9b48440bbaf4cbc7c0870e, type: 3}
   EffectData:
   - Trigger: {fileID: 11400000, guid: 4bd31adb988e7fa4f8c800ecde2b20eb, type: 2}
     Effect:
