@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: English [Localization]
   m_EditorClassIdentifier: 
   LanguageName: English
-  LanguageSprite: {fileID: 0}
+  LanguageSprite: {fileID: 21300000, guid: a7c7a8333a4aac34892801762490547d, type: 3}
   _localisation:
   - Id: ENVME#1_title
     Value: Baby Meteor

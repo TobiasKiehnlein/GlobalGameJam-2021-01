@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spanish [Localization]
   m_EditorClassIdentifier: 
   LanguageName: Espagnol
-  LanguageSprite: {fileID: 0}
+  LanguageSprite: {fileID: 21300000, guid: 4651c62a614da7c4982573a7d06f5c9b, type: 3}
   _localisation:
   - Id: ENVME#1_title
     Value: "Meteorito beb\xE9"
