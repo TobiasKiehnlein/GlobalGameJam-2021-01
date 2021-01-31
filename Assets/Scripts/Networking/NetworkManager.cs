@@ -1,4 +1,5 @@
 ﻿using System;
+using Mirror;
 using UnityEngine.Events;
 
 namespace Networking
@@ -29,6 +30,7 @@ namespace Networking
         public static OnChangeHandEvent OnHandChanged;
         public static OnChangeEnvironmentEvent OnEnvironmentChanged;
         public static OnSelectCardEvent OnSelectedCardChanged;
+        public static UnityEvent OnClientJoin;
         public static NetworkPlayer LocalPlayer { get; set; }
 
         public override void Start()
@@ -39,6 +41,13 @@ namespace Networking
             OnEnvironmentChanged = new OnChangeEnvironmentEvent();
             OnHandChanged = new OnChangeHandEvent();
             OnSelectedCardChanged = new OnSelectCardEvent();
+            OnClientJoin = new UnityEvent();
+        }
+
+        public override void OnClientConnect(NetworkConnection conn)
+        {
+            base.OnClientConnect(conn);
+            OnClientJoin.Invoke();
         }
     }
 }
