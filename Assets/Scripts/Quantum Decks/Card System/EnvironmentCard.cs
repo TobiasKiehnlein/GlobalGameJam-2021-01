@@ -10,7 +10,8 @@ namespace Quantum_Decks.Card_System
         {
         }
 
-        public IEnumerator Damage(Card card, Card otherPlayer , bool isSurge, Keyword powerSurge, Keyword shielded, Keyword elusive)
+        public IEnumerator Damage(Card card, Card otherPlayer, bool isSurge, Keyword powerSurge, Keyword shielded,
+            Keyword elusive, Fraction fractionLess)
         {
             var damage = card.Value;
 
@@ -18,27 +19,26 @@ namespace Quantum_Decks.Card_System
             {
                 damage = card.Value + otherPlayer.Value;
             }
-            
-            if (!Fractions.Intersect(card.Fractions).Any())
-            {
-                damage = 1;
-            }
-            
+
             if (isSurge && card.HasKeyword(powerSurge))
             {
-                damage +=  otherPlayer.Value;
+                Debug.Log($"{card.NameId} had powersearch");
+                damage = card.Value + otherPlayer.Value;
             }
 
-            if (HasKeyword(shielded) && card.Fractions.Count > 1)
+            if (HasKeyword(shielded) && (card.Fractions.Any(f => f == fractionLess) || card.Fractions.Count > 1))
             {
+                Debug.Log($"{_data.NameId} was shielded");
                 damage = 1;
             }
 
             if (HasKeyword(elusive))
             {
+                Debug.Log($"{_data.NameId} was elusive");
                 damage = 1;
             }
 
+            Debug.Log($"{_data.NameId} took {damage} damage");
             Value -= damage;
             Value = Mathf.Max(0, Value);
             yield return new WaitForEndOfFrame();

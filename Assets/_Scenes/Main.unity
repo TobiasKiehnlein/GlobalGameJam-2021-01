@@ -2532,6 +2532,7 @@ MonoBehaviour:
   _lostTrigger: {fileID: 11400000, guid: e9e6534beda1bc245a4d18dd56d0adf4, type: 2}
   _attackTrigger: {fileID: 11400000, guid: 58b53b7c4f79a394c957dca5f3b6a81b, type: 2}
   _ambushTrigger: {fileID: 11400000, guid: dea5e7d0b76880a47a39e12b053c2cbb, type: 2}
+  _fractionLess: {fileID: 11400000, guid: f18632272b6243543b334cdb55f4e327, type: 2}
   _isSurge: {fileID: 11400000, guid: 54063c90a1223e64ba3188ac18a09ba4, type: 2}
   _powerSurge: {fileID: 11400000, guid: 15dd05d90a0c0ce4ba9747de91cbc964, type: 2}
   _shielded: {fileID: 11400000, guid: 7879b0eda4b2b164f9e40dd7e2708d40, type: 2}
@@ -2567,6 +2568,7 @@ MonoBehaviour:
   _powerSurgeKeyword: {fileID: 11400000, guid: 15dd05d90a0c0ce4ba9747de91cbc964, type: 2}
   _surgeView: {fileID: 1375474562}
   _surgeValue: {fileID: 11400000, guid: 61dc7abca52fab942ac16ed4fc33fdbe, type: 2}
+  _fractionLess: {fileID: 11400000, guid: f18632272b6243543b334cdb55f4e327, type: 2}
 --- !u!114 &1903335247
 MonoBehaviour:
   m_ObjectHideFlags: 0

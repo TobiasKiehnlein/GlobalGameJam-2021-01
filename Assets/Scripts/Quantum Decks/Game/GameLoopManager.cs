@@ -40,11 +40,16 @@ namespace Quantum_Decks.Game
         [SerializeField, Required, BoxGroup("Trigger")]
         private EffectTrigger _ambushTrigger;
 
+        [SerializeField, Required, BoxGroup("Fraction")]
+        private Fraction _fractionLess;
+        
+        
+
         [SerializeField] private BoolReference _isSurge;
 
-        [SerializeField] private Keyword _powerSurge;
-        [SerializeField] private Keyword _shielded;
-        [SerializeField] private Keyword _elusive;
+        [SerializeField, Required, BoxGroup("Keywords")] private Keyword _powerSurge;
+        [SerializeField, Required, BoxGroup("Keywords")]  private Keyword _shielded;
+        [SerializeField, Required, BoxGroup("Keywords")]  private Keyword _elusive;
 
         private Coroutine _gameLoopRoutine;
 
@@ -161,7 +166,7 @@ namespace Quantum_Decks.Game
         {
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
             yield return environmentCard.Damage(player.CurrentSelectedCard.Card, otherPlayer.CurrentSelectedCard.Card,
-                _isSurge.Value, _powerSurge, _shielded, _elusive);
+                _isSurge.Value, _powerSurge, _shielded, _elusive, _fractionLess);
         }
 
         private IEnumerator DefensePhase(Player.Player player, EnvironmentCard environmentCard)

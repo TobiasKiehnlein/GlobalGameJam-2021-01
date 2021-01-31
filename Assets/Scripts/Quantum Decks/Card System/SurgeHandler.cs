@@ -12,12 +12,15 @@ namespace Quantum_Decks.Card_System
         [SerializeField] private Keyword _powerSurgeKeyword;
         [SerializeField] private UIView _surgeView;
         [SerializeField] private IntReference _surgeValue;
+        [SerializeField] private Fraction _fractionLess;
 
         public void Update()
         {
             var cards = _playerCollection.Value.Where(p => p.CurrentSelectedCard != null)
                 .Select(p => p.CurrentSelectedCard.Card).ToList();
-            
+
+            _surgeValue.Value = cards.Sum(c => c.Value);
+
             if (cards.Count <= 1)
             {
                 _isSurgeReference.Value = false;
@@ -25,11 +28,10 @@ namespace Quantum_Decks.Card_System
                 return;
             }
 
-            if (cards.Any(c => c.Keywords.Contains(_powerSurgeKeyword)))
+            if (cards.SelectMany(c => c.Fractions).Any(c => c == _fractionLess))
             {
                 _isSurgeReference.Value = true;
                 _surgeView.Show();
-                _surgeValue.Value = cards.Sum(c => c.Value);
                 return;
             }
 
@@ -37,7 +39,6 @@ namespace Quantum_Decks.Card_System
             if (_isSurgeReference.Value)
             {
                 _surgeView.Show();
-                _surgeValue.Value = cards.Sum(c => c.Value);
             }
             else
             {
