@@ -2,6 +2,7 @@ using System.Linq;
 using Doozy.Engine.UI;
 using Shared.Scriptable_References;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace Quantum_Decks.Card_System
 {
@@ -13,6 +14,7 @@ namespace Quantum_Decks.Card_System
         [SerializeField] private UIView _surgeView;
         [SerializeField] private IntReference _surgeValue;
         [SerializeField] private Fraction _fractionLess;
+        [SerializeField] private VisualEffect _visualEffect;
 
         public void Update()
         {
@@ -25,6 +27,7 @@ namespace Quantum_Decks.Card_System
             {
                 _isSurgeReference.Value = false;
                 _surgeView.Hide();
+                _visualEffect.Stop();
                 return;
             }
 
@@ -32,17 +35,21 @@ namespace Quantum_Decks.Card_System
             {
                 _isSurgeReference.Value = true;
                 _surgeView.Show();
+                _visualEffect.Play();
                 return;
             }
 
-            _isSurgeReference.Value = cards.SelectMany(c => c.Fractions).GroupBy(f => f).Any(g => g.Count() > 1);
+            var group = cards.SelectMany(c => c.Fractions).GroupBy(f => f);
+            _isSurgeReference.Value = group.Any(g => g.Count() > 1);
             if (_isSurgeReference.Value)
             {
                 _surgeView.Show();
+                _visualEffect.Play();
             }
             else
             {
                 _surgeView.Hide();
+                _visualEffect.Stop();
             }
         }
     }
