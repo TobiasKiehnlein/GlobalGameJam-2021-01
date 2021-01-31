@@ -76,6 +76,7 @@ namespace Quantum_Decks.Game
                 foreach (var player in _playerCollection.Value)
                 {
                     yield return AmbushPhase(player, _environmentDeck.GetByPlayer(player.PlayerId));
+                    yield return new WaitForSeconds(2);
                 }
 
                 Debug.Log("Draw Phase");
@@ -150,9 +151,13 @@ namespace Quantum_Decks.Game
             var environmentCard = _environmentDeck.GetByPlayer(player.PlayerId);
             var card = player.CurrentSelectedCard.Card as PlayerCard;
             yield return ActionPhase(card, player);
+            yield return new WaitForSeconds(.5f);
             yield return DamagePhase(player, environmentCard);
+            yield return new WaitForSeconds(.5f);
             yield return DefensePhase(player, environmentCard);
+            yield return new WaitForSeconds(.5f);
             yield return RevengePhase(player, environmentCard);
+            yield return new WaitForSeconds(.5f);
             if (card != null)
                 card.Duration--;
         }

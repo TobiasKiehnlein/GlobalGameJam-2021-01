@@ -14,7 +14,9 @@ namespace Quantum_Decks.Card_System
         public override IEnumerator ApplyEffect(Player.Player player)
         {
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
+            _environmentDeck.Value.Transmute(otherPlayer.PlayerId);
             
+            // TODO: TRANSMUTATE ANIMATION
             
             yield return new WaitForEndOfFrame();
         }
