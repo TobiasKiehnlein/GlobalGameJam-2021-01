@@ -13,6 +13,8 @@ With 51 unique hand-painted cards and 16 abilities to learn and master, there is
 ![Rules](https://raw.githubusercontent.com/TobiasKiehnlein/GlobalGameJam-2021-01/master/Assets/Sprites/Rules.png "Rules")
 
 ## Used Plugins and Libraries:
+<i>To run the project simply add these Libraries in the Plugins folder. Do to ownership these assets cannot be provided in this repository.</i>
+
 - Rewired: https://assetstore.unity.com/packages/tools/utilities/rewired-21676
 - Doozy UI: https://assetstore.unity.com/packages/tools/gui/doozyui-complete-ui-management-system-138361
 - Rainbow Folders: https://assetstore.unity.com/packages/tools/utilities/rainbow-folders-2-143526
