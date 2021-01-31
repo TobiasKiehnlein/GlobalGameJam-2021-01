@@ -11,11 +11,11 @@ public class TestSubmitButton : MonoBehaviour
     {
         _submitState = !_submitState;
         _player = (Player) player;
-        NetworkManager.LocalPlayer.SetSubmitState(_player, _submitState);
+        QuantumNetworkManager.LocalPlayer.SetSubmitState(_player, _submitState);
         if (_listening) return;
 
         _listening = true;
-        NetworkManager.OnSubmitChange.AddListener(OnSubmitChange);
+        QuantumNetworkManager.OnSubmitChange.AddListener(OnSubmitChange);
     }
 
     private void OnSubmitChange(Player playerId, bool state)

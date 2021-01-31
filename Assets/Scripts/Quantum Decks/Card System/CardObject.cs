@@ -99,7 +99,7 @@ namespace Quantum_Decks.Card_System
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (_owner.HasAccepted)
+            if (_owner == null || _owner.HasAccepted)
                 return;
 
             if (_owner.CurrentSelectedCard == this)
@@ -147,14 +147,14 @@ namespace Quantum_Decks.Card_System
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (_owner.CurrentSelectedCard == this)
+            if (_owner?.CurrentSelectedCard == this)
                 return;
             _handAnimations.Hover(transform.GetSiblingIndex(), true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (_owner.CurrentSelectedCard == this)
+            if (_owner?.CurrentSelectedCard == this)
                 return;
             _handAnimations.Hover(transform.GetSiblingIndex(), false);
         }

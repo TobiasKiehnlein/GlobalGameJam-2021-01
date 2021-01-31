@@ -106,7 +106,7 @@ namespace Mirror
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/NetworkIdentity")]
     [HelpURL("https://mirror-networking.com/docs/Articles/Components/NetworkIdentity.html")]
-    public sealed class NetworkIdentity : MonoBehaviour
+    public class NetworkIdentity : MonoBehaviour
     {
         static readonly ILogger logger = LogFactory.GetLogger<NetworkIdentity>();
 

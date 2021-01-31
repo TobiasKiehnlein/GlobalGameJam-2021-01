@@ -11,7 +11,7 @@ namespace Networking
         private void Start()
         {
             if (!isLocalPlayer) return;
-            NetworkManager.LocalPlayer = this;
+            QuantumNetworkManager.LocalPlayer = this;
         }
 
         [Command]
@@ -23,7 +23,7 @@ namespace Networking
         [ClientRpc]
         private void SubmitStateChanged(Player player, bool submitState)
         {
-            NetworkManager.OnSubmitChange.Invoke(player, submitState);
+            QuantumNetworkManager.OnSubmitChange.Invoke(player, submitState);
         }
 
         [Command]
@@ -35,7 +35,7 @@ namespace Networking
         [ClientRpc]
         private void SelectedCardChanged(Player player, string card)
         {
-            NetworkManager.OnSelectedCardChanged.Invoke(player, card);
+            QuantumNetworkManager.OnSelectedCardChanged.Invoke(player, card);
         }
 
         [Command]
@@ -47,7 +47,7 @@ namespace Networking
         [ClientRpc]
         private void HandChanged(Player player, string card1, string card2, string card3)
         {
-            NetworkManager.OnHandChanged.Invoke(player, card1, card2, card3);
+            QuantumNetworkManager.OnHandChanged.Invoke(player, card1, card2, card3);
         }
         
         [Command]
@@ -59,7 +59,7 @@ namespace Networking
         [ClientRpc]
         private void EnvironmentChanged(string[] cards)
         {
-            NetworkManager.OnEnvironmentChanged.Invoke(cards);
+            QuantumNetworkManager.OnEnvironmentChanged.Invoke(cards);
         }
     }
 }

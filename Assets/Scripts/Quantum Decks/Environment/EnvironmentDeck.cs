@@ -2,60 +2,70 @@
 using System.Collections.Generic;
 using System.Linq;
 using Mirror;
+using Networking;
 using Quantum_Decks.Card_System;
 using Shared;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using UnityEngine;
-using NetworkManager = Networking.NetworkManager;
 
 namespace Quantum_Decks.Environment
 {
-    public class EnvironmentDeck : NetworkBehaviour
+    public class EnvironmentDeck : MonoBehaviour
     {
         [SerializeField] private List<EnvironmentCardData> _allCardData;
         [SerializeField] private List<EnvironmentCardData> _allBossData;
-        [Sirenix.OdinInspector.ShowInInspector] private List<EnvironmentCard> _cards = new List<EnvironmentCard>();
+
+        [Sirenix.OdinInspector.ShowInInspector]
+        private List<EnvironmentCard> _cards = new List<EnvironmentCard>();
+
         [SerializeField] private EnvironmentDeckReference _environmentDeckReference;
+        [SerializeField] private NetworkSettingReference _networkSettingReference;
 
         public int Count => _cards.Count;
 
         private void Awake()
         {
-            PopulateList();
+            if (_networkSettingReference.IsLocal())
+                PopulateList();
+            else
+            {
+                _cards = new List<EnvironmentCard>();
+            }
         }
 
-        private void OnEnable()
+        private void Start()
         {
             _environmentDeckReference.Value = this;
-            NetworkManager.OnEnvironmentChanged.AddListener(UpdateList);
+            QuantumNetworkManager.OnEnvironmentChanged.AddListener(UpdateList);
+            QuantumNetworkManager.OnClientJoin.AddListener(PopulateOnline);
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _environmentDeckReference.Reset();
-            NetworkManager.OnEnvironmentChanged.RemoveListener(UpdateList);
+            QuantumNetworkManager.OnEnvironmentChanged.RemoveListener(UpdateList);
+            QuantumNetworkManager.OnClientJoin.RemoveListener(PopulateOnline);
         }
-
-        [Command]
+        
         public void PopulateList()
         {
-            if (!isServer)
-            {
-                return;
-            }
             Debug.Log("EVN: Populate List");
-            
+
             foreach (var cardData in _allCardData)
             {
                 _cards.Add(new EnvironmentCard(cardData));
             }
-            
+
             _cards.Shuffle();
-            
-            NetworkManager.LocalPlayer.ChangeEnvironment(_cards.Select(c => c.NameId).ToArray());
         }
+        
+        public void PopulateOnline()
+        {
+            PopulateList();
+            QuantumNetworkManager.LocalPlayer.ChangeEnvironment(_cards.Select(c => c.NameId).ToArray());
+        }
+
 
         public void UpdateList(string[] cards)
         {
@@ -68,7 +78,7 @@ namespace Quantum_Decks.Environment
             {
                 SpawnBoss();
             }
-            
+
             switch (playerId)
             {
                 case Networking.Player.Unset:
@@ -85,13 +95,12 @@ namespace Quantum_Decks.Environment
         public void SpawnBoss()
         {
             _allBossData.Shuffle();
-            _cards.Add( new EnvironmentCard(_allBossData.First()));
+            _cards.Add(new EnvironmentCard(_allBossData.First()));
             SpawnBossAnimation();
         }
 
         public void SpawnBossAnimation()
         {
-            
         }
 
         public void RemoveAllDefeated()

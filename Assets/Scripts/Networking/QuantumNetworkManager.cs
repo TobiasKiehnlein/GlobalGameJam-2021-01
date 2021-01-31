@@ -24,7 +24,7 @@ namespace Networking
     {
     }
 
-    public class NetworkManager : Mirror.NetworkManager
+    public class QuantumNetworkManager : Mirror.NetworkManager
     {
         public static OnSubmitChangeEvent OnSubmitChange;
         public static OnChangeHandEvent OnHandChanged;
@@ -33,9 +33,9 @@ namespace Networking
         public static UnityEvent OnClientJoin;
         public static NetworkPlayer LocalPlayer { get; set; }
 
-        public override void Start()
+        public override void Awake()
         {
-            base.Start();
+            base.Awake();
 
             OnSubmitChange = new OnSubmitChangeEvent();
             OnEnvironmentChanged = new OnChangeEnvironmentEvent();
