@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Quantum_Decks.Card_System;
+using Quantum_Decks.Environment;
 using Shared.Scriptable_References;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class TextMeshParser : MonoBehaviour
     private TextMeshProUGUI _textMesh;
 
     [SerializeField] private CardCollection _collection;
+    [SerializeField] private EnvironmentDeck _environmentDeck;
 
     private void Awake()
     {
@@ -23,5 +25,7 @@ public class TextMeshParser : MonoBehaviour
             _textMesh.text = _intReference.Value.ToString();
         if (_collection)
             _textMesh.text = _collection.Cards.Count().ToString();
+        if (_environmentDeck)
+            _textMesh.text = _environmentDeck.Count.ToString();
     }
 }
