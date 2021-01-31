@@ -348,3 +348,5 @@ MonoBehaviour:
       Las cartas que los jugadores deben superar se llaman AMENAZAS."
   - Id: Rules_Effects
     Value: Efectos
+  - Id: Button_Exit
+    Value: Salida

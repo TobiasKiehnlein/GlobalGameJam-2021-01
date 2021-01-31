@@ -337,3 +337,5 @@ MonoBehaviour:
       unavailable. The cards the players have to overcome are called THREATS.
   - Id: Rules_Effects
     Value: Effects
+  - Id: Button_Exit
+    Value: Exit

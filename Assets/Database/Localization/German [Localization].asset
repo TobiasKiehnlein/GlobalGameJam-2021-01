@@ -350,3 +350,5 @@ MonoBehaviour:
       Die Karten die die Spieler besiegen wollen sind <b>Bedrohung</b>EN."
   - Id: Rules_Effects
     Value: Karteneffekte
+  - Id: Button_Exit
+    Value: Verlassen
