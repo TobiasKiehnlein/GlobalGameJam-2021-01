@@ -198,7 +198,8 @@ namespace Quantum_Decks.Game
 
         private IEnumerator DefensePhase(Player.Player player, EnvironmentCard environmentCard)
         {
-            yield return environmentCard.ApplyEffects(_defenseTrigger, player);
+            if (environmentCard.Value > 0)
+                yield return environmentCard.ApplyEffects(_defenseTrigger, player);
         }
 
         private IEnumerator RevengePhase(Player.Player player, EnvironmentCard environmentCard)
