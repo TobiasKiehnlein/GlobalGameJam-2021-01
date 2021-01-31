@@ -1,7 +1,10 @@
-﻿using Doozy.Engine.UI;
+﻿using System;
+using System.Linq;
+using Doozy.Engine.UI;
 using Quantum_Decks.Card_System;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 namespace Quantum_Decks.Player
@@ -25,6 +28,7 @@ namespace Quantum_Decks.Player
         [SerializeField, BoxGroup("Card System")]
         private Transform _dropZone;
 
+        [SerializeField] private TextMeshProUGUI _deckCountTextMesh;
 
         public Networking.Player PlayerId => _playerId;
         public CardCollection Deck => _deck;
@@ -68,6 +72,11 @@ namespace Quantum_Decks.Player
         {
             _currentSelectedCard = null;
             _acceptButtonView.Hide();
+        }
+
+        private void Update()
+        {
+            _deckCountTextMesh.text = _deck.Cards.Count().ToString();
         }
     }
 }
