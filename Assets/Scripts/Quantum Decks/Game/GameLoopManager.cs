@@ -112,6 +112,7 @@ namespace Quantum_Decks.Game
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
 
             _allPlayerCardData.Value.Shuffle();
+            Debug.Log("PREPARE");
             for (var i = 0; i < _allPlayerCardData.Value.Count; i++)
             {
                 var cardData = _allPlayerCardData.Value[i];
