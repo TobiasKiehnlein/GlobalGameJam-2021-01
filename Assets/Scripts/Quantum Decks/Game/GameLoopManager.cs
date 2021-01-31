@@ -80,14 +80,11 @@ namespace Quantum_Decks.Game
 
             while (!_isGameOver.Value)
             {
-                Debug.Log("Ambush Phase");
                 foreach (var player in _playerCollection.Value)
                 {
                     yield return AmbushPhase(player, _environmentDeck.GetByPlayer(player.PlayerId));
-                    yield return new WaitForSeconds(2);
                 }
-
-                Debug.Log("Draw Phase");
+                
                 _isGameOver.Value = _playerCollection.Value.Any(p => !p.Deck.Cards.Any());
                 if (_isGameOver.Value)
                 {
