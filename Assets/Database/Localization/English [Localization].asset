@@ -339,3 +339,11 @@ MonoBehaviour:
     Value: Effects
   - Id: Button_Exit
     Value: Exit
+  - Id: Text_Again
+    Value: Want To Play Again?
+  - Id: Text_Win
+    Value: You Won
+  - Id: Text_Lost
+    Value: Game Over
+  - Id: Button_Menu
+    Value: Main Menu

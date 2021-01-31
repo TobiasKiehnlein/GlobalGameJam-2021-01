@@ -350,3 +350,11 @@ MonoBehaviour:
     Value: Efectos
   - Id: Button_Exit
     Value: Salida
+  - Id: Text_Again
+    Value: "\xBFQuieres jugar de nuevo?"
+  - Id: Text_Win
+    Value: "\xA1Won! "
+  - Id: Text_Lost
+    Value: "\xA1Perdi\xF3! "
+  - Id: Button_Menu
+    Value: Main

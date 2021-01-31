@@ -352,3 +352,11 @@ MonoBehaviour:
     Value: Karteneffekte
   - Id: Button_Exit
     Value: Verlassen
+  - Id: Text_Again
+    Value: Nochmal Spielen?
+  - Id: Text_Win
+    Value: Gewonnen!
+  - Id: Text_Lost
+    Value: Verloren!
+  - Id: Button_Menu
+    Value: "Hauptmen\xFC"
