@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using Quantum_Decks.Audio;
 using Shared.Scriptable_References;
 using UnityEngine;
 
@@ -78,6 +79,7 @@ namespace Quantum_Decks.Card_System
 
         public List<Tween> RespawnCards(bool deselect = true)
         {
+            AudioManager.Instance.PlaySfx(Random.Range(0, 1) > .5f ? SFX.DRAWING_CARD_1 : SFX.DRAWING_CARD_2);
             var tweens = new List<Tween>();
 
             foreach (var child in _children)
