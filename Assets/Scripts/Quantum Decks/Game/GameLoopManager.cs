@@ -209,9 +209,15 @@ namespace Quantum_Decks.Game
         {
             foreach (var player in _playerCollection.Value)
             {
+                foreach (var tween in player.Animations.EndRound())
+                {
+                    yield return tween.WaitForCompletion();
+                }
+                
                 player.CardSpawner.Despawn();
                 yield return VoidPhase(player);
                 yield return LostPhase(player);
+                player.ResetCurrentSelectedCard();
             }
 
             _environmentDeck.RemoveAllDefeated();

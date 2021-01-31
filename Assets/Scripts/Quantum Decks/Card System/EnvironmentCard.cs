@@ -26,7 +26,12 @@ namespace Quantum_Decks.Card_System
                 damage = card.Value + otherPlayer.Value;
             }
 
-            if (HasKeyword(shielded) && (card.Fractions.Any(f => f == fractionLess) || card.Fractions.Count > 1))
+            if (!Fractions.Intersect(card.Fractions).Any())
+            {
+                damage = 1;
+            }
+
+            if (HasKeyword(shielded) && card.Fractions.Count > 1)
             {
                 Debug.Log($"{_data.NameId} was shielded");
                 damage = 1;
