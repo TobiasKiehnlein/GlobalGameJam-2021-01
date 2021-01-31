@@ -1,4 +1,5 @@
 using Quantum_Decks.Localization;
+using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;

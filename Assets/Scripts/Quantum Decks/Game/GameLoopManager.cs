@@ -80,8 +80,9 @@ namespace Quantum_Decks.Game
         {
             yield return DeckPreparationPhase();
             _isGameOver.Value = false;
+            _isVictory.Value = false;
 
-            while (!_isGameOver.Value)
+            while (!_isGameOver.Value || _isVictory.Value)
             {
                 _environmentDeck.UpdateAll();
 

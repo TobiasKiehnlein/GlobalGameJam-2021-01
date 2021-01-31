@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -17227,6 +17227,7 @@ MonoBehaviour:
   _allPlayerCardData: {fileID: 11400000, guid: b0b86bc4264e780449810a1d641df3ce, type: 2}
   _defenseTrigger: {fileID: 11400000, guid: 4bd31adb988e7fa4f8c800ecde2b20eb, type: 2}
   _revengeTrigger: {fileID: 11400000, guid: 9d85a65062323034d8caaf9c015c7571, type: 2}
+  _surgeTrigger: {fileID: 11400000, guid: 5cdcec4ddc801be43a44810b9fee314d, type: 2}
   _lostTrigger: {fileID: 11400000, guid: e9e6534beda1bc245a4d18dd56d0adf4, type: 2}
   _attackTrigger: {fileID: 11400000, guid: 58b53b7c4f79a394c957dca5f3b6a81b, type: 2}
   _ambushTrigger: {fileID: 11400000, guid: dea5e7d0b76880a47a39e12b053c2cbb, type: 2}
