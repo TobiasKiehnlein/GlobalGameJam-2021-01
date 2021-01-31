@@ -1,4 +1,5 @@
 using System.Collections;
+using Shared.Scriptable_References;
 using UnityEngine;
 
 namespace Quantum_Decks.Card_System
@@ -7,8 +8,14 @@ namespace Quantum_Decks.Card_System
         fileName = "New Transmute Effect [Transmute Effect]")]
     public class TransmuteEffect : Effect
     {
+        [SerializeField] private PlayerCollection _playerCollection;
+        [SerializeField] private EnvironmentDeckReference _environmentDeck;
+        
         public override IEnumerator ApplyEffect(Player.Player player)
         {
+            var otherPlayer = _playerCollection.GetOtherPlayer(player);
+            
+            
             yield return new WaitForEndOfFrame();
         }
     }

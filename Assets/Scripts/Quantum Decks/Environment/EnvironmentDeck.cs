@@ -79,6 +79,35 @@ namespace Quantum_Decks.Environment
         {
             _cards.RemoveAll(d => d.Value == 0);
         }
-        
+
+        [Button(ButtonSizes.Medium)]
+        public void Transmute(Networking.Player playerId)
+        {
+            if (_cards.Count <= 1)
+            {
+                return;
+            }
+
+            EnvironmentCard card;
+            switch (playerId)
+            {
+                case Networking.Player.Unset:
+                    break;
+                case Networking.Player.One:
+                    card = _cards.Last();
+                    _cards.Remove(card);
+                    _cards.Shuffle();
+                    _cards.Add(card);
+                    break;
+                case Networking.Player.Two:
+                    card = _cards.First();
+                    _cards.Remove(card);
+                    _cards.Shuffle();
+                    _cards.Insert(0, card);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }
