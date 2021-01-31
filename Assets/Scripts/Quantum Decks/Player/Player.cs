@@ -58,16 +58,25 @@ namespace Quantum_Decks.Player
             _cardObjects = GetComponentsInChildren<CardObject>();
         }
 
-        private void OnEnable()
+        private void Start()
         {
             QuantumNetworkManager.OnSelectedCardChanged.AddListener(OnSelectedChangeOnline);
+        }
+
+        private void OnEnable()
+        {
+   
             _playerCollection.Add(this);
         }
 
         private void OnDisable()
         {
-            QuantumNetworkManager.OnSelectedCardChanged.RemoveListener(OnSelectedChangeOnline);
             _playerCollection.Remove(this);
+        }
+
+        private void OnDestroy()
+        {
+            QuantumNetworkManager.OnSelectedCardChanged.RemoveListener(OnSelectedChangeOnline);
         }
 
         public void Select(CardObject card)
