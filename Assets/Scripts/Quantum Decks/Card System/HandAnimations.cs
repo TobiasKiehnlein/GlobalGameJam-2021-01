@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Shared.Scriptable_References;
 using UnityEngine;
@@ -69,12 +70,9 @@ namespace Quantum_Decks.Card_System
             return tweens;
         }
 
-        public void EndRound()
+        public List<Tween> EndRound()
         {
-            for (var i = 0; i < _children.Length; i++)
-            {
-                _children[i].DOMove(Vector3.Distance(_children[i].position, _positions[i]) > _animationsReference.HoverAmount ? OtherStaple.position : Void.position, _animationsReference.Duration);
-            }
+            return _children.Select((t, i) => t.DOMove(Vector3.Distance(t.position, _positions[i]) > _animationsReference.HoverAmount ? OtherStaple.position : Void.position, _animationsReference.Duration)).Cast<Tween>().ToList();
         }
 
 
