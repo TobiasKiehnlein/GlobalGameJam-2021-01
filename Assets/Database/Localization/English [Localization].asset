@@ -158,7 +158,7 @@ MonoBehaviour:
   - Id: AN#3_title
     Value: Alien Diplomacy
   - Id: AN#3_text
-    Value: 'If this card <b>Surges</b: <b>Rescue</b>'
+    Value: 'If this card <b>Surges</b>: <b>Rescue</b>'
   - Id: AN#4_title
     Value: Spice Me Up, Navigator!
   - Id: AN#4_text
