@@ -3660,7 +3660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.02745098}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3690,7 +3690,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationsReference: {fileID: 11400000, guid: bb87c005e487142018b0050a7f2f2a4f,
     type: 2}
+  Staple: {fileID: 0}
+  OtherStaple: {fileID: 0}
   DropZone: {fileID: 3873867674960570112}
+  Void: {fileID: 0}
 --- !u!1 &7973621675964952041
 GameObject:
   m_ObjectHideFlags: 0
@@ -3749,13 +3752,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.03529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 20ca3639718bf7f4b997cf4ef2f0d004, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

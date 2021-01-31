@@ -21,15 +21,15 @@ namespace Quantum_Decks.Card_System
                 damage = card.Value + otherPlayer.Value;
             }
 
+            if (!Fractions.Intersect(card.Fractions).Any())
+            {
+                damage = 1;
+            }
+            
             if (isSurge && card.HasKeyword(powerSurge))
             {
                 Debug.Log($"{card.NameId} had powersearch");
                 damage = card.Value + otherPlayer.Value;
-            }
-
-            if (!Fractions.Intersect(card.Fractions).Any())
-            {
-                damage = 1;
             }
 
             if (HasKeyword(shielded) && card.Fractions.Count > 1)
