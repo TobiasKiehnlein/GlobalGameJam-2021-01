@@ -59,7 +59,7 @@ namespace Quantum_Decks.Game
 
         [SerializeField, Required] private BoolReference _isBossFight;
         [SerializeField, Required] private BoolReference _isVictory;
-
+        
 
         private void Start()
         {
@@ -80,9 +80,12 @@ namespace Quantum_Decks.Game
 
             while (!_isGameOver.Value)
             {
+                _environmentDeck.UpdateAll();
+                
                 foreach (var player in _playerCollection.Value)
                 {
                     yield return AmbushPhase(player, _environmentDeck.GetByPlayer(player.PlayerId));
+                    _environmentDeck.UpdateAll();
                 }
                 
                 _isGameOver.Value = _playerCollection.Value.Any(p => !p.Deck.Cards.Any());
@@ -170,12 +173,17 @@ namespace Quantum_Decks.Game
             var environmentCard = _environmentDeck.GetByPlayer(player.PlayerId);
             var card = player.CurrentSelectedCard.Card as PlayerCard;
             yield return ActionPhase(card, player);
+            _environmentDeck.UpdateAll();
             yield return new WaitForSeconds(.5f);
+            _environmentDeck.UpdateAll();
             yield return DamagePhase(player, environmentCard);
+            _environmentDeck.UpdateAll();
             yield return new WaitForSeconds(.5f);
             yield return DefensePhase(player, environmentCard);
+            _environmentDeck.UpdateAll();
             yield return new WaitForSeconds(.5f);
             yield return RevengePhase(player, environmentCard);
+            _environmentDeck.UpdateAll();
             yield return new WaitForSeconds(.5f);
             if (card != null)
                 card.Duration--;

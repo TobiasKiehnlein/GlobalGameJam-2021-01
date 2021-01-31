@@ -7,6 +7,7 @@ using Quantum_Decks.Card_System;
 using Shared;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Quantum_Decks.Environment
@@ -24,12 +25,15 @@ namespace Quantum_Decks.Environment
 
         [SerializeField] private int NumberOfCards = 17;
         [SerializeField] private BoolReference _isBossFight;
+
+        private EnvironmentCardObject[] _environmentCardObjects;
         
         
         public int Count => _cards.Count;
 
         private void Awake()
         {
+            _environmentCardObjects = FindObjectsOfType<EnvironmentCardObject>();
             _isBossFight.Reset();
             
             if (_networkSettingReference.IsLocal())
@@ -38,6 +42,11 @@ namespace Quantum_Decks.Environment
             {
                 _cards = new List<EnvironmentCard>();
             }
+        }
+
+        public void UpdateAll()
+        {
+            _environmentCardObjects.ForEach(e => e.UpdateCard());
         }
 
         private void Start()
@@ -98,11 +107,14 @@ namespace Quantum_Decks.Environment
             }
         }
 
+        [Button(ButtonSizes.Medium)]
         public void SpawnBoss()
         {
+            _cards.Clear();
             AudioManager.Instance.SwitchToBattle();
             _allBossData.Shuffle();
             _cards.Add(new EnvironmentCard(_allBossData.First()));
+            UpdateAll();
             _isBossFight.Value = true;
             SpawnBossAnimation();
         }

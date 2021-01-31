@@ -52,7 +52,7 @@ namespace Quantum_Decks.Audio
 
         public void SwitchToBattle()
         {
-            Mixer.FindSnapshot("BattleMusic").TransitionTo(5);
+            Mixer.FindSnapshot("BossMusic").TransitionTo(5);
         }
 
         public void SwitchToMain()

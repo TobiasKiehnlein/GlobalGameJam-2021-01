@@ -31,14 +31,11 @@ namespace Quantum_Decks.Card_System
             _environmentDeck = FindObjectOfType<EnvironmentDeck>();
         }
 
-        public void Update()
-        {
-            if (_environmentDeck.Count > 0)
-                UpdateCard();
-        }
-
         public void UpdateCard()
         {
+            if (_environmentDeck.Count == 0)
+                return;
+            
             _card = _environmentDeck.GetByPlayer(_playerId);
             UpdateText();
             _valueTextMesh.text = _card.Value.ToString();
