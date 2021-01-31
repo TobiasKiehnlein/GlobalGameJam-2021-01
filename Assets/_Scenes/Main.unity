@@ -12577,6 +12577,7 @@ MonoBehaviour:
     type: 2}
   _networkSettingReference: {fileID: 11400000, guid: bb859a510c306924d8e6312ab31e9669,
     type: 2}
+  NumberOfCards: 16
 --- !u!114 &1575033735
 MonoBehaviour:
   m_ObjectHideFlags: 0

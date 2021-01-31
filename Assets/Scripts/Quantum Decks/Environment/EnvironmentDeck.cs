@@ -7,6 +7,7 @@ using Quantum_Decks.Card_System;
 using Shared;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Quantum_Decks.Environment
@@ -21,6 +22,8 @@ namespace Quantum_Decks.Environment
 
         [SerializeField] private EnvironmentDeckReference _environmentDeckReference;
         [SerializeField] private NetworkSettingReference _networkSettingReference;
+
+        [SerializeField] private int NumberOfCards = 17;
 
         public int Count => _cards.Count;
 
@@ -52,12 +55,12 @@ namespace Quantum_Decks.Environment
         {
             Debug.Log("EVN: Populate List");
 
-            foreach (var cardData in _allCardData)
+            _allCardData.Shuffle();
+            for (var i = 0; i < NumberOfCards; i++)
             {
+                var cardData = _allCardData[i];
                 _cards.Add(new EnvironmentCard(cardData));
             }
-
-            _cards.Shuffle();
         }
         
         public void PopulateOnline()
