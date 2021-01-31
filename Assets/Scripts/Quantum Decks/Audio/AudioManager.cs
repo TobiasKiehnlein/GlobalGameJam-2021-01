@@ -66,7 +66,7 @@ namespace Quantum_Decks.Audio
             {
                 _sfxSources[(int) sfx].Play();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Debug.LogWarning($"The audio No. ${sfx} couldn't be played");
             }
