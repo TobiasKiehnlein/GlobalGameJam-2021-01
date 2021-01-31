@@ -28,6 +28,8 @@ namespace Quantum_Decks.Player
         [SerializeField, BoxGroup("Card System")]
         private Transform _dropZone;
 
+        private HandAnimations _animations;
+
         [SerializeField] private TextMeshProUGUI _deckCountTextMesh;
 
         public Networking.Player PlayerId => _playerId;
@@ -35,8 +37,9 @@ namespace Quantum_Decks.Player
         public CardCollection Hand => _hand;
         public CardSpawner CardSpawner => _cardSpawner;
         public Transform DropZone => _dropZone;
-
-
+        
+        public HandAnimations Animations => _animations;
+        
         [BoxGroup("Player Ui"), SerializeField]
         private UIView _acceptButtonView;
 
@@ -50,6 +53,7 @@ namespace Quantum_Decks.Player
         private void OnEnable()
         {
             _playerCollection.Add(this);
+            _animations = GetComponentInChildren<HandAnimations>();
         }
 
         private void OnDisable()

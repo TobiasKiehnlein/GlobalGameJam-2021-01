@@ -27,5 +27,15 @@ namespace Quantum_Decks.Localization
             Value.Insert(0, data);
             OnLocalizationChanged?.Invoke();
         }
+
+        [Button(ButtonSizes.Medium)]
+        public void NexLocalization()
+        {
+            var localization = Value.LastOrDefault();
+            if (localization)
+            {
+                SetLocalization(localization);
+            }
+        }
     }
 }

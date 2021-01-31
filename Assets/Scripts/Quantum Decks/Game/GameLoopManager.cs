@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using DG.Tweening;
 using Quantum_Decks.Card_System;
 using Quantum_Decks.Environment;
 using Shared;
@@ -140,6 +141,10 @@ namespace Quantum_Decks.Game
                 }
 
                 player.CardSpawner.UpdateCards(player);
+                foreach (var tween in   player.Animations.RespawnCards())
+                {
+                    yield return tween.WaitForCompletion();
+                }
             }
 
             yield return new WaitForEndOfFrame();
