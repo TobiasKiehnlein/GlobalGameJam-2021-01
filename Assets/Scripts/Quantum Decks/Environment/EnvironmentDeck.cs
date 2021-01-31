@@ -7,6 +7,7 @@ using Quantum_Decks.Card_System;
 using Shared;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Quantum_Decks.Environment
@@ -47,7 +48,7 @@ namespace Quantum_Decks.Environment
             QuantumNetworkManager.OnEnvironmentChanged.RemoveListener(UpdateList);
             QuantumNetworkManager.OnClientJoin.RemoveListener(PopulateOnline);
         }
-        
+
         public void PopulateList()
         {
             Debug.Log("EVN: Populate List");
@@ -59,10 +60,11 @@ namespace Quantum_Decks.Environment
 
             _cards.Shuffle();
         }
-        
+
         public void PopulateOnline()
         {
             PopulateList();
+            // Debug.Log("QuantumNetworkManager.LocalPlayer");
             QuantumNetworkManager.LocalPlayer.ChangeEnvironment(_cards.Select(c => c.NameId).ToArray());
         }
 

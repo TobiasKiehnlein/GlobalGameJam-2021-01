@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasStartValue: 1
   _startValue: 0
-  _value: 0
+  _value: 1
   ServerIp: 

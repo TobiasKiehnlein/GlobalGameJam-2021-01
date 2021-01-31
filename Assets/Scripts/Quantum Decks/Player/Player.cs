@@ -53,11 +53,6 @@ namespace Quantum_Decks.Player
             _playerCollection.Remove(this);
         }
 
-        public void Accept()
-        {
-            HasAccepted = true;
-        }
-
         public void Select(CardObject card)
         {
             _currentSelectedCard = card;

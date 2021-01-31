@@ -1,5 +1,6 @@
 ﻿using System;
 using Mirror;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Networking
@@ -24,14 +25,24 @@ namespace Networking
     {
     }
 
-    public class QuantumNetworkManager : Mirror.NetworkManager
+    public class QuantumNetworkManager : NetworkManager
     {
         public static OnSubmitChangeEvent OnSubmitChange;
         public static OnChangeHandEvent OnHandChanged;
         public static OnChangeEnvironmentEvent OnEnvironmentChanged;
         public static OnSelectCardEvent OnSelectedCardChanged;
         public static UnityEvent OnClientJoin;
-        public static NetworkPlayer LocalPlayer { get; set; }
+        private static NetworkPlayer s_localPlayer;
+
+        public static NetworkPlayer LocalPlayer
+        {
+            get => s_localPlayer;
+            set
+            {
+                s_localPlayer = value;
+                OnClientJoin.Invoke();
+            }
+        }
 
         public override void Awake()
         {
@@ -42,12 +53,6 @@ namespace Networking
             OnHandChanged = new OnChangeHandEvent();
             OnSelectedCardChanged = new OnSelectCardEvent();
             OnClientJoin = new UnityEvent();
-        }
-
-        public override void OnClientConnect(NetworkConnection conn)
-        {
-            base.OnClientConnect(conn);
-            OnClientJoin.Invoke();
         }
     }
 }
