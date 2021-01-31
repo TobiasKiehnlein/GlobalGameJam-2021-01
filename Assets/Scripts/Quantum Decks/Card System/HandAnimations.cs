@@ -41,6 +41,7 @@ namespace Quantum_Decks.Card_System
 
         public List<Tween> SelectIndex(int index)
         {
+            AudioManager.Instance.PlaySfx(Random.Range(0, 1) > .5f ? SFX.PLAYING_A_CARD_1 : SFX.PLAYING_A_CARD_2);
             var tweens = Deselect();
             var currentTransform = _children[index].transform;
             // Debug.Log(_canvas.localScale);
@@ -73,6 +74,7 @@ namespace Quantum_Decks.Card_System
 
         public List<Tween> EndRound()
         {
+            AudioManager.Instance.PlaySfx(SFX.MOVING_CARDS);
             return _children.Select((t, i) => t.DOMove(Vector3.Distance(t.position, _positions[i]) > _animationsReference.HoverAmount ? OtherStaple.position : Void.position, _animationsReference.Duration)).Cast<Tween>().ToList();
         }
 
