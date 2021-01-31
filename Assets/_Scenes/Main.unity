@@ -315,7 +315,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &474618794
 GameObject:
@@ -923,6 +923,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1393167203}
     m_Modifications:
+    - target: {fileID: 1850784378500767919, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 1850784378500767919, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7937304560403630374, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 7937304560403630374, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8604076911740351833, guid: 1d6fa6000da102b4da9a14e9be3a6054,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1033,6 +1055,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment Card - Player 1 [Prefab]
       objectReference: {fileID: 0}
+    - target: {fileID: 8731903330579399622, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 8731903330579399622, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6fa6000da102b4da9a14e9be3a6054, type: 3}
 --- !u!224 &1034444379 stripped
@@ -1104,7 +1137,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235983377
 GameObject:
@@ -1217,7 +1250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1375474559
 GameObject:
@@ -2164,7 +2197,7 @@ RectTransform:
   - {fileID: 1375474560}
   - {fileID: 1135154187}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2285,6 +2318,42 @@ MonoBehaviour:
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
     IsHidden: 0
+  - Type: 0
+    Name: 
+    GameObject: {fileID: 457518587}
+    Ordinal: 7
+    Priority: 0
+    IconType: 0
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 130
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Name: 
+    GameObject: {fileID: 1393167198}
+    Ordinal: 8
+    Priority: 0
+    IconType: 0
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 90
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Name: 
+    GameObject: {fileID: 1506816916}
+    Ordinal: 9
+    Priority: 0
+    IconType: 0
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 170
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
 --- !u!4 &1506816918
 Transform:
   m_ObjectHideFlags: 0
@@ -2297,7 +2366,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1575033732
 GameObject:
