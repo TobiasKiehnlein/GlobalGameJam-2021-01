@@ -8,6 +8,8 @@ namespace Networking
 {
     public class NetworkPlayer : NetworkBehaviour
     {
+        public Player Player { get; set; }
+        
         private void Start()
         {
             if (!isLocalPlayer) return;

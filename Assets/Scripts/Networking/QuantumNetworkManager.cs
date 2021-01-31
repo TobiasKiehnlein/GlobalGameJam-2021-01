@@ -1,5 +1,6 @@
 ﻿using System;
 using Mirror;
+using Shared.Scriptable_References;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,6 +34,7 @@ namespace Networking
         public static OnSelectCardEvent OnSelectedCardChanged;
         public static UnityEvent OnClientJoin;
         public static UnityEvent OnGameStart;
+        
 
         private static NetworkPlayer s_localPlayer;
 

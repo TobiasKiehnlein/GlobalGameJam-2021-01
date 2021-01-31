@@ -3559,6 +3559,8 @@ MonoBehaviour:
   _cardSpawner: {fileID: 5473658159891599299}
   _dropZone: {fileID: 3873867674960570112}
   _deckCountTextMesh: {fileID: 4729067997501734230}
+  _networkSettingReference: {fileID: 11400000, guid: bb859a510c306924d8e6312ab31e9669,
+    type: 2}
   _acceptButtonView: {fileID: 8725780810445701776}
   HasAccepted: 0
 --- !u!222 &5921529893510572594

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Linq;
+using Networking;
 using Quantum_Decks.Card_System;
 using Quantum_Decks.Environment;
 using Shared;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using NetworkPlayer = Networking.NetworkPlayer;
 
 namespace Quantum_Decks.Game
 {
@@ -18,8 +20,8 @@ namespace Quantum_Decks.Game
         private PlayerCollection _playerCollection;
 
         [Required, SerializeField, BoxGroup("References")]
-        private CardCollection _voidDeck;  
-        
+        private CardCollection _voidDeck;
+
         [Required, SerializeField, BoxGroup("References")]
         private PlayerCardDataCollection _allPlayerCardData;
 
@@ -42,26 +44,34 @@ namespace Quantum_Decks.Game
 
         [SerializeField, Required, BoxGroup("Fraction")]
         private Fraction _fractionLess;
-        
-        
+
 
         [SerializeField] private BoolReference _isSurge;
 
-        [SerializeField, Required, BoxGroup("Keywords")] private Keyword _powerSurge;
-        [SerializeField, Required, BoxGroup("Keywords")]  private Keyword _shielded;
-        [SerializeField, Required, BoxGroup("Keywords")]  private Keyword _elusive;
+        [SerializeField, Required, BoxGroup("Keywords")]
+        private Keyword _powerSurge;
+
+        [SerializeField, Required, BoxGroup("Keywords")]
+        private Keyword _shielded;
+
+        [SerializeField, Required, BoxGroup("Keywords")]
+        private Keyword _elusive;
 
         private Coroutine _gameLoopRoutine;
+
+        [SerializeField, Required] private NetworkSettingReference _networkSettingReference;
 
 
         private void Start()
         {
+            QuantumNetworkManager.OnHandChanged.AddListener(CardDrawOnline);
             _environmentDeck = FindObjectOfType<EnvironmentDeck>();
             StartCoroutine(GameLoop());
         }
 
         private void OnDestroy()
         {
+            QuantumNetworkManager.OnHandChanged.RemoveListener(CardDrawOnline);
             StopAllCoroutines();
         }
 
@@ -100,7 +110,7 @@ namespace Quantum_Decks.Game
         {
             var player = _playerCollection.CurrentPlayer;
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
-            
+
             _allPlayerCardData.Value.Shuffle();
             for (var i = 0; i < _allPlayerCardData.Value.Count; i++)
             {
@@ -130,15 +140,39 @@ namespace Quantum_Decks.Game
         {
             foreach (var player in _playerCollection.Value)
             {
-                for (var i = 0; i < 3; i++)
+                if (_networkSettingReference.IsLocal() || QuantumNetworkManager.LocalPlayer?.Player == player.PlayerId)
                 {
-                    player.Deck.DrawTo(player.Hand);
+                    for (var i = 0; i < 3; i++)
+                    {
+                        player.Deck.DrawTo(player.Hand);
+                    }
+
+                    player.CardSpawner.UpdateCards(player);
                 }
 
-                player.CardSpawner.UpdateCards(player);
+                if (_networkSettingReference.IsOnline() && QuantumNetworkManager.LocalPlayer?.Player == player.PlayerId)
+                {
+                    var card1 = player.Hand.Cards.Count > 0 ? player.Hand.Cards[0] : null;
+                    var card2 = player.Hand.Cards.Count > 1 ? player.Hand.Cards[1] : null;
+                    var card3 = player.Hand.Cards.Count > 2 ? player.Hand.Cards[2] : null;
+                    QuantumNetworkManager.LocalPlayer?.ChangeHand(player.PlayerId, card1?.NameId, card2?.NameId,
+                        card3?.NameId);
+                }
             }
 
             yield return new WaitForEndOfFrame();
+        }
+
+        public void CardDrawOnline(Networking.Player playerId, string card1, string card2, string card3)
+        {
+            if (QuantumNetworkManager.LocalPlayer?.Player == playerId)
+                return;
+            
+            var player = _playerCollection.GetPlayer(playerId);
+            player.Deck.DrawTo(card1, player.Hand);
+            player.Deck.DrawTo(card2, player.Hand);
+            player.Deck.DrawTo(card3, player.Hand);
+            player.CardSpawner.UpdateCards(player);
         }
 
         private IEnumerator ActionSelectPhase()

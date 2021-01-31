@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Doozy.Engine.UI;
+using Mirror;
+using Networking;
 using Quantum_Decks.Card_System;
 using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
@@ -30,6 +32,10 @@ namespace Quantum_Decks.Player
 
         [SerializeField] private TextMeshProUGUI _deckCountTextMesh;
 
+        [SerializeField] private NetworkSettingReference _networkSettingReference;
+
+        private CardObject[] _cardObjects;
+
         public Networking.Player PlayerId => _playerId;
         public CardCollection Deck => _deck;
         public CardCollection Hand => _hand;
@@ -44,34 +50,68 @@ namespace Quantum_Decks.Player
 
         private CardObject _currentSelectedCard;
 
-        [BoxGroup("Card System"), ShowInInspector]
+        [BoxGroup("Card System"), Sirenix.OdinInspector.ShowInInspector]
         public CardObject CurrentSelectedCard => _currentSelectedCard;
+
+        private void Awake()
+        {
+            _cardObjects = GetComponentsInChildren<CardObject>();
+        }
 
         private void OnEnable()
         {
+            QuantumNetworkManager.OnSelectedCardChanged.AddListener(OnSelectedChangeOnline);
             _playerCollection.Add(this);
         }
 
         private void OnDisable()
         {
+            QuantumNetworkManager.OnSelectedCardChanged.RemoveListener(OnSelectedChangeOnline);
             _playerCollection.Remove(this);
         }
 
         public void Select(CardObject card)
         {
-            _currentSelectedCard = card;
-            _acceptButtonView.Show();
+            if (_networkSettingReference.IsLocal() || QuantumNetworkManager.LocalPlayer?.Player == _playerId)
+            {
+                _currentSelectedCard = card;
+                _acceptButtonView.Show();
+            }
+            
+            if (_networkSettingReference.IsOnline() && QuantumNetworkManager.LocalPlayer?.Player == _playerId)
+            {
+                QuantumNetworkManager.LocalPlayer?.SetSelectedCard(_playerId, card.Card.NameId);
+            }
+            
+  
         }
 
         public void Deselect()
         {
-            _currentSelectedCard = null;
-            _acceptButtonView.Hide();
+            if (_networkSettingReference.IsLocal() || QuantumNetworkManager.LocalPlayer?.Player == _playerId)
+            {
+                _currentSelectedCard = null;
+                _acceptButtonView.Hide();
+            }
+            
+            if (_networkSettingReference.IsOnline() && QuantumNetworkManager.LocalPlayer?.Player == _playerId)
+            {
+                QuantumNetworkManager.LocalPlayer?.SetSelectedCard(_playerId,null);
+            }
+        }
+
+        public void OnSelectedChangeOnline(Networking.Player playerId, string cardId)
+        {
+            if (QuantumNetworkManager.LocalPlayer?.Player == playerId || _playerId != playerId)
+                return;
+
+            var card = _cardObjects.FirstOrDefault(c => c.Card.NameId == cardId);
+            _currentSelectedCard = card;
         }
 
         private void Update()
         {
-            _deckCountTextMesh.text = _deck.Cards.Count().ToString();
+            _deckCountTextMesh.text = _deck.Cards.Count.ToString();
         }
     }
 }

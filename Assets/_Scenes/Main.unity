@@ -12852,6 +12852,8 @@ MonoBehaviour:
   _powerSurge: {fileID: 11400000, guid: 15dd05d90a0c0ce4ba9747de91cbc964, type: 2}
   _shielded: {fileID: 11400000, guid: 7879b0eda4b2b164f9e40dd7e2708d40, type: 2}
   _elusive: {fileID: 11400000, guid: a4aaf5b7902af444aa5b98a33c88a04a, type: 2}
+  _networkSettingReference: {fileID: 11400000, guid: bb859a510c306924d8e6312ab31e9669,
+    type: 2}
 --- !u!4 &1903335245
 Transform:
   m_ObjectHideFlags: 0

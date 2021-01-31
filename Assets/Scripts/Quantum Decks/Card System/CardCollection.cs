@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Shared;
 using Shared.Scriptable_References;
@@ -12,7 +11,7 @@ namespace Quantum_Decks.Card_System
     {
         [ShowInInspector, ReadOnly]
         private readonly List<PlayerCard> _cards = new List<PlayerCard>();
-        public IEnumerable<PlayerCard> Cards => _cards.AsReadOnly();
+        public List<PlayerCard> Cards => _cards;
         
         [SerializeField] private CardCollectionReference _cardCollectionReference;
 
@@ -53,6 +52,15 @@ namespace Quantum_Decks.Card_System
         public void DrawTo(CardCollection target)
         {
             var card = _cards.FirstOrDefault();
+            if (card == null)
+                return;
+            
+            Transfer(card, target);
+        }
+
+        public void DrawTo(string cardId, CardCollection target)
+        {
+            var card = _cards.FirstOrDefault(c => c.NameId == cardId);
             if (card == null)
                 return;
             
