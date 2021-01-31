@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameId: FA#1_title
   Fractions:
-  - {fileID: 11400000, guid: f18632272b6243543b334cdb55f4e327, type: 2}
+  - {fileID: 11400000, guid: 8dec81ad73e62db4ab63189cc9517af3, type: 2}
+  - {fileID: 11400000, guid: e89e545e14d9a3b489962977ff8121a6, type: 2}
+  - {fileID: 11400000, guid: f6d2e6e4ef8d74d47af11e2f370ef769, type: 2}
   DescriptionId: FA#1_text
   AttackValue: 5
   Sprite: {fileID: 21300000, guid: 1486e16cc73b5d54697d6483be5c8c57, type: 3}
