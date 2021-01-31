@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Quantum_Decks.Card_System
 {
-    public class CardObject : MonoBehaviour, IPointerClickHandler
+    public class CardObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField, Required] private LocalizationCollection _localizationCollection;
 
@@ -75,7 +75,7 @@ namespace Quantum_Decks.Card_System
             {
                 Destroy(child.gameObject);
             }
-            
+
             foreach (var fraction in card.Fractions)
             {
                 SpawnFractionIcon(fraction);
@@ -95,8 +95,8 @@ namespace Quantum_Decks.Card_System
             var fractionObject = Instantiate(_fractionsPrefab, _fractionTransform);
             fractionObject.GetComponent<FractionObject>().UpdateFraction(fraction);
         }
-        
-        
+
+
         public void OnPointerClick(PointerEventData eventData)
         {
             if (_owner.HasAccepted)
@@ -143,6 +143,20 @@ namespace Quantum_Decks.Card_System
 
             _handAnimations.Deselect();
             _owner.Deselect();
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (_owner.CurrentSelectedCard == this)
+                return;
+            _handAnimations.Hover(transform.GetSiblingIndex(), true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (_owner.CurrentSelectedCard == this)
+                return;
+            _handAnimations.Hover(transform.GetSiblingIndex(), false);
         }
     }
 }

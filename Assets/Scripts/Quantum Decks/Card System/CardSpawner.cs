@@ -31,5 +31,6 @@ public class CardSpawner : MonoBehaviour
 
     public void Despawn()
     {
+        _handAnimations.RespawnCards();
     }
 }

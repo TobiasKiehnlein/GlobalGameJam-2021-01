@@ -3,53 +3,82 @@ using DG.Tweening;
 using Shared.Scriptable_References;
 using UnityEngine;
 
-public class HandAnimations : MonoBehaviour
+namespace Quantum_Decks.Card_System
 {
-    [SerializeField] private Transform DropZone;
-    [SerializeField] private PlayerCollection PlayerCollection;
-
-    private Transform[] _children;
-    private Vector3[] _positions;
-    private RectTransform _canvas;
-
-    private void Start()
+    public class HandAnimations : MonoBehaviour
     {
-        _canvas = GameObject.Find("MasterCanvas").GetComponent<RectTransform>();
+        [SerializeField] private AnimationsReference _animationsReference;
 
-        _children = new Transform[transform.childCount];
-        _positions = new Vector3[_children.Length];
+        [SerializeField] private Transform DropZone;
 
-        var count = 0;
-        foreach (Transform child in transform)
+        private Transform[] _children;
+        private Vector3[] _positions;
+        private RectTransform _canvas;
+        private RectTransform _staple;
+
+        private void Start()
         {
-            _children[count] = child;
-            _positions[count] = child.transform.position;
+            _canvas = GameObject.Find("MasterCanvas").GetComponent<RectTransform>();
+            _staple = GameObject.Find("CardSpawn").GetComponent<RectTransform>();
 
-            count++;
-        }
-    }
+            _children = new Transform[transform.childCount];
+            _positions = new Vector3[_children.Length];
 
-    public List<Tween> SelectIndex(int index)
-    {
-        var tweens = Deselect();
-        var currentTransform = _children[index].transform;
-        // Debug.Log(_canvas.localScale);
-        var offset = (Vector3) (((RectTransform) currentTransform).rect.size * _canvas.localScale) / 2;
-        tweens.Add(currentTransform.DOMove(DropZone.position - offset, .5f));
-        tweens.Add(currentTransform.DOScale(new Vector3(.7f, .7f, .7f), .5f));
+            var count = 0;
+            foreach (Transform child in transform)
+            {
+                _children[count] = child;
+                _positions[count] = child.transform.position;
 
-        return tweens;
-    }
-
-    public List<Tween> Deselect()
-    {
-        var tweens = new List<Tween>();
-        for (var i = 0; i < _children.Length; i++)
-        {
-            tweens.Add(_children[i].DOMove(_positions[i], .5f));
-            tweens.Add(_children[i].DOScale(Vector3.one, .5f));
+                count++;
+            }
         }
 
-        return tweens;
+        public List<Tween> SelectIndex(int index)
+        {
+            var tweens = Deselect();
+            var currentTransform = _children[index].transform;
+            // Debug.Log(_canvas.localScale);
+            // var offset = CalculateOffset((RectTransform) currentTransform, SMALL_SCALE_FACTOR);
+            tweens.Add(currentTransform.DOMove(DropZone.position, _animationsReference.Duration));
+            tweens.Add(currentTransform.DOScale(new Vector3(_animationsReference.SmallScaleFactor, _animationsReference.SmallScaleFactor, _animationsReference.SmallScaleFactor), _animationsReference.Duration));
+
+            return tweens;
+        }
+
+        public void Hover(int index, bool isHover)
+        {
+            var currentTransform = _children[index].transform;
+            currentTransform.DOMoveY(_positions[index].y + (isHover ? _animationsReference.HoverAmount : 0), .2f);
+        }
+
+        public List<Tween> Deselect()
+        {
+            var tweens = new List<Tween>();
+            for (var i = 0; i < _children.Length; i++)
+            {
+                if (Vector3.Distance(_children[i].position, _positions[i]) > _animationsReference.HoverAmount)
+                    tweens.Add(_children[i].DOMove(_positions[i], _animationsReference.Duration));
+                tweens.Add(_children[i].DOScale(Vector3.one, _animationsReference.Duration));
+                tweens.Add(_children[i].DORotate(Vector3.zero, _animationsReference.Duration));
+            }
+
+            return tweens;
+        }
+
+
+        public List<Tween> RespawnCards()
+        {
+            var tweens = new List<Tween>();
+
+            foreach (var child in _children)
+            {
+                child.transform.position = _staple.position;
+                child.transform.localScale = Vector3.one * _animationsReference.StapleScaleFactor;
+                child.transform.rotation = Quaternion.Euler(0, 180, 180);
+            }
+
+            return Deselect();
+        }
     }
 }
