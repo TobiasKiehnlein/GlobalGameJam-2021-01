@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using DG.Tweening;
+using Quantum_Decks.Audio;
 using Quantum_Decks.Card_System;
 using Quantum_Decks.Environment;
 using Shared;
@@ -99,6 +100,8 @@ namespace Quantum_Decks.Game
                 yield return DiscardPhase();
                 _isGameOver.Value = _playerCollection.Value.Any(p => p.Deck.Cards.Count() < 3);
             }
+
+            AudioManager.Instance.SwitchToMain();
         }
 
         private IEnumerator DeckPreparationPhase()
@@ -141,7 +144,7 @@ namespace Quantum_Decks.Game
                 }
 
                 player.CardSpawner.UpdateCards(player);
-                foreach (var tween in   player.Animations.RespawnCards())
+                foreach (var tween in player.Animations.RespawnCards())
                 {
                     yield return tween.WaitForCompletion();
                 }

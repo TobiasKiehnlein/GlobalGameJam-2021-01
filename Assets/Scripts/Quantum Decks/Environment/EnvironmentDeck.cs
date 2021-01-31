@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Mirror;
 using Networking;
+using Quantum_Decks.Audio;
 using Quantum_Decks.Card_System;
 using Shared;
 using Shared.Scriptable_References;
@@ -97,6 +98,7 @@ namespace Quantum_Decks.Environment
 
         public void SpawnBoss()
         {
+            AudioManager.Instance.SwitchToBattle();
             _allBossData.Shuffle();
             _cards.Add(new EnvironmentCard(_allBossData.First()));
             SpawnBossAnimation();
