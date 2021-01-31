@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c313a352a0f4c54915e51fe27bb3fc1, type: 3}
   m_Name: Quantum Shift Effect [Quantum Shift Effect]
   m_EditorClassIdentifier: 
+  NameId: Rules_QuantumShift
   _playerCollection: {fileID: 11400000, guid: 4d1c79dedf814d246986d6b1cbca0479, type: 2}

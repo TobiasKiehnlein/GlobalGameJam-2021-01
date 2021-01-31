@@ -1,0 +1,350 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181294534c7c6c54cb887b4e3f12c175, type: 3}
+  m_Name: Spanish [Localization]
+  m_EditorClassIdentifier: 
+  LanguageName: Espagnol
+  LanguageSprite: {fileID: 0}
+  _localisation:
+  - Id: ENVME#1_title
+    Value: "Meteorito beb\xE9"
+  - Id: ENVME#1_text
+    Value: '<b>Emboscada</b>: <b>Quemadura</b>'
+  - Id: ENVME#2_title
+    Value: Danza de estrellas
+  - Id: ENVME#2_text
+    Value: <b>Escurridiza</b>
+  - Id: ENVME#3_title
+    Value: Pueblo Espacial Habitado
+  - Id: ENVME#3_text
+    Value: '<b>Venganza</b>: <b>Transmutar</b>'
+  - Id: ENVME#4_title
+    Value: Roca Helada
+  - Id: ENVME#4_text
+    Value: <b>Protegida</b>
+  - Id: ENVME#5_title
+    Value: Lluvia de meteoritos
+  - Id: ENVME#5_text
+    Value: '<b>Venganza</b>: <b>Rescate</b>'
+  - Id: ENVME#6_title
+    Value: "La \xDAltima huida de los Dinosaurios"
+  - Id: ENVME#6_text
+    Value: '<b>Emboscada</b>: <b>Quemadura</b>'
+  - Id: ENVME#7_title
+    Value: Metorito Inteligente
+  - Id: ENVME#7_text
+    Value: '<b>Defensa</b>: <b>Empoderar</b>'
+  - Id: ENVAN#1_title
+    Value: La Enterspice
+  - Id: ENVAN#1_text
+    Value: '<b>Venganza</b>: <b>Empoderar</b>'
+  - Id: ENVAN#2_title
+    Value: Galleta Espacial Maligna
+  - Id: ENVAN#2_text
+    Value: "<b>Venganza</b>: <b>Cambio Cu\xE1ntico</b>"
+  - Id: ENVAN#3_title
+    Value: "Bengala Solar Extra\xF1a"
+  - Id: ENVAN#3_text
+    Value: <b>Protegida</b>
+  - Id: ENVAN#4_title
+    Value: Babosa Espacial
+  - Id: ENVAN#4_text
+    Value: <b>Escurridiza</b>
+  - Id: ENVAN#5_title
+    Value: "A Trav\xE9s del Espejo Universal"
+  - Id: ENVAN#5_text
+    Value: '<b>Venganza</b>: <b>Transmutar</b>'
+  - Id: ENVAN#6_title
+    Value: "Mano L\xE1ser No-Muerta"
+  - Id: ENVAN#6_text
+    Value: "<b>Defensa</b>: <b>Cambio Cu\xE1ntico</b>"
+  - Id: ENVAN#7_title
+    Value: "Estaci\xF3n Espacial del Tiempo"
+  - Id: ENVAN#7_text
+    Value: '<b>Defensa</b>: <b>Quemadura</b>'
+  - Id: ENVTE#1_title
+    Value: "Forma de Amor Alien\xEDgena"
+  - Id: ENVTE#1_text
+    Value: <b>Protegida</b>
+  - Id: ENVTE#2_title
+    Value: "Robot No Muy Simp\xE1tico"
+  - Id: ENVTE#2_text
+    Value: "<b>Venganza</b>: <b>Cambio Cu\xE1ntico</b>"
+  - Id: ENVTE#3_title
+    Value: Terraformador desbocado
+  - Id: ENVTE#3_text
+    Value: '<b>Emboscada</b>: <b>Transmutar</b>'
+  - Id: ENVTE#4_title
+    Value: Trajes Espaciales Hostiles
+  - Id: ENVTE#4_text
+    Value: <b>Escurridiza</b>
+  - Id: ENVTE#5_title
+    Value: "Arma Sat\xE9lite"
+  - Id: ENVTE#5_text
+    Value: <b>Protegida</b>
+  - Id: ENVTE#6_title
+    Value: "Cowboy Alien\xEDgena del Espacio"
+  - Id: ENVTE#6_text
+    Value: '<b>Emboscada</b>: <b>Rescate</b>'
+  - Id: ENVTE#7_title
+    Value: Pruebas de Prototipo Secretas
+  - Id: ENVTE#7_text
+    Value: '<b>Venganza</b>: <b>Rescate</b>'
+  - Id: ENVBoss#1_title
+    Value: Misil Meteorito Gigantesco
+  - Id: ENVBoss#1_text
+    Value: '<b>Defensa</b>: <b>Quemadura</b>. <b>Quemadura</b>.'
+  - Id: ENVBoss#2_title
+    Value: "Tent\xE1culo Espacial Eldritch"
+  - Id: ENVBoss#2_text
+    Value: "<b>Defensa</b>: <b>Quemadura</b>. <b>Cambio Cu\xE1ntico</b>"
+  - Id: ENVBoss#3_title
+    Value: HAL-8999
+  - Id: ENVBoss#3_text
+    Value: '<b>Protegida</b>. <b>Defensa</b>: <b>Quemadura</b>.'
+  - Id: ME#1_title
+    Value: Tirachinas Meteorito
+  - Id: ME#1_text
+    Value: '<b>Ataque</b>: <b>Resurgir</b>'
+  - Id: ME#2_title
+    Value: "Rompiendo el N\xFAcleo"
+  - Id: ME#2_text
+    Value: '<b>Ataque</b>: <b>Sobrecarga</b>'
+  - Id: ME#3_title
+    Value: "\xA1Conquista!"
+  - Id: ME#3_text
+    Value: "<b>P\xE9rdida</b>: <b>Empoderar</b>"
+  - Id: ME#4_title
+    Value: Domar un Meteorito
+  - Id: ME#4_text
+    Value: 'Si esta carta entra en OLEADA: <b>Rescate</b>'
+  - Id: ME#5_title
+    Value: "M\xFAsica Rock"
+  - Id: ME#5_text
+    Value: Esta carta no tiene efecto adicional.
+  - Id: ME#6_title
+    Value: Montar El Cometa
+  - Id: ME#6_text
+    Value: Esta carta no tiene efecto adicional.
+  - Id: ME#7_title
+    Value: No hay explosiones en el Espacio
+  - Id: ME#7_text
+    Value: Esta carta no tiene efecto adicional.
+  - Id: ME#8_title
+    Value: Espada de las Estrellas
+  - Id: ME#8_text
+    Value: Esta carta no tiene efecto adicional.
+  - Id: ME#9_title
+    Value: "\xA1No puedes pasar!"
+  - Id: ME#9_text
+    Value: "<b>P\xE9rdida</b>: <b>Quemadura</b>"
+  - Id: AN#1_title
+    Value: Surfear las Estrellas
+  - Id: AN#1_text
+    Value: '<b>Ataque</b>: <b>Neutralizar</b>'
+  - Id: AN#2_title
+    Value: En busca de Vida
+  - Id: AN#2_text
+    Value: "<b>Ataque</b>: <b>Cambio Cu\xE1ntico</b>"
+  - Id: AN#3_title
+    Value: "Diplomacia Alien\xEDgena"
+  - Id: AN#3_text
+    Value: 'Si esta carta entra en OLEADA: <b>Rescate</b>'
+  - Id: AN#4_title
+    Value: "\xA1Esp\xE9ciame, Navegante!"
+  - Id: AN#4_text
+    Value: "<b>P\xE9rdida</b>: <b>Cambio Cu\xE1ntico</b>"
+  - Id: AN#5_title
+    Value: "Rompiendo el \xE1tomo"
+  - Id: AN#5_text
+    Value: '<b>Ataque</b>: <b>Sobrecarga</b>'
+  - Id: AN#6_title
+    Value: Ennegreciendo un Agujero
+  - Id: AN#6_text
+    Value: "<b>P\xE9rdida</b>: <b>Empoderar</b>"
+  - Id: AN#7_title
+    Value: "Ajustad esc\xE1neres a Matar"
+  - Id: AN#7_text
+    Value: '<b>Ataque</b>: <b>Quemadura</b>'
+  - Id: AN#8_title
+    Value: "Huevo Rob\xF3tico Espacial"
+  - Id: AN#8_text
+    Value: Esta carta no tiene efecto adicional.
+  - Id: AN#9_title
+    Value: Hagamos la Danza Espacio-temporal
+  - Id: AN#9_text
+    Value: 'Si esta carta entra en OLEADA: <b>Empoderar</b>'
+  - Id: TE#1_title
+    Value: "Experiencia M\xE9dica"
+  - Id: TE#1_text
+    Value: '<b>Ataque</b>: <b>Rescate</b>'
+  - Id: TE#2_title
+    Value: Accidente de Teletransporte Afortunado
+  - Id: TE#2_text
+    Value: "<b>Ataque</b>: <b>Cambio Cu\xE1ntico</b>"
+  - Id: TE#3_title
+    Value: "Medicina Rob\xF3tica"
+  - Id: TE#3_text
+    Value: '<b>Ataque</b>: <b>Resurgir</b>'
+  - Id: TE#4_title
+    Value: Ambulancia Espacial
+  - Id: TE#4_text
+    Value: '<b>Ataque</b>: <b>Rescate</b>'
+  - Id: TE#5_title
+    Value: "Martillo Espacial Supers\xF3nico"
+  - Id: TE#5_text
+    Value: Esta carta no tiene efecto adicional.
+  - Id: TE#6_title
+    Value: Camisa Roja
+  - Id: TE#6_text
+    Value: "<b>P\xE9rdida</b>: <b>Quemadura</b>"
+  - Id: TE#7_title
+    Value: Tecnoargot Chungo
+  - Id: TE#7_text
+    Value: '<b>Ataque</b>: <b>Empoderar</b>'
+  - Id: TE#8_title
+    Value: Tirachinas Supremo
+  - Id: TE#8_text
+    Value: '<b>Ataque</b>: <b>Resurgir</b>'
+  - Id: TE#9_title
+    Value: Potencia Militar Superior
+  - Id: TE#9_text
+    Value: Esta carta no tiene efecto adicional.
+  - Id: FA#1_title
+    Value: "Los L\xE1sers Sirven Para Todo"
+  - Id: FA#1_text
+    Value: "<b>P\xE9rdida</b>: <b>Cambio Cu\xE1ntico</b>"
+  - Id: FA#2_title
+    Value: "\xA1Escudos Arriba!"
+  - Id: FA#2_text
+    Value: '<b>Ataque</b>: <b>Resurgir</b>'
+  - Id: FA#3_title
+    Value: Solucion Inesperada
+  - Id: FA#3_text
+    Value: "<b>P\xE9rdida</b>: <b>Rescate</b>"
+  - Id: Rules_Ambush
+    Value: "<b>EMBOSCADA</b> - Cuando se revela esta carta, se efect\xFAa esta acci\xF3n."
+  - Id: Rules_Revenge
+    Value: "<b>VENGANZA</b> - Cuando esta carta es derrotada, se efect\xFAa esta
+      acci\xF3n."
+  - Id: Rules_Defense
+    Value: "<b>DEFENSA</b> - Cada turno que pase sin que esta amenaza sea derrotada
+      se efect\xFAa esta acci\xF3n."
+  - Id: Rules_Shielded
+    Value: "<b>PROTEGIDA</b> - Esta carta no recibe da\xF1o de cartas que no sean
+      del mismo tipo."
+  - Id: Rules_Elusive
+    Value: "<b>ESCURRIDIZA</b> - Esta carta s\xF3lo recibe un punto de da\xF1o, sin
+      importar de d\xF3nde venga."
+  - Id: Rules_Attack
+    Value: "<b>ATAQUE</b> - Se ejecuta esta acci\xF3n antes de inflingir da\xF1o."
+  - Id: Rules_Lost
+    Value: "<b>P\xC9RDIDA</b> - Si esta carta no se selecciona, se efect\xFAa esta
+      acci\xF3n en la fase de P\xC9RDIDA"
+  - Id: Rules_Surge
+    Value: "<b>OLEADA</b> - Cuando ambos jugadores juegan el mismo tipo de carta,
+      sus fuerzas se suman entre s\xED y se a\xF1ade a la fuerza de ambos durante
+      esta ronda."
+  - Id: Rules_Powersurge
+    Value: <b>SOBRECARGA</b> - Si esta carta sufre los efectos de OLEADA, se convierte
+      en una carta sin tipo este turno.
+  - Id: Rules_Rescue
+    Value: "<b>RESCATE</b> - Baraja una carta aleatoria del Vac\xEDo en la baraja
+      de ACCIONES del jugador."
+  - Id: Rules_Resurgence
+    Value: "<b>RESURGIR</b> - Si es la primera vez que se juega esta carta, se baraja
+      de nuevo en la baraja de ACCIONES del jugador en lugar de descartarla al Vac\xEDo."
+  - Id: Rules_Burn
+    Value: <b>QUEMADURA</b> - Descarta una carta aleatoria de la baraja de ACCIONES
+      del jugador, si fuese posible.
+  - Id: Rules_Neutralize
+    Value: <b>NEUTRALIZAR</b> - Ignora el texto en la carta de amenaza activa.
+  - Id: Rules_Empower
+    Value: <b>EMPODERAR</b> - La fuerza de la carta de amenaza del otro jugador incrementa
+      en uno.
+  - Id: Rule_Transmute
+    Value: "<b>TRANSMUTAR</b> - Roba una nueva carta de amenaza para el otro jugador
+      y reemplaza la que est\xE1 actualmente activa."
+  - Id: Rules_QuantumShift
+    Value: "<b>CAMBIO CU\xC1NTICO</b> - Ambos jugadores intercambian sus barajas
+      de ACCIONES."
+  - Id: Rules_story_title
+    Value: Historia
+  - Id: Rules_story
+    Value: "\xA1Un terrible peligro amenaza el universo conocido! \xA1Dos enigm\xE1ticos
+      cosmonautas con una gran variedad de habilidades y recursos combinan sus poderes
+      cu\xE1nticos para defendernos a todos!"
+  - Id: Rules_win_title
+    Value: "C\xF3mo ganar"
+  - Id: Rules_win
+    Value: "\xA1Debes abrirte paso a trav\xE9s de la galaxia para desafiar y vencer
+      al jefe! Necesitar\xE1s combinar las fuerzas de ambos jugadores para lograrlo."
+  - Id: Rules_lose_title
+    Value: Condiciones de derrota
+  - Id: Rules_lose
+    Value: "Si alg\xFAn jugador se queda sin cartas despu\xE9s de robar, \xA1perder\xE1s
+      la partida!"
+  - Id: Button_Play
+    Value: Jugar
+  - Id: Button_Options
+    Value: Opciones
+  - Id: Button_Credits
+    Value: "Cr\xE9ditos"
+  - Id: Rules_title
+    Value: Reglas
+  - Id: Rules_CardsDescription
+    Value: "Cada carta contiene un valor de FUERZA, uno o m\xE1s TIPOS y frecuentemente
+      reglas especiales."
+  - Id: Rules_Strength
+    Value: "FUERZA - La fuerza es la cantidad de da\xF1o que una carta de acci\xF3n
+      puede efectuar, y la cantidad de da\xF1o que una carta de amenaza puede resistir
+      antes de ser destruida."
+  - Id: Rules_Type
+    Value: "TIPOS - Hay tres tipos de cartas: Meteoritos, T\xE9cnicas y Anomal\xEDas.
+      Algunas cartas tienen m\xFAltiples tipos y cuentan como ambas. Algunas cartas
+      m\xE1s infrecuentes no tienen un tipo definido, y cuentan como los tres."
+  - Id: Rules_TO_title
+    Value: Orden de turnos
+  - Id: Rules_TO_1
+    Value: Fase de EMBOSCADA - Revela una nueva amenaza o JEFE si fuese necesario
+  - Id: Rules_TO_2
+    Value: "Fase de ROBAR - Ambos jugadores roban hasta tres cartas de su baraja
+      de ACCIONES. Si alg\xFAn jugador no puede robar cartas en esta fase, \xA1ambos
+      perder\xE9is!"
+  - Id: Rules_TO_3
+    Value: "Fase de ACCI\xD3N - Ambos jugadores seleccionan y confirman la carta
+      que quieren poner en juego."
+  - Id: Rules_TO_4
+    Value: "Fase de ATAQUE - Si ambos jugadores seleccionan una carta del mismo tipo,
+      se suman sus valores de fuerza. A esto se le llama OLEADA. Despu\xE9s, seg\xFAn
+      el orden de turnos, se ejecutan los ataques escogidos y se resuelven sus efectos."
+  - Id: Rules_TO_5
+    Value: "Inflingir da\xF1o - Cuando la carta de ataque del jugador es del mismo
+      tipo que la de amenaza, se inflinge el da\xF1o correspondiente a su fuerza.
+      Si no coinciden, se inflinge un punto de da\xF1o. Si esto reduce la amenaza
+      a cero, \xE9sta es derrotada y se retira del juego."
+  - Id: Rules_TO_6
+    Value: "Fase de DESCARTE - La carta que se ha puesto en juego es descartada al
+      Vac\xEDo. Todas las cartas que no se pusieron en juego se barajan en la baraja
+      del otro jugador."
+  - Id: Rules_Cards
+    Value: "Hay dos categor\xEDas de cartas. Las cartas de amenaza representan los
+      peligros de la galaxia, incluyendo el enigm\xE1tico Jefe esperando al final
+      de vuestro viaje. Los cosmonautas est\xE1n equipados con cartas de Acci\xF3n
+      para hacer frente a las amenazas."
+  - Id: Rules_Glossary
+    Value: "Llamamos a las barajas de los jugadores baraja de ACCIONES. Llamamos
+      a las cartas disponibles para poner en juego cada turno la MANO del jugador.
+      Las cartas que se han puesto en juego se van al VAC\xCDO y dejan de estar disponibles.
+      Las cartas que los jugadores deben superar se llaman AMENAZAS."
+  - Id: Rules_Effects
+    Value: Efectos

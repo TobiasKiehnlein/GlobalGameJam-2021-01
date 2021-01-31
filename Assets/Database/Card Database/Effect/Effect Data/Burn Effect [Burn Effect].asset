@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb2dac2800745b480b6c16aaa35a931, type: 3}
   m_Name: Burn Effect [Burn Effect]
   m_EditorClassIdentifier: 
+  NameId: Rules_Burn
   _voidReference: {fileID: 11400000, guid: 8453935e0907ae9459614f2149c08e31, type: 2}

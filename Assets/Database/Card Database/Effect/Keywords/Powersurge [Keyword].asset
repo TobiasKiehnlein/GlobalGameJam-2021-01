@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40cb0d61bf446f8a4e0bfad759e8046, type: 3}
   m_Name: Powersurge [Keyword]
   m_EditorClassIdentifier: 
+  NameId: Rules_Powersurge

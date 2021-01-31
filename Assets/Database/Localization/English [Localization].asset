@@ -122,7 +122,7 @@ MonoBehaviour:
   - Id: ME#3_title
     Value: Conquer It!
   - Id: ME#3_text
-    Value: '<b>Lost</b>: <b>Empower</b>'
+    Value: 'If this card is <b>Lost</b>: <b>Empower</b>'
   - Id: ME#4_title
     Value: Taming A Meteor
   - Id: ME#4_text
@@ -146,7 +146,7 @@ MonoBehaviour:
   - Id: ME#9_title
     Value: You Shall Not Pass
   - Id: ME#9_text
-    Value: '<b>Lost</b>: <b>Burn</b>'
+    Value: 'If this card is <b>Lost</b>: <b>Burn</b>'
   - Id: AN#1_title
     Value: Surfing The Edge
   - Id: AN#1_text
@@ -158,11 +158,11 @@ MonoBehaviour:
   - Id: AN#3_title
     Value: Alien Diplomacy
   - Id: AN#3_text
-    Value: 'If this card SURGES: <b>Rescue</b>'
+    Value: 'If this card <b>Surges</b: <b>Rescue</b>'
   - Id: AN#4_title
     Value: Spice Me Up, Navigator!
   - Id: AN#4_text
-    Value: '<b>Lost</b>: <b>Quantum Shift</b>'
+    Value: 'If this card is <b>Lost</b>: <b>Quantum Shift</b>'
   - Id: AN#5_title
     Value: Splitting The Atom
   - Id: AN#5_text
@@ -170,7 +170,7 @@ MonoBehaviour:
   - Id: AN#6_title
     Value: Blackening A Hole
   - Id: AN#6_text
-    Value: '<b>Lost</b>: <b>Empower</b>'
+    Value: 'If this card is <b>Lost</b>: <b>Empower</b>'
   - Id: AN#7_title
     Value: Set Scanners To Kill
   - Id: AN#7_text
@@ -206,7 +206,7 @@ MonoBehaviour:
   - Id: TE#6_title
     Value: Redshirt
   - Id: TE#6_text
-    Value: '<b>Lost</b>: <b>Burn</b>'
+    Value: 'If this card is <b>Lost</b>: <b>Burn</b>'
   - Id: TE#7_title
     Value: Obscure Technobabble
   - Id: TE#7_text
@@ -222,7 +222,7 @@ MonoBehaviour:
   - Id: FA#1_title
     Value: Lazers Work Against Everything
   - Id: FA#1_text
-    Value: '<b>Lost</b>: <b>Quantum Shift</b>'
+    Value: 'If this card is <b>Lost</b>: <b>Quantum Shift</b>'
   - Id: FA#2_title
     Value: Shields! Shields! Shields!
   - Id: FA#2_text
@@ -230,7 +230,7 @@ MonoBehaviour:
   - Id: FA#3_title
     Value: Unexpected Solution
   - Id: FA#3_text
-    Value: '<b>Lost</b>: <b>Rescue</b>'
+    Value: 'If this card is <b>Lost</b>: <b>Rescue</b>'
   - Id: Rules_Ambush
     Value: <b>AMBUSH</b> - When this Threat card is revealed, perform this action.
   - Id: Rules_Revenge

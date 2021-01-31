@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3741b4b8dfcd4acc96ed03c74054827f, type: 3}
   m_Name: Ambush [Effect Trigger]
   m_EditorClassIdentifier: 
+  NameId: Rules_Ambush

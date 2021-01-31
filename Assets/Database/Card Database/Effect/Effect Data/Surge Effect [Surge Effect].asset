@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3a952060e54678841bb9bee982188f, type: 3}
   m_Name: Surge Effect [Surge Effect]
   m_EditorClassIdentifier: 
+  NameId: Rules_Surge
