@@ -60,6 +60,7 @@ namespace Quantum_Decks.Card_System
 
         public List<Tween> Deselect()
         {
+            FeedbackManager.Instance.TriggerFeedback(Networking.Player.One, 10);
             var tweens = new List<Tween>();
             for (var i = 0; i < _children.Length; i++)
             {
