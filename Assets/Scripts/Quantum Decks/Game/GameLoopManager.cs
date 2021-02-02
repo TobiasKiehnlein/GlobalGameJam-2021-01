@@ -183,12 +183,15 @@ namespace Quantum_Decks.Game
             yield return DamagePhase(player, environmentCard);
             _environmentDeck.UpdateAll();
             yield return new WaitForSeconds(.5f);
-            yield return DefensePhase(player, environmentCard);
+
+            if (environmentCard.Value > 0)
+                yield return DefensePhase(player, environmentCard);
+            else
+                yield return RevengePhase(player, environmentCard);
+
             _environmentDeck.UpdateAll();
             yield return new WaitForSeconds(.5f);
-            yield return RevengePhase(player, environmentCard);
-            _environmentDeck.UpdateAll();
-            yield return new WaitForSeconds(.5f);
+
             if (card != null)
                 card.Duration--;
         }
@@ -211,13 +214,13 @@ namespace Quantum_Decks.Game
 
         private IEnumerator DefensePhase(Player.Player player, EnvironmentCard environmentCard)
         {
-            if (environmentCard.Value > 0)
-                yield return environmentCard.ApplyEffects(_defenseTrigger, player);
+            yield return environmentCard.ApplyEffects(_defenseTrigger, player);
         }
 
         private IEnumerator RevengePhase(Player.Player player, EnvironmentCard environmentCard)
         {
             yield return environmentCard.ApplyEffects(_revengeTrigger, player);
+            _environmentDeck.RemoveAllDefeated();
         }
 
         private IEnumerator DiscardPhase()
@@ -234,8 +237,6 @@ namespace Quantum_Decks.Game
                 yield return LostPhase(player);
                 player.ResetCurrentSelectedCard();
             }
-
-            _environmentDeck.RemoveAllDefeated();
         }
 
         private IEnumerator VoidPhase(Player.Player player)

@@ -13,6 +13,7 @@ namespace Quantum_Decks.Card_System
         [ShowInInspector, ReadOnly]
         private readonly List<PlayerCard> _cards = new List<PlayerCard>();
         public IEnumerable<PlayerCard> Cards => _cards.AsReadOnly();
+        public int Count => _cards.Count;
         
         [SerializeField] private CardCollectionReference _cardCollectionReference;
 

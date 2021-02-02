@@ -24,7 +24,7 @@ namespace Quantum_Decks.Card_System
         public Sprite CardFrame => _data.CardFrame;
         public List<Keyword> Keywords => _data.Keywords;
 
-        private bool _isNeutralised;
+        protected bool _isNeutralised;
         public bool IsNeutralised => _isNeutralised;
 
         [BoxGroup, PropertyOrder(1)] public int Value;
