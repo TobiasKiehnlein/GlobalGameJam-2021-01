@@ -1063,7 +1063,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
           - m_Target: {fileID: 861641274}
-            m_MethodName: SetSfxMute
+            m_MethodName: SetMusicMute
             m_Mode: 6
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -2862,6 +2862,11 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3978644477285609700, guid: 67da60e98ad8e084090340b7b05c56d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -250.00002
+      objectReference: {fileID: 0}
     - target: {fileID: 5515479767866008082, guid: 67da60e98ad8e084090340b7b05c56d3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10982,12 +10987,72 @@ PrefabInstance:
       propertyPath: _environmentDeck
       value: 
       objectReference: {fileID: 1575033734}
+    - target: {fileID: 945253673936118514, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 945253673936118514, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 945253673936118514, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 945253673936118514, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -31.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818094681755905522, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3999615
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818094681755905522, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25.300003
+      objectReference: {fileID: 0}
     - target: {fileID: 1850784378500767919, guid: 1d6fa6000da102b4da9a14e9be3a6054,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -548201546186989881, guid: 459736ed287bfbc4c9a4a60fe756b7eb,
         type: 2}
+    - target: {fileID: 4523143957331820938, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523143957331820938, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100400799680632767, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.9999752
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100400799680632767, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892011955643715195, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.6000385
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892011955643715195, guid: 1d6fa6000da102b4da9a14e9be3a6054,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -35.100006
+      objectReference: {fileID: 0}
     - target: {fileID: 7937304560403630374, guid: 1d6fa6000da102b4da9a14e9be3a6054,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -12404,7 +12469,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
           - m_Target: {fileID: 861641274}
-            m_MethodName: SetMusicMute
+            m_MethodName: SetSfxMute
             m_Mode: 6
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -16251,7 +16316,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
           - m_Target: {fileID: 861641274}
-            m_MethodName: SetMusicMute
+            m_MethodName: SetSfxMute
             m_Mode: 6
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -18229,6 +18294,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b4c09f41ed4f7a046831a2109ebe64c0,
         type: 3}
+    - target: {fileID: 4529658380234385391, guid: 8b7e5c9a79b803d41a5dec50d901949c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 249.9999
+      objectReference: {fileID: 0}
     - target: {fileID: 5099264389558511244, guid: 8b7e5c9a79b803d41a5dec50d901949c,
         type: 3}
       propertyPath: m_fontAsset
@@ -19476,7 +19546,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
           - m_Target: {fileID: 861641274}
-            m_MethodName: SetSfxMute
+            m_MethodName: SetMusicMute
             m_Mode: 6
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -20985,6 +21055,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1393167203}
     m_Modifications:
+    - target: {fileID: 100206884302072693, guid: 7415b242a3e7eb94b942d6cafa29b6bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100206884302072693, guid: 7415b242a3e7eb94b942d6cafa29b6bc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 750310919455978161, guid: 7415b242a3e7eb94b942d6cafa29b6bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.6000385
+      objectReference: {fileID: 0}
+    - target: {fileID: 750310919455978161, guid: 7415b242a3e7eb94b942d6cafa29b6bc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -35.100006
+      objectReference: {fileID: 0}
     - target: {fileID: 2498136359605815696, guid: 7415b242a3e7eb94b942d6cafa29b6bc,
         type: 3}
       propertyPath: m_Name
@@ -21118,6 +21208,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -548201546186989881, guid: 459736ed287bfbc4c9a4a60fe756b7eb,
         type: 2}
+    - target: {fileID: 5546131191460057400, guid: 7415b242a3e7eb94b942d6cafa29b6bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3999615
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546131191460057400, guid: 7415b242a3e7eb94b942d6cafa29b6bc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25.300003
+      objectReference: {fileID: 0}
     - target: {fileID: 6154621478081170848, guid: 7415b242a3e7eb94b942d6cafa29b6bc,
         type: 3}
       propertyPath: _environmentDeck

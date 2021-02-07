@@ -24,6 +24,14 @@ namespace Quantum_Decks.Card_System
         [SerializeField] private Image _valueImage;
         [SerializeField] private Image _borderImage;
 
+        [SerializeField] private Transform _anomaliesBoss;
+        [SerializeField] private Transform _meteroitBoss;
+        [SerializeField] private Transform _technicalsBoss;
+
+        [SerializeField] private EnvironmentCardData _anomalieBossData;
+        [SerializeField] private EnvironmentCardData _meteroitBossData;
+        [SerializeField] private EnvironmentCardData _technicalsBossData;
+
         public EnvironmentCard Card => _card;
 
         private void Start()
@@ -38,10 +46,28 @@ namespace Quantum_Decks.Card_System
             
             _card = _environmentDeck.GetByPlayer(_playerId);
             UpdateText();
+
+            if (_card.NameId == _anomalieBossData.NameId)
+            {
+                _cardImage.enabled = false;
+                _anomaliesBoss.gameObject.SetActive(true);
+            } else if (_card.NameId == _meteroitBossData.NameId)
+            {
+                _cardImage.enabled = false;
+                _meteroitBoss.gameObject.SetActive(true);
+            }else if (_card.NameId == _technicalsBossData.NameId)
+            {
+                _cardImage.enabled = false;
+                _technicalsBoss.gameObject.SetActive(true);
+            }
+            else
+            {
+                _cardImage.sprite = _card.Sprite;
+            }
+            
             _valueTextMesh.text = _card.Value.ToString();
             _valueImage.sprite = _card.ValueBackground;
             _borderImage.sprite = _card.CardFrame;
-            _cardImage.sprite = _card.Sprite;
 
             foreach (Transform child in _fractionTransform)
             {

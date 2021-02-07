@@ -44,3 +44,6 @@ TagManager:
   - name: Cards
     uniqueID: 1545435265
     locked: 0
+  - name: Boss Sprite
+    uniqueID: 1937984723
+    locked: 0
