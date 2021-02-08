@@ -9,6 +9,7 @@ namespace Quantum_Decks.Card_System
     public abstract class Card
     {
         protected CardData _data;
+        public CardData Data => _data;
 
         public delegate void CardEvent();
 

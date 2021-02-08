@@ -23,6 +23,6 @@ MonoBehaviour:
   EffectData:
   - Trigger: {fileID: 11400000, guid: 5cdcec4ddc801be43a44810b9fee314d, type: 2}
     Effect:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: fb8f04990730ed7438c2fa8deb2b3cdf, type: 2}
   Keywords: []
   Duration: 1

@@ -269,7 +269,7 @@ MonoBehaviour:
   - Id: Rules_Empower
     Value: <b>EMPOWER</b> - The other player's Threat card increases its Strength
       by one.
-  - Id: Rule_Transmute
+  - Id: Rules_Transmute
     Value: <b>TRANSMUTE</b> - Draw a new Threat card for the other player and replace
       the currently active one.
   - Id: Rules_QuantumShift

@@ -1,5 +1,4 @@
 using Quantum_Decks.Localization;
-using Shared.Scriptable_References;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -10,6 +9,7 @@ namespace Quantum_Decks.Card_System
 {
     public class CardObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
+        [SerializeField] private TooltipSystem _tooltipSystem;
         [SerializeField, Required] private LocalizationCollection _localizationCollection;
 
         private Player.Player _owner;
@@ -85,6 +85,16 @@ namespace Quantum_Decks.Card_System
 
         private void UpdateText()
         {
+            if (_card.Data is PlayerCardData playerCard && playerCard.Duration > 1 &&
+                ((PlayerCard) _card).Duration <= 1)
+            {
+                _descriptionTextMesh.fontStyle = FontStyles.Strikethrough;
+            }
+            else
+            {
+                _descriptionTextMesh.fontStyle = FontStyles.Normal;
+            }
+
             _nameTextMesh.text = _localizationCollection.CurrentLocalization.GetTextById(_card.NameId);
             _descriptionTextMesh.text = _card.IsNeutralised
                 ? ""
@@ -148,6 +158,8 @@ namespace Quantum_Decks.Card_System
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            _tooltipSystem.Show(_card.Data);
+
             if (_owner?.CurrentSelectedCard == this)
                 return;
             _handAnimations.Hover(transform.GetSiblingIndex(), true);
@@ -155,6 +167,8 @@ namespace Quantum_Decks.Card_System
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            _tooltipSystem.Hide();
+
             if (_owner?.CurrentSelectedCard == this)
                 return;
             _handAnimations.Hover(transform.GetSiblingIndex(), false);

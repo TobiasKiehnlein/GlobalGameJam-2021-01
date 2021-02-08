@@ -2,12 +2,14 @@ using Quantum_Decks.Environment;
 using Quantum_Decks.Localization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Quantum_Decks.Card_System
 {
-    public class EnvironmentCardObject : MonoBehaviour
+    public class EnvironmentCardObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        [SerializeField] private TooltipSystem _tooltipSystem;
         [SerializeField] private LocalizationCollection _localizationCollection;
 
         private EnvironmentCard _card;
@@ -43,7 +45,7 @@ namespace Quantum_Decks.Card_System
         {
             if (_environmentDeck.Count == 0)
                 return;
-            
+
             _card = _environmentDeck.GetByPlayer(_playerId);
             UpdateText();
 
@@ -51,11 +53,13 @@ namespace Quantum_Decks.Card_System
             {
                 _cardImage.enabled = false;
                 _anomaliesBoss.gameObject.SetActive(true);
-            } else if (_card.NameId == _meteroitBossData.NameId)
+            }
+            else if (_card.NameId == _meteroitBossData.NameId)
             {
                 _cardImage.enabled = false;
                 _meteroitBoss.gameObject.SetActive(true);
-            }else if (_card.NameId == _technicalsBossData.NameId)
+            }
+            else if (_card.NameId == _technicalsBossData.NameId)
             {
                 _cardImage.enabled = false;
                 _technicalsBoss.gameObject.SetActive(true);
@@ -64,7 +68,7 @@ namespace Quantum_Decks.Card_System
             {
                 _cardImage.sprite = _card.Sprite;
             }
-            
+
             _valueTextMesh.text = _card.Value.ToString();
             _valueImage.sprite = _card.ValueBackground;
             _borderImage.sprite = _card.CardFrame;
@@ -91,6 +95,16 @@ namespace Quantum_Decks.Card_System
         {
             var fractionObject = Instantiate(_fractionsPrefab, _fractionTransform);
             fractionObject.GetComponent<FractionObject>().UpdateFraction(fraction);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _tooltipSystem.Show(_card.Data);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            _tooltipSystem.Hide();
         }
     }
 }

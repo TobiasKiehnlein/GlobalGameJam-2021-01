@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc52666d5c647c09655372b296ef9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tooltipSystem: {fileID: 11400000, guid: bef16d089fe9a5c40976b4c7eea0e9c9, type: 2}
   _localizationCollection: {fileID: 11400000, guid: 57cbf3019fd147f40890eab840688b22,
     type: 2}
   _fractionsPrefab: {fileID: 7819524029873442882, guid: 72159107705c5da4c8ada2138a6da081,
