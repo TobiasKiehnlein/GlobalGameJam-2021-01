@@ -15,7 +15,7 @@ namespace Quantum_Decks.Card_System
         {
             if (_environmentDeck.Value.Count <= 1)
             {
-                yield return new WaitForEndOfFrame();
+                yield break;
             }
             
             var otherPlayer = _playerCollection.GetOtherPlayer(player);
